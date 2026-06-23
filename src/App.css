@@ -4357,3 +4357,34 @@
 .function { color: #dcdcaa; }
 .comment { color: #6a9955; }
 .boolean { color: #569cd6; }
+
+@media (max-width: 600px) {
+  .mac-window {
+    border-radius: 8px;
+    margin: 0 8px;
+  }
+  .mac-titlebar {
+    padding: 8px 12px;
+  }
+  .mac-title {
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 140px;
+  }
+  .copy-btn {
+    padding: 2px 6px;
+    font-size: 10px;
+  }
+  .mac-content {
+    font-size: 11px;
+    padding: 10px 0;
+  }
+  .code-line-numbers {
+    padding: 0 8px;
+  }
+  .code-block {
+    padding: 0 8px 0 0;
+  }
+}
