@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)" />
+    <meta name="description" content="Artjom Becker – Informatik-Student | Software-Entwickler" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Artjom Becker | Portfolio" />
+    <meta property="og:description" content="Informatik-Portfolio mit Projekten, Case Studies und Kontakt." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Artjom Becker | Portfolio" />
+    <meta name="twitter:description" content="Informatik-Portfolio mit Projekten, Case Studies und Kontakt." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <title>Artjom Becker | Portfolio</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Artjom Becker",
+        "jobTitle": "Software Developer / Student",
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "TU Darmstadt"
+        },
+        "url": "https://artjombecker.com",
+        "sameAs": [
+          "https://github.com/artjomartur",
+          "https://www.linkedin.com/in/artjom-becker-aba5413a3",
+          "https://artjomartur.itch.io/"
+        ],
+        "knowsAbout": [
+          "JavaScript",
+          "TypeScript",
+          "Python",
+          "React",
+          "Node.js",
+          "SQL",
+          "Unity",
+          "C#",
+          "Game Development",
+          "UI/UX",
+          "Software Engineering"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
