@@ -23,7 +23,7 @@ const SKILLS = [
     name: 'Python',
     category: 'language',
     level: 85,
-    projectIds: ['arcadesuite'],
+    projectIds: ['arcadesuite', 'atoss-sync'],
     color: '#3776ab'
   },
   {
@@ -33,6 +33,14 @@ const SKILLS = [
     level: 85,
     projectIds: ['exercube', 'first-aid-simulator'],
     color: '#10b981'
+  },
+  {
+    id: 'applescript',
+    name: 'AppleScript',
+    category: 'language',
+    level: 75,
+    projectIds: ['atoss-sync'],
+    color: '#ff7700'
   },
   {
     id: 'react',
@@ -71,7 +79,7 @@ const SKILLS = [
     name: 'Git / GitHub',
     category: 'tool',
     level: 90,
-    projectIds: ['kinopolis-automation', 'exercube', 'arcadesuite', 'portfolio', 'first-aid-simulator', 'skinstock'],
+    projectIds: ['kinopolis-automation', 'exercube', 'arcadesuite', 'portfolio', 'first-aid-simulator', 'skinstock', 'atoss-sync'],
     color: '#f05032'
   },
   {

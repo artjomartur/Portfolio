@@ -30,6 +30,7 @@ const ArcadeRainEasterEgg = React.lazy(() => import('./ArcadeRainEasterEgg'))
 const SoftGlowEasterEgg = React.lazy(() => import('./SoftGlowEasterEgg'))
 const CsAnimation = React.lazy(() => import('./CsAnimation'))
 const SkinStockApp = React.lazy(() => import('./components/SkinStockApp'))
+const AtossSyncAnimation = React.lazy(() => import('./components/AtossSyncAnimation'))
 
 const PROJECTS = [
   {
@@ -1356,6 +1357,11 @@ function App() {
                         </button>
                       </div>
                     )
+                  )}
+                  {activeProject.id === 'atoss-sync' && (
+                    <Suspense fallback={<div style={{ padding: '20px', textAlign: 'center', color: '#666' }}>Loading...</div>}>
+                      <AtossSyncAnimation lang={lang} />
+                    </Suspense>
                   )}
                 </motion.div>
               )}
