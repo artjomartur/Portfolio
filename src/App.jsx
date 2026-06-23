@@ -1366,6 +1366,11 @@ function App() {
                 </motion.div>
               )}
             </div>
+            {activeProject.id === 'atoss-sync' && (
+              <Suspense fallback={<div style={{ padding: '20px', textAlign: 'center', color: '#666' }}>Loading...</div>}>
+                <AtossSyncAnimation lang={lang} />
+              </Suspense>
+            )}
             </div>
 
             {/* Foreground Easter Egg animations */}
