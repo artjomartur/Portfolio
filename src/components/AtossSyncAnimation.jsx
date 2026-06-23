@@ -14,8 +14,6 @@ export default function AtossSyncAnimation({ lang = 'de' }) {
   const [synced, setSynced] = useState(false)
   const [logs, setLogs] = useState([])
   const [calendarEvents, setCalendarEvents] = useState([])
-  const [customShift, setCustomShift] = useState('TS 12:00-20:00')
-  const [customDay, setCustomDay] = useState(15)
   const [flyingEvent, setFlyingEvent] = useState(null)
 
   const addLog = (message, delay = 0) => {
@@ -45,33 +43,27 @@ export default function AtossSyncAnimation({ lang = 'de' }) {
       lang === 'de'
         ? 'Triggere macOS Mail Rule (AtossMailRule.applescript)...'
         : 'Triggering macOS Mail Rule (AtossMailRule.applescript)...',
-      600
+      500
     )
     await addLog(
       lang === 'de'
         ? 'Starte Python-Parser (pdfplumber)...'
         : 'Starting Python Parser (pdfplumber)...',
-      600
+      500
     )
     await addLog(
       lang === 'de'
         ? 'Extrahiere Schichten für Becker A. ...'
         : 'Extracting shifts for Becker A. ...',
-      500
+      400
     )
 
-    // Build the list of shifts to parse
-    const shiftsToSync = [
-      ...DEFAULT_SHIFTS,
-      { day: Number(customDay), summary: customShift, start: customShift.split(' ')[1]?.split('-')[0] || '12:00', end: customShift.split(' ')[1]?.split('-')[1] || '20:00', color: '#ec4899' }
-    ]
-
-    for (const shift of shiftsToSync) {
+    for (const shift of DEFAULT_SHIFTS) {
       await addLog(
         lang === 'de'
           ? `Gefunden: ${shift.summary} am ${shift.day}. Juni`
           : `Found: ${shift.summary} on June ${shift.day}`,
-        400
+        350
       )
     }
 
@@ -79,19 +71,19 @@ export default function AtossSyncAnimation({ lang = 'de' }) {
       lang === 'de'
         ? 'Lösche alte Termine im Kalender "Arbeit" via AppleScript...'
         : 'Clearing old events in calendar "Arbeit" via AppleScript...',
-      600
+      500
     )
 
     await addLog(
       lang === 'de'
         ? 'Schreibe neue Events in Kalender...'
         : 'Writing new events to calendar...',
-      500
+      400
     )
 
     // Trigger flying events one by one
-    for (let i = 0; i < shiftsToSync.length; i++) {
-      const shift = shiftsToSync[i]
+    for (let i = 0; i < DEFAULT_SHIFTS.length; i++) {
+      const shift = DEFAULT_SHIFTS[i]
       setFlyingEvent(shift)
       sfx.playPop(0.04)
       await new Promise((resolve) => setTimeout(resolve, 350))
@@ -104,13 +96,21 @@ export default function AtossSyncAnimation({ lang = 'de' }) {
       lang === 'de'
         ? 'Synchronisation erfolgreich abgeschlossen! 🎉'
         : 'Sync completed successfully! 🎉',
-      400
+      350
     )
 
     setSynced(true)
     setSyncing(false)
     sfx.playSkinStockOpen() // play nice success sound
   }
+
+  useEffect(() => {
+    // Automatically trigger on mount after 800ms delay to let details modal transition finish
+    const timer = setTimeout(() => {
+      startSync()
+    }, 800)
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <div className="atoss-sync-box" style={{
@@ -125,15 +125,37 @@ export default function AtossSyncAnimation({ lang = 'de' }) {
       color: '#e2e8f0',
       fontFamily: 'Inter, sans-serif'
     }}>
-      <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-        <h4 style={{ margin: '0 0 4px', fontSize: '16px', fontWeight: '600', color: '#60a5fa' }}>
-          🔄 ATOSS Live Calendar Sync Simulator
-        </h4>
-        <p style={{ margin: '0', fontSize: '12px', color: '#94a3b8' }}>
-          {lang === 'de' 
-            ? 'Simuliere den vollautomatischen Workflow vom Mail-Eingang bis zum Kalendereintrag.' 
-            : 'Simulate the fully automated workflow from email inbox to calendar entry.'}
-        </p>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+        <div>
+          <h4 style={{ margin: '0 0 4px', fontSize: '16px', fontWeight: '600', color: '#60a5fa' }}>
+            🔄 ATOSS Live Calendar Sync
+          </h4>
+          <p style={{ margin: '0', fontSize: '12px', color: '#94a3b8' }}>
+            {lang === 'de' 
+              ? 'Automatischer Workflow: Mail-Eingang ➔ Kalender-Sync' 
+              : 'Automated workflow: Email inbox ➔ Calendar sync'}
+          </p>
+        </div>
+        <button 
+          onClick={startSync}
+          disabled={syncing}
+          style={{
+            background: 'rgba(255,255,255,0.06)',
+            border: '1px solid rgba(255,255,255,0.1)',
+            color: '#fff',
+            borderRadius: '8px',
+            padding: '6px 12px',
+            fontSize: '11px',
+            fontWeight: '600',
+            cursor: syncing ? 'not-allowed' : 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+            transition: 'all 0.2s'
+          }}
+        >
+          ↻ {lang === 'de' ? 'Neu starten' : 'Restart'}
+        </button>
       </div>
 
       {/* Simulator grid */}
@@ -147,14 +169,14 @@ export default function AtossSyncAnimation({ lang = 'de' }) {
         <AnimatePresence>
           {flyingEvent && (
             <motion.div
-              initial={{ scale: 0.5, x: 50, y: 100, opacity: 0 }}
-              animate={{ scale: 1, x: 250, y: -50, opacity: 1 }}
+              initial={{ scale: 0.5, x: 20, y: 80, opacity: 0 }}
+              animate={{ scale: 1, x: 280, y: -40, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ duration: 0.4, ease: 'easeOut' }}
+              transition={{ duration: 0.45, ease: 'easeOut' }}
               style={{
                 position: 'absolute',
                 left: '20px',
-                top: '80px',
+                top: '50px',
                 zIndex: 50,
                 background: flyingEvent.color,
                 color: '#fff',
@@ -171,7 +193,7 @@ export default function AtossSyncAnimation({ lang = 'de' }) {
           )}
         </AnimatePresence>
 
-        {/* Left Side: Mail & Config */}
+        {/* Left Side: Mail Status */}
         <div style={{
           background: '#090d16',
           borderRadius: '12px',
@@ -200,70 +222,33 @@ export default function AtossSyncAnimation({ lang = 'de' }) {
             </div>
           </div>
 
-          {/* Config Custom Shift */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '4px' }}>
-            <label style={{ fontSize: '11px', color: '#94a3b8' }}>
-              {lang === 'de' ? 'Eigene Schicht testen:' : 'Test custom shift:'}
-            </label>
-            <div style={{ display: 'flex', gap: '8px' }}>
-              <input
-                type="text"
-                value={customShift}
-                onChange={(e) => setCustomShift(e.target.value)}
-                style={{
-                  flex: 1,
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  borderRadius: '6px',
-                  padding: '6px 10px',
-                  color: '#fff',
-                  fontSize: '12px'
-                }}
-              />
-              <input
-                type="number"
-                min="1"
-                max="30"
-                value={customDay}
-                onChange={(e) => setCustomDay(e.target.value)}
-                style={{
-                  width: '50px',
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  borderRadius: '6px',
-                  padding: '6px',
-                  color: '#fff',
-                  fontSize: '12px',
-                  textAlign: 'center'
-                }}
-              />
-            </div>
+          <div style={{
+            marginTop: 'auto',
+            padding: '10px',
+            borderRadius: '8px',
+            background: syncing ? 'rgba(59, 130, 246, 0.06)' : synced ? 'rgba(16, 185, 129, 0.06)' : 'rgba(255,255,255,0.02)',
+            border: `1px solid ${syncing ? 'rgba(59,130,246,0.15)' : synced ? 'rgba(16,185,129,0.15)' : 'rgba(255,255,255,0.05)'}`,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            fontSize: '12px'
+          }}>
+            <span style={{
+              width: '8px',
+              height: '8px',
+              borderRadius: '50%',
+              background: syncing ? '#3b82f6' : synced ? '#10b981' : '#64748b',
+              display: 'inline-block',
+              boxShadow: syncing ? '0 0 8px #3b82f6' : synced ? '0 0 8px #10b981' : 'none'
+            }} />
+            <span style={{ fontWeight: '500' }}>
+              {syncing 
+                ? (lang === 'de' ? 'Script läuft...' : 'Script executing...') 
+                : synced 
+                  ? (lang === 'de' ? 'Daten synchronisiert' : 'Data synchronized')
+                  : (lang === 'de' ? 'Bereit' : 'Ready')}
+            </span>
           </div>
-
-          <button
-            onClick={startSync}
-            disabled={syncing}
-            style={{
-              width: '100%',
-              height: '38px',
-              background: syncing 
-                ? '#1e293b' 
-                : 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
-              color: '#ffffff',
-              border: 'none',
-              borderRadius: '8px',
-              fontWeight: '600',
-              cursor: syncing ? 'not-allowed' : 'pointer',
-              boxShadow: syncing ? 'none' : '0 4px 12px rgba(59, 130, 246, 0.25)',
-              transition: 'all 0.2s',
-              fontSize: '12px',
-              marginTop: '8px'
-            }}
-          >
-            {syncing 
-              ? (lang === 'de' ? '⚙️ Synchronisiere...' : '⚙️ Syncing...') 
-              : (lang === 'de' ? '⚡ E-Mail erhalten & syncen' : '⚡ Receive Email & Sync')}
-          </button>
         </div>
 
         {/* Right Side: Calendar Mock */}
@@ -369,7 +354,7 @@ export default function AtossSyncAnimation({ lang = 'de' }) {
       }}>
         {logs.length === 0 ? (
           <div style={{ color: '#64748b', fontStyle: 'italic' }}>
-            {lang === 'de' ? '> Warte auf Sync-Start...' : '> Waiting for sync execution...'}
+            {lang === 'de' ? '> Bereite Synchronisation vor...' : '> Preparing synchronization...'}
           </div>
         ) : (
           logs.map((log, idx) => (
