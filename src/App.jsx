@@ -115,6 +115,24 @@ const PROJECTS = [
     },
   },
   {
+    id: 'atoss-sync',
+    title: 'ATOSS Calendar Sync',
+    short: 'Automatisierter Dienstplan-Sync in den Apple Calendar via Apple Mail & Python.',
+    image: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1600&q=80',
+    details: {
+      role: 'Sole Developer',
+      context: 'Eigenständiges Automatisierungstool',
+      impact: 'Dienstplanänderungen werden automatisch und verzögerungsfrei in den iOS/macOS Kalender synchronisiert.',
+      tech: 'Python, AppleScript, Apple Mail, pdfplumber',
+      languages: ['Python', 'AppleScript'],
+      challenge: 'Komplexe Schichtdaten aus unstrukturierten ATOSS-Dienstplan-PDFs extrahieren und plattformübergreifend synchronisieren.',
+      solution: 'Ein Python-Backend parst das PDF, während ein Apple Mail Rule Script (AppleScript) den Prozess bei Erhalt einer E-Mail automatisch triggert und die Events im Kalender aktualisiert.',
+      result: 'Vollautomatische Synchronisation im Hintergrund ohne manuellen Aufwand.',
+      tags: ['Automation', 'Python', 'macOS', 'Productivity'],
+      link: 'https://github.com/artjomartur/atoss-sync',
+    },
+  },
+  {
     id: 'first-aid-simulator',
     title: 'First Aid Simulator',
     short: 'Interaktiver Erste-Hilfe-Simulator – Serious Games Projekt.',
@@ -491,7 +509,8 @@ function App() {
     const repos = {
       'exercube': 'serious-games-darmstadt/SS25-P21-ExerCube',
       'arcadesuite': 'artjomartur/ArcadeSuite',
-      'portfolio': 'artjomartur/portfolio'
+      'portfolio': 'artjomartur/portfolio',
+      'atoss-sync': 'artjomartur/atoss-sync'
     }
 
     const fetchStats = async () => {

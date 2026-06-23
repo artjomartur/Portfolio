@@ -97,6 +97,18 @@ const projects = [
       'UI/UX-Design: Gestaltung einer responsiven, modernen "Glassmorphism" Dark-Theme-Oberfläche für Desktop- und mobile Endgeräte.',
     ],
   },
+  {
+    title: 'ATOSS Calendar Sync',
+    context: 'Eigenständiges Automatisierungsprojekt • 2026',
+    role: 'Einzelprojekt • Python, AppleScript, macOS Mail',
+    link: 'https://github.com/artjomartur/atoss-sync',
+    points: [
+      'Automatisierung: Entwicklung eines vollautomatisierten Workflows zur Synchronisation von ATOSS-Dienstplänen in den Apple Calendar.',
+      'PDF-Parsing: Implementierung eines Python-Skripts mit pdfplumber zur robusten Extraktion und Validierung von Schichtzeiten aus PDF-Tabellendokumenten.',
+      'System-Integration: Erstellung eines AppleScript-Mail-Regel-Skripts zur vollautomatischen Ausführung des Sync-Prozesses direkt bei Erhalt der Dienstplan-E-Mail.',
+      'Kalender-Management: Dynamische Bereinigung veralteter Schichtzeiträume und konfliktfreie Eintragung neuer Termine via AppleScript-Schnittstelle.',
+    ],
+  },
 ]
 
 const education = [
