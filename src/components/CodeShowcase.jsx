@@ -46,7 +46,7 @@ export function useCommandMenu() {
           <h2 className="section-title">
             {lang === 'de' ? 'Digital Garden' : 'Digital Garden'}
           </h2>
-          <p className="section-text" style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 30px' }}>
+          <p className="section-text code-showcase-desc">
             {lang === 'de' 
               ? 'Ein kleiner Einblick in meinen Code. Probier mal ⌘K (oder Strg+K) aus, um das Command Menu zu öffnen!' 
               : 'A small glimpse into my code. Try pressing ⌘K (or Ctrl+K) to open the Command Menu!'}
