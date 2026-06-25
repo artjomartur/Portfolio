@@ -62,11 +62,11 @@ export default function OliEasterEgg({ active }) {
           transition={{ type: 'spring', damping: 20, stiffness: 100 }}
           style={{
             position: 'absolute',
-            top: '40px',
-            right: '20px',
+            top: '130px', /* Moved down to the bottom right of the 280px tall image */
+            right: '10px',
             zIndex: 50,
             pointerEvents: 'none',
-            width: '240px',
+            width: '260px',
             filter: 'drop-shadow(-5px 10px 15px rgba(0,0,0,0.5))'
           }}
         >
