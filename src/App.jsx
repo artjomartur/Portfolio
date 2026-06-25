@@ -31,7 +31,8 @@ const SoftGlowEasterEgg = React.lazy(() => import('./SoftGlowEasterEgg'))
 const CsAnimation = React.lazy(() => import('./CsAnimation'))
 const SkinStockApp = React.lazy(() => import('./components/SkinStockApp'))
 const AtossSyncAnimation = React.lazy(() => import('./components/AtossSyncAnimation'))
-
+const OliEasterEgg = React.lazy(() => import('./OliEasterEgg'))
+import { useOliCode } from './hooks/useOliCode'
 const PROJECTS = [
   {
     id: 'kinopolis-automation',
@@ -437,6 +438,7 @@ const renderTestimonialLogo = (brand, color) => {
 function App() {
   const { scrollYProgress } = useScroll()
   const isKonamiCodeActive = useKonamiCode()
+  const isOliCodeActive = useOliCode()
   const [navScrolled, setNavScrolled] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const [activeProject, setActiveProject] = useState(null)
