@@ -1,9 +1,16 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function OliEasterEgg({ active }) {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
+  const [videoEnded, setVideoEnded] = useState(false);
+
+  useEffect(() => {
+    if (active) {
+      setVideoEnded(false);
+    }
+  }, [active]);
 
   useEffect(() => {
     if (!active) return;
@@ -27,14 +34,11 @@ export default function OliEasterEgg({ active }) {
         let g = data[i * 4 + 1];
         let b = data[i * 4 + 2];
         
-        // Advanced Greenscreen removal
-        // If green dominates over red and blue
         if (g > 100 && g > r * 1.3 && g > b * 1.3) {
-          data[i * 4 + 3] = 0; // Set alpha to 0
+          data[i * 4 + 3] = 0;
         } else {
-          // Feathering/spill suppression
           if (g > r && g > b) {
-            data[i * 4 + 1] = Math.max(r, b); // Desaturate green spill
+            data[i * 4 + 1] = Math.max(r, b);
           }
         }
       }
@@ -43,27 +47,32 @@ export default function OliEasterEgg({ active }) {
     };
 
     video.addEventListener('play', computeFrame);
+    
+    const handleEnded = () => setVideoEnded(true);
+    video.addEventListener('ended', handleEnded);
+
     video.currentTime = 0;
     video.play().catch(e => console.log('Video play failed', e));
 
     return () => {
       video.removeEventListener('play', computeFrame);
+      video.removeEventListener('ended', handleEnded);
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, [active]);
 
   return (
     <AnimatePresence>
-      {active && (
+      {active && !videoEnded && (
         <motion.div
-          initial={{ x: '100%' }}
-          animate={{ x: 0 }}
-          exit={{ x: '100%' }}
+          initial={{ x: '100%', opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: '50%', opacity: 0 }}
           transition={{ type: 'spring', damping: 20, stiffness: 100 }}
           style={{
             position: 'absolute',
-            top: '130px', /* Moved down to the bottom right of the 280px tall image */
-            right: '10px',
+            top: '150px',
+            right: '-23px',
             zIndex: 50,
             pointerEvents: 'none',
             width: '260px',

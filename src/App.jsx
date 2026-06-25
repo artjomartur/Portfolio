@@ -441,6 +441,7 @@ function App() {
   const [navScrolled, setNavScrolled] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const [activeProject, setActiveProject] = useState(null)
+  const [shareCopied, setShareCopied] = useState(false)
   const [showGame, setShowGame] = useState(true)
   const [isPongActive, setIsPongActive] = useState(false)
   const [isMemoryActive, setIsMemoryActive] = useState(false)
@@ -458,6 +459,20 @@ function App() {
       (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
     )
   })
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search)
+      const projectId = urlParams.get('project')
+      if (projectId) {
+        const foundProject = ITEMS.find(p => p.id === projectId)
+        if (foundProject) {
+          setActiveProject(foundProject)
+        }
+      }
+    }
+  }, [])
+
   const [lang, setLang] = useState(() => {
     if (typeof window === 'undefined') return 'de'
     return localStorage.getItem('lang') || 'de'
@@ -507,6 +522,17 @@ function App() {
       setShowOliVideo(false);
     }
   }, [activeProject]);
+
+  const handleShareProject = (e) => {
+    e.stopPropagation();
+    if (!activeProject) return;
+    const url = new URL(window.location.href);
+    url.searchParams.set('project', activeProject.id);
+    navigator.clipboard.writeText(url.toString()).then(() => {
+      setShareCopied(true);
+      setTimeout(() => setShareCopied(false), 2000);
+    });
+  };
 
   useEffect(() => {
     setShowGame(true)
@@ -986,9 +1012,22 @@ function App() {
             {activeProject.id === 'arcadesuite' && (
               <div className="arcade-retro-bg" />
             )}
-            <button className="modal-close" onClick={() => setActiveProject(null)}>
-              ×
-            </button>
+            <div className="modal-actions">
+              <button 
+                className={`modal-share ${shareCopied ? 'copied' : ''}`} 
+                onClick={handleShareProject}
+                title={lang === 'de' ? 'Projekt Link kopieren' : 'Copy Project Link'}
+              >
+                {shareCopied ? (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                ) : (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+                )}
+              </button>
+              <button className="modal-close" onClick={() => setActiveProject(null)} title={lang === 'de' ? 'Schließen' : 'Close'}>
+                ×
+              </button>
+            </div>
             {activeProject.images ? (
               <div className="modal-image-gallery" onScroll={handleGalleryScroll}>
                 {activeProject.images.map((img, idx) => (
