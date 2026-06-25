@@ -1076,7 +1076,7 @@
 }
 
 .modal-image-gallery .modal-image {
-  flex: 0 0 100%;
+  flex: 0 0 calc(100% - 32px);
   scroll-snap-align: center;
   margin-bottom: 0;
 }
