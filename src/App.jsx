@@ -39,7 +39,7 @@ const PROJECTS = [
     status: 'in-progress',
     short: 'Modernes Dashboard für Echtzeit-Monitoring und operative Automatisierung im Kinobetrieb.',
     image: '/kinopolis_hero.jpeg',
-    images: ['/kinopolis_hero.jpeg', '/kinopolis_2.png'],
+    images: ['/kinopolis_hero.jpeg', '/kinopolis_2.png', '/slide_final_1.png', '/slide_final_2.png', '/slide_final_3.png', '/slide_final_4.png', '/slide_final_5.png'],
     details: {
       role: 'Fullstack Developer & Automation',
       context: 'Operative Unterstützung Kinopolis',
