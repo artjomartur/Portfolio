@@ -32,7 +32,6 @@ const CsAnimation = React.lazy(() => import('./CsAnimation'))
 const SkinStockApp = React.lazy(() => import('./components/SkinStockApp'))
 const AtossSyncAnimation = React.lazy(() => import('./components/AtossSyncAnimation'))
 const OliEasterEgg = React.lazy(() => import('./OliEasterEgg'))
-import { useOliCode } from './hooks/useOliCode'
 const PROJECTS = [
   {
     id: 'kinopolis-automation',
@@ -438,7 +437,7 @@ const renderTestimonialLogo = (brand, color) => {
 function App() {
   const { scrollYProgress } = useScroll()
   const isKonamiCodeActive = useKonamiCode()
-  const isOliCodeActive = useOliCode()
+  const [showOliVideo, setShowOliVideo] = useState(false)
   const [navScrolled, setNavScrolled] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const [activeProject, setActiveProject] = useState(null)
@@ -494,6 +493,20 @@ function App() {
   const [themeWave, setThemeWave] = useState({ x: 0, y: 0, active: false, targetTheme: 'dark' })
   const [activePdfUrl, setActivePdfUrl] = useState(null)
   const [activePdfTitle, setActivePdfTitle] = useState('')
+
+  const handleGalleryScroll = (e) => {
+    if (activeProject?.id !== 'kinopolis-automation') return;
+    const { scrollLeft, scrollWidth, clientWidth } = e.target;
+    if (scrollLeft + clientWidth >= scrollWidth - 20) {
+      setShowOliVideo(true);
+    }
+  };
+
+  useEffect(() => {
+    if (!activeProject || activeProject.id !== 'kinopolis-automation') {
+      setShowOliVideo(false);
+    }
+  }, [activeProject]);
 
   useEffect(() => {
     setShowGame(true)
@@ -977,7 +990,7 @@ function App() {
               ×
             </button>
             {activeProject.images ? (
-              <div className="modal-image-gallery">
+              <div className="modal-image-gallery" onScroll={handleGalleryScroll}>
                 {activeProject.images.map((img, idx) => (
                   <img key={idx} src={img} alt={`${activeProject.title} ${idx + 1}`} className="modal-image" loading="lazy" />
                 ))}
@@ -1373,6 +1386,7 @@ function App() {
                 </Suspense>
               </div>
             )}
+            <OliEasterEgg active={showOliVideo} />
             {activeProject.id === 'exercube' && showGame && (
               <Suspense fallback={null}><OsuEasterEgg onClose={() => setShowGame(false)} /></Suspense>
             )}
