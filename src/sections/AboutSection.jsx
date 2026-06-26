@@ -1,25 +1,29 @@
 import React, { Suspense } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { useStore } from '../store/useStore';
 import SplitFlapText from '../SplitFlapText';
 import { ITEMS } from '../data/constants';
 
 const Terminal = React.lazy(() => import('../Terminal'));
 
 export default function AboutSection({
-  lang,
   projectTitles,
   handleHover,
   handleLeave,
   triggerShake,
   triggerMatrix,
   triggerDestruction,
-  triggerFollow,
-  setIsPongActive
+  triggerFollow
 }) {
+  const { t, i18n } = useTranslation();
+  const setIsPongActive = useStore((state) => state.setIsPongActive);
+  const lang = i18n.language;
+
   return (
     <section id="about" className="section">
       <motion.div className="section-inner" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }}>
-        <h2 className="section-title"><SplitFlapText text={lang === 'de' ? 'Über mich' : 'About me'} /></h2>
+        <h2 className="section-title"><SplitFlapText text={t('about.title')} /></h2>
         <Suspense fallback={<div className="terminal-placeholder">Lade Terminal...</div>}>
           <Terminal
             lang={lang}
@@ -35,9 +39,7 @@ export default function AboutSection({
           />
         </Suspense>
         <p className="section-text section-text--mt">
-          {lang === 'de'
-            ? 'Ich studiere Informatik und bin fasziniert von der Verbindung zwischen Theorie und Praxis. Teamleitung im Bachelor-Praktikum, Gruppenprojekte mit Bestnote - ich liebe es, komplexe Probleme zu zerlegen und elegante Lösungen zu entwickeln.'
-            : 'I study computer science and I am fascinated by connecting theory and practice. I led teams in a bachelor internship and enjoy breaking down complex problems into elegant solutions.'}
+          {t('about.text')}
         </p>
       </motion.div>
     </section>

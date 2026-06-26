@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "toHome": "Go to homepage",
+    "openMenu": "Open menu",
+    "changeLang": "Switch language",
+    "computerScience": "Computer Science"
+  },
+  "hero": {
+    "eyebrow": "Computer Science Student",
+    "titlePrefix": "Hello, I am",
+    "tagline": "Software Developer. Building modern and high-performance applications.",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "title": "About me",
+    "text": "I study computer science and I am fascinated by connecting theory and practice. I led teams in a bachelor internship and enjoy breaking down complex problems into elegant solutions."
+  },
+  "projects": {
+    "title": "Selected Projects & Seminars",
+    "filterAll": "All",
+    "filterProjects": "Projects",
+    "filterSeminars": "Seminars",
+    "openProject": "Open project:",
+    "typeSeminar": "Seminar",
+    "typeProject": "Project",
+    "inProgress": "In Progress",
+    "openDetails": "Open details",
+    "paper": "Paper ↗",
+    "repo": "Repo ↗",
+    "live": "Live ↗",
+    "docs": "Docs ↗",
+    "slides": "Slides ↗",
+    "trailer": "Trailer ↗",
+    "language": "Language: {{lang}}",
+    "showLess": "Show less",
+    "showAll": "Show all ({{count}})"
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "ariaLabel": "Testimonial from {{author}}"
+  },
+  "social": {
+    "title": "Content & Social Hub",
+    "subtitle": "I share computer science & software engineering insights on X and plan educational short-form TikToks.",
+    "xTweet": "🚀 Why Unity is the perfect tool for Serious Games: Physics, C# scripting, and rapid iteration make it easy to combine learning & motivation. Read the full paper in my portfolio! 👇",
+    "xShare": "Share on X",
+    "tiktokTitle": "Computer Science on TikTok 🎬",
+    "tiktokCaption": "How to get a 1.0 grade in your bachelor internship! 🎓💡 #compsci #tudarmstadt #university",
+    "tiktokDesc": "I plan to release quick, high-energy tech videos explaining complex coding concepts. Follow me for updates!"
+  },
+  "contact": {
+    "title": "Let us connect.",
+    "subtitle": "For collaboration, project questions, or just a quick exchange - I am happy to hear from you.",
+    "success": "Thank you! Your message has been sent successfully.",
+    "error": "Something went wrong. Please try again later.",
+    "namePlaceholder": "Your Name",
+    "emailPlaceholder": "Your Email",
+    "msgPlaceholder": "Your Message",
+    "sending": "Sending...",
+    "sendBtn": "Send message",
+    "toastSuccess": "Message sent successfully!",
+    "toastError": "Error sending message.",
+    "validationName": "Name must be at least 2 characters.",
+    "validationEmail": "Please enter a valid email address.",
+    "validationMsg": "Message must be at least 10 characters."
+  },
+  "modal": {
+    "close": "Close (Esc)",
+    "prev": "Previous",
+    "next": "Next",
+    "tabVideo": "Video Trailer",
+    "tabDetails": "Details",
+    "tabScreenshots": "Screenshots",
+    "tabImplementation": "Implementation",
+    "tabFeatures": "Features",
+    "viewDocs": "View Documentation",
+    "viewRepo": "Go to GitHub Repo",
+    "viewPaper": "Read Paper",
+    "viewLive": "View Live"
+  },
+  "timeline": {
+    "title": "Timeline"
+  },
+  "github": {
+    "title": "GitHub Activity"
+  },
+  "footer": {
+    "copyright": "© {{year}} Artjom Becker. Designed & built with attention to detail."
+  }
+}

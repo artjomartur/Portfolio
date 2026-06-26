@@ -1,32 +1,36 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { useStore } from '../store/useStore';
 import SplitFlapText from '../SplitFlapText';
 
 export default function ProjectsSection({
-  lang,
-  primaryFilter,
-  setPrimaryFilter,
-  projectFilter,
-  setProjectFilter,
   dynamicTags,
   visibleProjects,
   hasMoreProjects,
-  showAllProjects,
-  setShowAllProjects,
   filteredProjects,
-  gitStats,
   handleCardMouseMove,
   handleCardMouseLeave,
   handleHover,
   handleLeave,
-  setActiveProject,
   handleViewPdf,
   trackEvent
 }) {
+  const { t } = useTranslation();
+  
+  const primaryFilter = useStore((state) => state.primaryFilter);
+  const setPrimaryFilter = useStore((state) => state.setPrimaryFilter);
+  const projectFilter = useStore((state) => state.projectFilter);
+  const setProjectFilter = useStore((state) => state.setProjectFilter);
+  const showAllProjects = useStore((state) => state.showAllProjects);
+  const setShowAllProjects = useStore((state) => state.setShowAllProjects);
+  const setActiveProject = useStore((state) => state.setActiveProject);
+  const gitStats = useStore((state) => state.gitStats);
+
   return (
     <section id="projects" className="section">
       <motion.div className="section-inner" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }}>
-        <h2 className="section-title"><SplitFlapText text={lang === 'de' ? 'Ausgewählte Projekte & Seminare' : 'Selected Projects & Seminars'} /></h2>
+        <h2 className="section-title"><SplitFlapText text={t('projects.title')} /></h2>
         
         {/* Primary Filter row */}
         <div className="primary-filters" style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginBottom: '16px' }}>
@@ -38,7 +42,7 @@ export default function ProjectsSection({
               trackEvent('primary_filter', { type: 'all' });
             }}
           >
-            {lang === 'de' ? 'Alle' : 'All'}
+            {t('projects.filterAll')}
           </button>
           <button
             type="button"
@@ -48,7 +52,7 @@ export default function ProjectsSection({
               trackEvent('primary_filter', { type: 'project' });
             }}
           >
-            {lang === 'de' ? 'Projekte' : 'Projects'}
+            {t('projects.filterProjects')}
           </button>
           <button
             type="button"
@@ -58,7 +62,7 @@ export default function ProjectsSection({
               trackEvent('primary_filter', { type: 'seminar' });
             }}
           >
-            {lang === 'de' ? 'Seminare' : 'Seminars'}
+            {t('projects.filterSeminars')}
           </button>
         </div>
 
@@ -74,7 +78,7 @@ export default function ProjectsSection({
                 trackEvent('project_filter', { filter });
               }}
             >
-              {filter === 'All' ? (lang === 'de' ? 'Alle' : 'All') : filter}
+              {filter === 'All' ? t('projects.filterAll') : filter}
             </button>
           ))}
         </div>
@@ -83,6 +87,7 @@ export default function ProjectsSection({
           {visibleProjects.map((project, i) => (
             <motion.article 
               key={project.id} 
+              layoutId={`project-container-${project.id}`}
               className="project" 
               style={{ cursor: 'pointer' }}
               onMouseMove={handleCardMouseMove} 
@@ -101,22 +106,22 @@ export default function ProjectsSection({
                   setActiveProject(project);
                 }
               }}
-              aria-label={`${lang === 'de' ? 'Projekt öffnen:' : 'Open project:'} ${project.title}`}
+              aria-label={`${t('projects.openProject')} ${project.title}`}
             >
               <div className="project-content">
                 <div className="project-header-badges" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '8px' }}>
                   <span className={`type-badge type-badge--${project.type}`}>
                     {project.type === 'seminar'
-                      ? 'Seminar'
-                      : (lang === 'de' ? 'Projekt' : 'Project')}
+                      ? t('projects.typeSeminar')
+                      : t('projects.typeProject')}
                   </span>
                   {project.status === 'in-progress' && (
                     <div className="status-badge" style={{ marginBottom: 0 }}>
-                      {lang === 'de' ? 'In Arbeit' : 'In Progress'}
+                      {t('projects.inProgress')}
                     </div>
                   )}
                 </div>
-                <h3 className="project-title">{project.title}</h3>
+                <motion.h3 layoutId={`project-title-${project.id}`} className="project-title">{project.title}</motion.h3>
                 <p className="project-desc">{project.short}</p>
                 <div className="project-actions">
                   <button 
@@ -126,7 +131,7 @@ export default function ProjectsSection({
                       setActiveProject(project);
                     }}
                   >
-                    {lang === 'de' ? 'Details öffnen' : 'Open details'}
+                    {t('projects.openDetails')}
                   </button>
                   {project.type === 'seminar' ? (
                     <a 
@@ -137,7 +142,7 @@ export default function ProjectsSection({
                       style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
                       onClick={(e) => e.stopPropagation()}
                     >
-                      {lang === 'de' ? 'Ausarbeitung ↗' : 'Paper ↗'}
+                      {t('projects.paper')}
                     </a>
                   ) : (
                     project.details.link.startsWith('http') && (
@@ -151,14 +156,14 @@ export default function ProjectsSection({
                       >
                         {project.details.link.includes('github.com') ? (
                           <>
-                            Repo ↗
+                            {t('projects.repo')}
                             {gitStats[project.id] && (
                               <span className="repo-stars-badge" aria-label={`${gitStats[project.id].stars} Stars`}>
                                 ★ {gitStats[project.id].stars}
                               </span>
                             )}
                           </>
-                        ) : 'Live ↗'}
+                        ) : t('projects.live')}
                       </a>
                     )
                   )}
@@ -169,10 +174,10 @@ export default function ProjectsSection({
                       style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
                       onClick={(e) => {
                         e.stopPropagation();
-                        handleViewPdf(project.details.pdf, lang === 'de' ? `Dokumentation - ${project.title}` : `Documentation - ${project.title}`);
+                        handleViewPdf(project.details.pdf, `Dokumentation - ${project.title}`);
                       }}
                     >
-                      {lang === 'de' ? 'Doku ↗' : 'Docs ↗'}
+                      {t('projects.docs')}
                     </button>
                   )}
                   {project.details.slides && (
@@ -183,10 +188,10 @@ export default function ProjectsSection({
                         style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
                         onClick={(e) => {
                           e.stopPropagation();
-                          handleViewPdf(project.details.slides, lang === 'de' ? `Präsentationsfolien - ${project.title}` : `Presentation Slides - ${project.title}`);
+                          handleViewPdf(project.details.slides, `Präsentation - ${project.title}`);
                         }}
                       >
-                        {lang === 'de' ? 'Folien ↗' : 'Slides ↗'}
+                        {t('projects.slides')}
                       </button>
                     ) : (
                       <a 
@@ -197,7 +202,7 @@ export default function ProjectsSection({
                         style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
                         onClick={(e) => e.stopPropagation()}
                       >
-                        {lang === 'de' ? 'Folien ↗' : 'Slides ↗'}
+                        {t('projects.slides')}
                       </a>
                     )
                   )}
@@ -209,14 +214,14 @@ export default function ProjectsSection({
                       className="link project-direct"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      Trailer ↗
+                      {t('projects.trailer')}
                     </a>
                   )}
                 </div>
                 <div className="project-tags">
                   {project.details.languages?.map((language) => (
                     <span key={`${project.id}-${language}`} className="project-tag project-tag--language">
-                      {lang === 'de' ? `Sprache: ${language}` : `Language: ${language}`}
+                      {t('projects.language', { lang: language })}
                     </span>
                   ))}
                   {project.details.tags?.map((tag) => (
@@ -241,8 +246,8 @@ export default function ProjectsSection({
               onMouseLeave={handleLeave}
             >
               {showAllProjects
-                ? (lang === 'de' ? 'Weniger anzeigen' : 'Show less')
-                : (lang === 'de' ? `Alle anzeigen (${filteredProjects.length})` : `Show all (${filteredProjects.length})`)}
+                ? t('projects.showLess')
+                : t('projects.showAll', { count: filteredProjects.length })}
             </button>
           </div>
         )}

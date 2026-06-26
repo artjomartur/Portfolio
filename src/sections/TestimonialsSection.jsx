@@ -1,44 +1,59 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import SplitFlapText from '../SplitFlapText';
-import TestimonialLogo from '../components/TestimonialLogo';
-import { TESTIMONIALS } from '../data/constants';
 
-export default function TestimonialsSection({ lang, handleHover, handleLeave }) {
+export default function TestimonialsSection({ handleHover, handleLeave }) {
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language;
+
+  const testimonials = [
+    {
+      author: 'A. Eberhardt',
+      roleDe: 'Dozent',
+      roleEn: 'Lecturer',
+      textDe: 'Ihre Gruppe hat das bestmögliche Ergebnis für das gesamte Praktikum erzielt... herausragende Leistung im C/C++ Praktikum!',
+      textEn: 'Your group achieved the best possible result for the entire internship... outstanding performance in the C/C++ lab!',
+      initials: 'AE'
+    },
+    {
+      author: 'Prof. Dr. Stefan Göbel',
+      roleDe: 'Leitung Serious Games',
+      roleEn: 'Head of Serious Games',
+      textDe: 'Sie waren die beste Gruppe im letzten Semester. Ihr ExerCube Spiel "CyberQuest" wurde sogar zur Ausstellung im Foyer des Fachbereichs ausgewählt.',
+      textEn: 'You were the best group last semester. Your ExerCube game "CyberQuest" was even selected for exhibition in the department foyer.',
+      initials: 'SG'
+    }
+  ];
+
   return (
     <section id="testimonials" className="section">
       <motion.div className="section-inner" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }}>
-        <h2 className="section-title"><SplitFlapText text={lang === 'de' ? 'Empfehlungen' : 'Testimonials'} /></h2>
-        <div className="testimonials-marquee-wrapper">
-          <div className="testimonials-marquee-content">
-            {[...TESTIMONIALS, ...TESTIMONIALS].map((t, idx) => (
-              <article 
-                key={idx} 
-                className={`testimonial-card ${t.link ? 'testimonial-card--clickable' : ''}`}
-                onMouseEnter={handleHover} 
-                onMouseLeave={handleLeave}
-                onClick={t.link ? () => window.open(t.link, '_blank') : undefined}
-                role={t.link ? 'button' : 'article'}
-                tabIndex={t.link ? 0 : undefined}
-                onKeyDown={(e) => {
-                  if (t.link && (e.key === 'Enter' || e.key === ' ')) {
-                    e.preventDefault();
-                    window.open(t.link, '_blank');
-                  }
-                }}
-                aria-label={t.link ? `Testimonial von ${t.author}` : undefined}
-              >
-                <div className="testimonial-header-info">
-                  {t.brand ? <TestimonialLogo brand={t.brand} color={t.color} /> : <div className="testimonial-avatar">{t.initials}</div>}
-                  <div>
-                    <h4 className="testimonial-author">{t.author}</h4>
-                    <p className="testimonial-role">{lang === 'de' ? t.roleDe : t.roleEn}</p>
-                  </div>
+        <h2 className="section-title"><SplitFlapText text={t('testimonials.title')} /></h2>
+        <div className="testimonials-grid">
+          {testimonials.map((testi, i) => (
+            <motion.div 
+              key={testi.author} 
+              className="testimonial-card"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ delay: i * 0.1 }}
+              onMouseEnter={handleHover}
+              onMouseLeave={handleLeave}
+              tabIndex={0}
+              aria-label={t('testimonials.ariaLabel', { author: testi.author })}
+            >
+              <div className="testimonial-header">
+                <div className="testimonial-avatar">{testi.initials}</div>
+                <div>
+                  <div className="testimonial-author">{testi.author}</div>
+                  <div className="testimonial-role">{lang === 'de' ? testi.roleDe : testi.roleEn}</div>
                 </div>
-                <p className="testimonial-quote">{lang === 'de' ? t.quoteDe : t.quoteEn}</p>
-              </article>
-            ))}
-          </div>
+              </div>
+              <p className="testimonial-text">"{lang === 'de' ? testi.textDe : testi.textEn}"</p>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
     </section>

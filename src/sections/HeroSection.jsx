@@ -1,9 +1,14 @@
 import React, { Suspense } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { useStore } from '../store/useStore';
 
 const Hero3D = React.lazy(() => import('../components/Hero3D'));
 
-export default function HeroSection({ lang, theme, mouse, scrollY }) {
+export default function HeroSection({ mouse, scrollY }) {
+  const { t } = useTranslation();
+  const theme = useStore((state) => state.theme);
+
   return (
     <section id="hero" className="hero">
       <Suspense fallback={null}>
@@ -17,16 +22,14 @@ export default function HeroSection({ lang, theme, mouse, scrollY }) {
         }}
       />
       <motion.p className="hero-eyebrow" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-        {lang === 'de' ? 'Informatik-Student' : 'Computer Science Student'}
+        {t('hero.eyebrow')}
       </motion.p>
       <motion.h1 className="hero-title" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}>
-        Hallo, ich bin<br />
+        {t('hero.titlePrefix')}<br />
         <span className="hero-title-name">Artjom Becker.</span>
       </motion.h1>
       <motion.p className="hero-tagline" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.3 }}>
-        {lang === 'de'
-          ? 'Software-Entwickler. Ich baue moderne und performante Anwendungen.'
-          : 'Software Developer. Building modern and high-performance applications.'}
+        {t('hero.tagline')}
       </motion.p>
       <motion.div
         className="hero-scroll-indicator"
@@ -38,7 +41,7 @@ export default function HeroSection({ lang, theme, mouse, scrollY }) {
         <div className="mouse-icon">
           <div className="wheel"></div>
         </div>
-        <span className="scroll-text">{lang === 'de' ? 'Scrollen' : 'Scroll'}</span>
+        <span className="scroll-text">{t('hero.scroll')}</span>
       </motion.div>
     </section>
   );

@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "toHome": "Zur Startseite",
+    "openMenu": "Menü öffnen",
+    "changeLang": "Sprache wechseln",
+    "computerScience": "Informatik"
+  },
+  "hero": {
+    "eyebrow": "Informatik-Student",
+    "titlePrefix": "Hallo, ich bin",
+    "tagline": "Software-Entwickler. Ich baue moderne und performante Anwendungen.",
+    "scroll": "Scrollen"
+  },
+  "about": {
+    "title": "Über mich",
+    "text": "Ich studiere Informatik und bin fasziniert von der Verbindung zwischen Theorie und Praxis. Teamleitung im Bachelor-Praktikum, Gruppenprojekte mit Bestnote - ich liebe es, komplexe Probleme zu zerlegen und elegante Lösungen zu entwickeln."
+  },
+  "projects": {
+    "title": "Ausgewählte Projekte & Seminare",
+    "filterAll": "Alle",
+    "filterProjects": "Projekte",
+    "filterSeminars": "Seminare",
+    "openProject": "Projekt öffnen:",
+    "typeSeminar": "Seminar",
+    "typeProject": "Projekt",
+    "inProgress": "In Arbeit",
+    "openDetails": "Details öffnen",
+    "paper": "Ausarbeitung ↗",
+    "repo": "Repo ↗",
+    "live": "Live ↗",
+    "docs": "Doku ↗",
+    "slides": "Folien ↗",
+    "trailer": "Trailer ↗",
+    "language": "Sprache: {{lang}}",
+    "showLess": "Weniger anzeigen",
+    "showAll": "Alle anzeigen ({{count}})"
+  },
+  "testimonials": {
+    "title": "Empfehlungen",
+    "ariaLabel": "Testimonial von {{author}}"
+  },
+  "social": {
+    "title": "Content & Social Hub",
+    "subtitle": "Ich teile mein Wissen über Informatik und Softwareentwicklung auf X und plane kurze, lehrreiche TikToks.",
+    "xTweet": "🚀 Warum Unity das perfekte Werkzeug für Serious Games ist: Physikeffekte, C# Scripting und schnelle Iterationszyklen machen es möglich, Motivation & Lernen ideal zu verknüpfen. Ausarbeitung & Code sind in meinem Portfolio! 👇",
+    "xShare": "Auf X teilen",
+    "tiktokTitle": "Informatik auf TikTok 🎬",
+    "tiktokCaption": "Wie man eine Note 1.0 im Bachelor-Praktikum holt! 🎓💡 #informatik #tudarmstadt #uni",
+    "tiktokDesc": "In Zukunft plane ich kurze, packende Kurzvideos zu komplexen Tech-Themen. Folge mir gerne für künftige Updates!"
+  },
+  "contact": {
+    "title": "Lass uns vernetzen.",
+    "subtitle": "Ob Zusammenarbeit, Fragen zu Projekten oder einfach nur Austausch - ich freue mich über jede Nachricht.",
+    "success": "Vielen Dank! Deine Nachricht wurde erfolgreich gesendet.",
+    "error": "Ein Fehler ist aufgetreten. Bitte versuche es später erneut.",
+    "namePlaceholder": "Dein Name",
+    "emailPlaceholder": "Deine E-Mail",
+    "msgPlaceholder": "Deine Nachricht",
+    "sending": "Wird gesendet...",
+    "sendBtn": "Nachricht senden",
+    "toastSuccess": "Nachricht erfolgreich gesendet!",
+    "toastError": "Fehler beim Senden.",
+    "validationName": "Der Name muss mindestens 2 Zeichen lang sein.",
+    "validationEmail": "Bitte gib eine gültige E-Mail-Adresse ein.",
+    "validationMsg": "Die Nachricht muss mindestens 10 Zeichen lang sein."
+  },
+  "modal": {
+    "close": "Schließen (Esc)",
+    "prev": "Zurück",
+    "next": "Weiter",
+    "tabVideo": "Video Trailer",
+    "tabDetails": "Details",
+    "tabScreenshots": "Screenshots",
+    "tabImplementation": "Implementierung",
+    "tabFeatures": "Funktionen",
+    "viewDocs": "Dokumentation ansehen",
+    "viewRepo": "Zum GitHub Repo",
+    "viewPaper": "Zur Ausarbeitung",
+    "viewLive": "Live ansehen"
+  },
+  "timeline": {
+    "title": "Timeline"
+  },
+  "github": {
+    "title": "GitHub Aktivität"
+  },
+  "footer": {
+    "copyright": "© {{year}} Artjom Becker. Designed & gebaut mit Liebe zum Detail."
+  }
+}

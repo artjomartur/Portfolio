@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useMemo, Suspense } from 'react'
 import { motion, useScroll } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
+import { useStore } from './store/useStore'
 import { sfx } from './sfx'
 import { useCursor } from './useCursor'
 import CommandPalette from './components/CommandPalette'
 import CodeShowcase from './components/CodeShowcase'
 import { useKonamiCode } from './hooks/useKonamiCode'
-import { Toaster, toast } from 'react-hot-toast'
-import { playClickSound, playSuccessSound } from './utils/sound'
+import { Toaster } from 'react-hot-toast'
+import { playClickSound } from './utils/sound'
+import SEO from './components/SEO'
 import './App.css'
 
 // Extracted Sections & Components
@@ -45,27 +48,61 @@ const MatrixRain = React.lazy(() => import('./components/MatrixRain').catch(() =
 import { PROJECTS, TIMELINE, NAV_ITEMS, ITEMS } from './data/constants'
 
 function App() {
+  const { t, i18n } = useTranslation()
+  const lang = i18n.language
+
+  const theme = useStore((state) => state.theme)
+  const setTheme = useStore((state) => state.setTheme)
+  const themeWave = useStore((state) => state.themeWave)
+  const setThemeWave = useStore((state) => state.setThemeWave)
+  
+  const activeProject = useStore((state) => state.activeProject)
+  const setActiveProject = useStore((state) => state.setActiveProject)
+  
+  const mobileMenuOpen = useStore((state) => state.mobileMenuOpen)
+  const setMobileMenuOpen = useStore((state) => state.setMobileMenuOpen)
+  const activeSection = useStore((state) => state.activeSection)
+  const setActiveSection = useStore((state) => state.setActiveSection)
+
+  const primaryFilter = useStore((state) => state.primaryFilter)
+  const projectFilter = useStore((state) => state.projectFilter)
+  const setProjectFilter = useStore((state) => state.setProjectFilter)
+  const showAllProjects = useStore((state) => state.showAllProjects)
+  
+  const activePdfUrl = useStore((state) => state.activePdfUrl)
+  const setActivePdfUrl = useStore((state) => state.setActivePdfUrl)
+  const activePdfTitle = useStore((state) => state.activePdfTitle)
+  
+  const setGitStats = useStore((state) => state.setGitStats)
+
+  const isPongActive = useStore((state) => state.isPongActive)
+  const isMemoryActive = useStore((state) => state.isMemoryActive)
+  const showOliVideo = useStore((state) => state.showOliVideo)
+  
+  const isMatrixActive = useStore((state) => state.isMatrixActive)
+  const setIsMatrixActive = useStore((state) => state.setIsMatrixActive)
+  const isFollowActive = useStore((state) => state.isFollowActive)
+  const setIsFollowActive = useStore((state) => state.setIsFollowActive)
+  const isShakeActive = useStore((state) => state.isShakeActive)
+  const setIsShakeActive = useStore((state) => state.setIsShakeActive)
+  
+  const isDestructionActive = useStore((state) => state.isDestructionActive)
+  const setIsDestructionActive = useStore((state) => state.setIsDestructionActive)
+  const destructionProgress = useStore((state) => state.destructionProgress)
+  const setDestructionProgress = useStore((state) => state.setDestructionProgress)
+  const destructionLogs = useStore((state) => state.destructionLogs)
+  const setDestructionLogs = useStore((state) => state.setDestructionLogs)
+
   const { scrollYProgress } = useScroll()
   const isKonamiCodeActive = useKonamiCode()
-  const [showOliVideo, setShowOliVideo] = useState(false)
+  
   const [navScrolled, setNavScrolled] = useState(false)
   const [scrollY, setScrollY] = useState(0)
-  const [activeProject, setActiveProject] = useState(null)
   const [showGame, setShowGame] = useState(true)
-  const [isPongActive, setIsPongActive] = useState(false)
-  const [isMemoryActive, setIsMemoryActive] = useState(false)
   const [isCvView, setIsCvView] = useState(
     typeof window !== 'undefined' && window.location.hash === '#cv'
   )
   const projectTitles = useMemo(() => PROJECTS.map((p) => p.title), [])
-
-  const [theme, setTheme] = useState(() => {
-    if (typeof window === 'undefined') return 'light'
-    return (
-      localStorage.getItem('theme') ||
-      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-    )
-  })
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -78,14 +115,7 @@ function App() {
         }
       }
     }
-  }, [])
-
-  const [lang, setLang] = useState(() => {
-    if (typeof window === 'undefined') return 'de'
-    return localStorage.getItem('lang') || 'de'
-  })
-  const [primaryFilter, setPrimaryFilter] = useState('all')
-  const [projectFilter, setProjectFilter] = useState('All')
+  }, [setActiveProject])
 
   const dynamicTags = useMemo(() => {
     const items = ITEMS.filter(item => primaryFilter === 'all' || item.type === primaryFilter)
@@ -100,20 +130,9 @@ function App() {
     if (!dynamicTags.includes(projectFilter)) {
       setProjectFilter('All')
     }
-  }, [dynamicTags, projectFilter])
+  }, [dynamicTags, projectFilter, setProjectFilter])
 
-  const [showAllProjects, setShowAllProjects] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('hero')
   const { mouse, smoothMouse, isHovering, isVisible, handleHover, handleLeave } = useCursor()
-
-  const [formStatus, setFormStatus] = useState(null) // 'success' | 'error'
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [themeWave, setThemeWave] = useState({ x: 0, y: 0, active: false, targetTheme: 'dark' })
-  const [activePdfUrl, setActivePdfUrl] = useState(null)
-  const [activePdfTitle, setActivePdfTitle] = useState('')
-
-  const [gitStats, setGitStats] = useState({})
 
   useEffect(() => {
     const repos = {
@@ -159,25 +178,11 @@ function App() {
     }
 
     fetchStats()
-  }, [lang])
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('theme', theme)
-  }, [theme])
-
-  useEffect(() => {
-    localStorage.setItem('lang', lang)
-  }, [lang])
+  }, [lang, setGitStats])
 
   useEffect(() => {
     document.documentElement.lang = lang
-    const title = lang === 'de' ? 'Artjom Becker | Informatik-Portfolio' : 'Artjom Becker | Computer Science Portfolio'
-    const description = lang === 'de' ? 'Informatik-Portfolio von Artjom Becker: Projekte, Case Studies, Teamleitung und Kontakt.' : 'Computer science portfolio by Artjom Becker: projects, case studies, team leadership, and contact.'
-
-    document.title = title
-    const metaDescription = document.querySelector('meta[name="description"]')
-    if (metaDescription) metaDescription.setAttribute('content', description)
+    localStorage.setItem('lang', lang)
   }, [lang])
 
   useEffect(() => {
@@ -195,7 +200,7 @@ function App() {
 
   const handleViewPdf = (url, title) => {
     setActivePdfUrl(url)
-    setActivePdfTitle(title)
+    useStore.getState().setActivePdfTitle(title)
     trackEvent('pdf_view', { url, title })
   }
 
@@ -220,10 +225,10 @@ function App() {
 
   const handleWaveEnd = () => {
     setTheme(themeWave.targetTheme)
-    setThemeWave(prev => ({ ...prev, active: false }))
+    setThemeWave({ ...themeWave, active: false })
   }
 
-  const toggleLang = () => setLang((l) => (l === 'de' ? 'en' : 'de'))
+  const toggleLang = () => i18n.changeLanguage(lang === 'de' ? 'en' : 'de')
 
   useEffect(() => {
     const onScroll = () => {
@@ -257,7 +262,7 @@ function App() {
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [activeProject])
+  }, [activeProject, setActiveProject])
 
   useEffect(() => {
     const onHashChange = () => setIsCvView(window.location.hash === '#cv')
@@ -286,7 +291,7 @@ function App() {
 
     sections.forEach((section) => observer.observe(section))
     return () => observer.disconnect()
-  }, [isCvView])
+  }, [isCvView, setActiveSection])
 
   useEffect(() => {
     const onResize = () => {
@@ -294,7 +299,7 @@ function App() {
     }
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
-  }, [])
+  }, [setMobileMenuOpen])
 
   const [hasPointer, setHasPointer] = useState(false)
   useEffect(() => {
@@ -307,59 +312,13 @@ function App() {
     return () => document.body.classList.remove('custom-cursor')
   }, [])
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setFormStatus(null)
-
-    const formData = new FormData(e.target)
-    const payload = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      message: formData.get('message'),
-    }
-
-    try {
-      const response = await fetch('/api/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      })
-
-      const result = await response.json()
-
-      if (response.ok) {
-        toast.success(lang === 'de' ? 'Nachricht erfolgreich gesendet!' : 'Message sent successfully!')
-        playSuccessSound()
-        e.target.reset()
-        setFormStatus('success')
-      } else {
-        toast.error(result.message || 'Fehler beim Senden.')
-        setFormStatus('error')
-      }
-    } catch (error) {
-      console.error(error)
-      toast.error('Es gab einen Fehler.')
-      setFormStatus('error')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
-  const [isMatrixActive, setIsMatrixActive] = useState(false)
-  const [isFollowActive, setIsFollowActive] = useState(false)
-  const [isShakeActive, setIsShakeActive] = useState(false)
-  const [isDestructionActive, setIsDestructionActive] = useState(false)
-  const [destructionProgress, setDestructionProgress] = useState(0)
-  const [destructionLogs, setDestructionLogs] = useState([])
-
   useEffect(() => {
     if (isKonamiCodeActive) {
       setIsMatrixActive(true)
       sfx.playArcadeSuiteOpen()
-      document.documentElement.setAttribute('data-theme', 'dark')
+      setTheme('dark')
     }
-  }, [isKonamiCodeActive])
+  }, [isKonamiCodeActive, setIsMatrixActive, setTheme])
 
   useEffect(() => {
     if (isShakeActive) {
@@ -462,15 +421,16 @@ function App() {
 
   return (
     <>
+      <SEO 
+        title={lang === 'de' ? 'Artjom Becker | Informatik-Portfolio' : 'Artjom Becker | Computer Science Portfolio'}
+        description={lang === 'de' ? 'Informatik-Portfolio von Artjom Becker: Projekte, Case Studies, Teamleitung und Kontakt.' : 'Computer science portfolio by Artjom Becker: projects, case studies, team leadership, and contact.'}
+      />
       <Toaster position="bottom-right" toastOptions={{ style: { background: 'var(--bg-section)', color: 'var(--text)', border: '1px solid var(--border)', borderRadius: '12px' } }} />
       <motion.div className="scroll-progress-bar" style={{ scaleX: scrollYProgress }} />
       <CommandPalette 
         lang={lang} 
         toggleTheme={toggleTheme} 
-        onViewPdf={(url, title) => {
-          setActivePdfUrl(url)
-          setActivePdfTitle(title)
-        }} 
+        onViewPdf={handleViewPdf} 
       />
       {themeWave.active && (
         <div 
@@ -484,8 +444,8 @@ function App() {
       <Suspense fallback={null}>
         {isMatrixActive && <MatrixRain onClose={() => setIsMatrixActive(false)} />}
         {isFollowActive && <StickFigureFollower onClose={() => setIsFollowActive(false)} />}
-        {isPongActive && <PongEasterEgg lang={lang} onClose={() => setIsPongActive(false)} />}
-        {isMemoryActive && <TechMemoryEasterEgg lang={lang} onClose={() => setIsMemoryActive(false)} />}
+        {isPongActive && <PongEasterEgg lang={lang} onClose={() => useStore.getState().setIsPongActive(false)} />}
+        {isMemoryActive && <TechMemoryEasterEgg lang={lang} onClose={() => useStore.getState().setIsMemoryActive(false)} />}
       </Suspense>
 
       {isDestructionActive && (
@@ -524,16 +484,7 @@ function App() {
       )}
 
       <Suspense fallback={null}>
-        <ProjectModal 
-          activeProject={activeProject} 
-          setActiveProject={setActiveProject} 
-          lang={lang} 
-          gitStats={gitStats} 
-          handleViewPdf={handleViewPdf} 
-          setIsPongActive={setIsPongActive} 
-          setIsMemoryActive={setIsMemoryActive} 
-          setShowOliVideo={setShowOliVideo} 
-        />
+        <ProjectModal />
       </Suspense>
 
       {/* Foreground Easter Egg animations */}
@@ -621,15 +572,15 @@ function App() {
       )}
 
       <nav className={`nav ${navScrolled ? 'nav--scrolled' : ''}`}>
-        <a href="#hero" className="nav-logo" onClick={() => setActiveSection('hero')} aria-label={lang === 'de' ? 'Zur Startseite' : 'Go to homepage'}>
+        <a href="#hero" className="nav-logo" onClick={() => setActiveSection('hero')} aria-label={t('nav.toHome')}>
           <span className="nav-logo-title">Artjom Becker</span>
-          <span className="nav-logo-subtitle">{lang === 'de' ? 'Informatik' : 'Computer Science'}</span>
+          <span className="nav-logo-subtitle">{t('nav.computerScience')}</span>
         </a>
         <button
           type="button"
           className="mobile-menu-toggle"
-          onClick={() => setMobileMenuOpen((open) => !open)}
-          aria-label={lang === 'de' ? 'Menü öffnen' : 'Open menu'}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={t('nav.openMenu')}
           aria-expanded={mobileMenuOpen}
         >
           ☰
@@ -659,7 +610,7 @@ function App() {
               onClick={toggleLang}
               onMouseEnter={handleHover}
               onMouseLeave={handleLeave}
-              aria-label="Sprache wechseln"
+              aria-label={t('nav.changeLang')}
             >
               <SplitFlapText text={lang === 'de' ? 'EN' : 'DE'} />
             </button>
@@ -686,10 +637,9 @@ function App() {
           </Suspense>
         ) : (
           <>
-            <HeroSection lang={lang} theme={theme} mouse={mouse} scrollY={scrollY} />
+            <HeroSection mouse={mouse} scrollY={scrollY} />
 
             <AboutSection 
-              lang={lang} 
               projectTitles={projectTitles} 
               handleHover={handleHover} 
               handleLeave={handleLeave} 
@@ -697,7 +647,6 @@ function App() {
               triggerMatrix={triggerMatrix} 
               triggerDestruction={triggerDestruction} 
               triggerFollow={triggerFollow} 
-              setIsPongActive={setIsPongActive} 
             />
 
             <Suspense fallback={null}>
@@ -722,7 +671,7 @@ function App() {
 
             <section id="timeline" className="section">
               <motion.div className="section-inner" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }}>
-                <h2 className="section-title"><SplitFlapText text={lang === 'de' ? 'Timeline' : 'Timeline'} /></h2>
+                <h2 className="section-title"><SplitFlapText text={t('timeline.title')} /></h2>
                 <div className="timeline">
                   {TIMELINE.map((entry) => (
                     <article key={`${entry.year}-${entry.de}`} className="timeline-item" tabIndex={0}>
@@ -736,7 +685,7 @@ function App() {
 
             <section id="github" className="section">
               <motion.div className="section-inner" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }}>
-                <h2 className="section-title"><SplitFlapText text={lang === 'de' ? 'GitHub Aktivität' : 'GitHub Activity'} /></h2>
+                <h2 className="section-title"><SplitFlapText text={t('github.title')} /></h2>
                 <Suspense fallback={null}>
                   <GitHubActivity lang={lang} theme={theme} />
                 </Suspense>
@@ -744,41 +693,28 @@ function App() {
             </section>
 
             <ProjectsSection 
-              lang={lang} 
-              primaryFilter={primaryFilter} 
-              setPrimaryFilter={setPrimaryFilter} 
-              projectFilter={projectFilter} 
-              setProjectFilter={setProjectFilter} 
               dynamicTags={dynamicTags} 
               visibleProjects={visibleProjects} 
               hasMoreProjects={hasMoreProjects} 
-              showAllProjects={showAllProjects} 
-              setShowAllProjects={setShowAllProjects} 
               filteredProjects={filteredProjects} 
-              gitStats={gitStats} 
               handleCardMouseMove={handleCardMouseMove} 
               handleCardMouseLeave={handleCardMouseLeave} 
               handleHover={handleHover} 
               handleLeave={handleLeave} 
-              setActiveProject={setActiveProject} 
               handleViewPdf={handleViewPdf} 
               trackEvent={trackEvent} 
             />
 
             <Suspense fallback={null}>
-              <TestimonialsSection lang={lang} handleHover={handleHover} handleLeave={handleLeave} />
+              <TestimonialsSection handleHover={handleHover} handleLeave={handleLeave} />
             </Suspense>
 
             <Suspense fallback={null}>
-              <SocialHubSection lang={lang} handleHover={handleHover} handleLeave={handleLeave} />
+              <SocialHubSection handleHover={handleHover} handleLeave={handleLeave} />
             </Suspense>
 
             <Suspense fallback={null}>
               <ContactSection 
-                lang={lang} 
-                formStatus={formStatus} 
-                isSubmitting={isSubmitting} 
-                handleFormSubmit={handleFormSubmit} 
                 handleHover={handleHover} 
                 handleLeave={handleLeave} 
               />
@@ -788,7 +724,7 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>© {new Date().getFullYear()} Artjom Becker. Designed & gebaut mit Liebe zum Detail.</p>
+        <p>{t('footer.copyright', { year: new Date().getFullYear() })}</p>
       </footer>
 
       {!isCvView && (
@@ -799,11 +735,10 @@ function App() {
       
       {activePdfUrl && (
         <Suspense fallback={null}>
-          <PdfViewerModal
-            url={activePdfUrl}
-            title={activePdfTitle}
-            onClose={() => setActivePdfUrl(null)}
-            lang={lang}
+          <PdfViewerModal 
+            pdfUrl={activePdfUrl} 
+            title={activePdfTitle} 
+            onClose={() => setActivePdfUrl(null)} 
           />
         </Suspense>
       )}
