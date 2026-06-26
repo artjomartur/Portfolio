@@ -109,10 +109,11 @@ export default function ProjectModal() {
 
         <motion.div
           key={projectToRender.id}
-          layoutId={`project-container-${projectToRender.id}`}
+          
           className={`project-modal ${projectToRender.id === 'first-aid-simulator' ? 'project-modal--emergency' : ''}`}
           initial={{ opacity: 0, y: 16, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 16, scale: 0.98 }}
           onClick={(e) => e.stopPropagation()}
           role="dialog"
           aria-modal="true"
@@ -158,7 +159,7 @@ export default function ProjectModal() {
           )}
 
           <div className="modal-text-content">
-            <motion.h3 layoutId={`project-title-${projectToRender.id}`} id="modal-title">{projectToRender.title}</motion.h3>
+            <motion.h3  id="modal-title">{projectToRender.title}</motion.h3>
             <p>{projectToRender.short}</p>
 
             <div className="modal-tabs" role="tablist">
