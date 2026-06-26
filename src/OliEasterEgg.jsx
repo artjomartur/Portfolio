@@ -72,7 +72,7 @@ export default function OliEasterEgg({ active }) {
           style={{
             position: 'absolute',
             bottom: '10px',
-            right: '-30px',
+            right: '-40px',
             zIndex: 10,
             pointerEvents: 'none',
             width: '260px',
