@@ -874,7 +874,7 @@
   padding: 18px;
   position: relative;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
 }
 
 .project-modal::-webkit-scrollbar {
@@ -886,12 +886,12 @@
 }
 
 .project-modal::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--scrollbar-thumb);
   border-radius: 99px;
 }
 
 .project-modal::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--scrollbar-thumb-hover);
 }
 
 .project-modal--emergency {
@@ -1145,10 +1145,10 @@
 .modal-text-content {
   position: relative;
   z-index: 6;
-  background: rgba(20, 20, 20, 0.72);
+  background: var(--nav-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 18px;
   margin-top: 14px;

@@ -13,6 +13,8 @@
   --nav-bg: rgba(251, 251, 253, 0.72);
   --nav-bg-scrolled: rgba(251, 251, 253, 0.9);
   --spotlight: rgba(0, 113, 227, 0.15);
+  --scrollbar-thumb: rgba(0, 0, 0, 0.15);
+  --scrollbar-thumb-hover: rgba(0, 0, 0, 0.3);
   --font: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', 'Segoe UI', sans-serif;
 }
 
