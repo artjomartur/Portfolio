@@ -4,8 +4,8 @@ export const PROJECTS = [
     title: 'Kinopolis Automation',
     status: 'in-progress',
     short: 'Modernes Dashboard für Echtzeit-Monitoring und operative Automatisierung im Kinobetrieb.',
-    image: '/kinopolis_hero.jpeg',
-    images: ['/kinopolis_hero.jpeg', '/slide_final_1.png', '/slide_final_2.png', '/slide_final_3.png', '/slide_final_4.png', '/slide_final_5.png'],
+    image: '/kinopolis_hero.webp',
+    images: ['/kinopolis_hero.webp', '/slide_final_1.webp', '/slide_final_2.webp', '/slide_final_3.webp', '/slide_final_4.webp', '/slide_final_5.webp'],
     details: {
       role: 'Fullstack Developer & Automation',
       context: 'Operative Unterstützung Kinopolis',
@@ -122,7 +122,7 @@ export const PROJECTS = [
     title: 'SkinStock',
     status: 'in-progress',
     short: 'Interaktiver CS2 Skin-Portfolio-Tracker, verpackt als native App via Capacitor.',
-    image: '/skinstock_hero.png',
+    image: '/skinstock_hero.webp',
     details: {
       role: 'Sole Developer / Single-Projekt',
       context: 'Eigenständige Mobil- & Web-App',
