@@ -508,8 +508,12 @@ function App() {
   const [themeWave, setThemeWave] = useState({ x: 0, y: 0, active: false, targetTheme: 'dark' })
   const [activePdfUrl, setActivePdfUrl] = useState(null)
   const [activePdfTitle, setActivePdfTitle] = useState('')
+  const [hasScrolledGallery, setHasScrolledGallery] = useState(false)
 
   const handleGalleryScroll = (e) => {
+    if (e.target.scrollLeft > 10) {
+      setHasScrolledGallery(true);
+    }
     if (activeProject?.id !== 'kinopolis-automation') return;
     const { scrollLeft, scrollWidth, clientWidth } = e.target;
     if (scrollLeft + clientWidth >= scrollWidth - 20) {
@@ -518,6 +522,9 @@ function App() {
   };
 
   useEffect(() => {
+    if (activeProject) {
+      setHasScrolledGallery(false);
+    }
     if (!activeProject || activeProject.id !== 'kinopolis-automation') {
       setShowOliVideo(false);
     }
@@ -1029,10 +1036,17 @@ function App() {
               </button>
             </div>
             {activeProject.images ? (
-              <div className="modal-image-gallery" onScroll={handleGalleryScroll}>
-                {activeProject.images.map((img, idx) => (
-                  <img key={idx} src={img} alt={`${activeProject.title} ${idx + 1}`} className="modal-image" loading="lazy" />
-                ))}
+              <div style={{ position: 'relative' }}>
+                <div className="modal-image-gallery" onScroll={handleGalleryScroll}>
+                  {activeProject.images.map((img, idx) => (
+                    <img key={idx} src={img} alt={`${activeProject.title} ${idx + 1}`} className="modal-image" loading="lazy" />
+                  ))}
+                </div>
+                {!hasScrolledGallery && activeProject.images.length > 1 && (
+                  <div className="gallery-scroll-hint">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  </div>
+                )}
               </div>
             ) : (
               <img src={activeProject.image} alt={activeProject.title} className="modal-image" loading="lazy" />
