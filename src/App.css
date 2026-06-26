@@ -207,10 +207,10 @@
 }
 
 .git-graph-overlay {
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 8;
+  z-index: 9999;
   overflow: hidden;
   border-radius: 16px;
 }
@@ -1720,10 +1720,10 @@
 
 /* Osu Easter Egg */
 .osu-container {
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 8;
+  z-index: 9999;
   overflow: hidden;
   border-radius: 16px;
 }
@@ -1863,10 +1863,10 @@
 
 /* Popcorn Easter Egg */
 .popcorn-container {
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 8;
+  z-index: 9999;
   overflow: hidden;
   border-radius: 16px;
 }
@@ -2350,11 +2350,11 @@
 }
 
 .arcade-retro-screen {
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
   overflow: hidden;
-  z-index: 8;
+  z-index: 9999;
   border-radius: 15px;
 }
 
@@ -2860,9 +2860,9 @@
 
 /* ATOSS Calendar Sync Overlay */
 .atoss-sync-overlay {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: 9999;
   background: rgba(8, 10, 16, 0.65);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -3983,9 +3983,9 @@
 
 /* CS2 Smoke Grenade Overlay Animation */
 .smoke-grenade-overlay {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: 9999;
   pointer-events: none;
   border-radius: 16px;
   overflow: hidden;
