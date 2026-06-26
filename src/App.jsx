@@ -483,13 +483,9 @@ function App() {
         </div>
       )}
 
-      <AnimatePresence>
-        {activeProject && (
-          <Suspense fallback={null}>
-            <ProjectModal />
-          </Suspense>
-        )}
-      </AnimatePresence>
+      <Suspense fallback={null}>
+        <ProjectModal />
+      </Suspense>
 
       {/* Foreground Easter Egg animations */}
       {activeProject?.id === 'atoss-sync' && (

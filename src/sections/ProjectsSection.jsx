@@ -87,6 +87,7 @@ export default function ProjectsSection({
           {visibleProjects.map((project, i) => (
             <motion.article 
               key={project.id} 
+              layoutId={`project-container-${project.id}`} 
               layoutId={`project-container-${project.id}`}
               className="project" 
               style={{ cursor: 'pointer' }}

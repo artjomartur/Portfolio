@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Suspense } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useStore } from '../store/useStore';
 import { sfx } from '../sfx';
@@ -85,7 +85,9 @@ export default function ProjectModal() {
         image={projectToRender.image}
         url={`https://artjombecker.com/?project=${projectToRender.id}`}
       />
-      <motion.div className="modal-backdrop" onClick={() => setActiveProject(null)} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+      <AnimatePresence>
+        {activeProject && (
+          <motion.div className="modal-backdrop" onClick={() => setActiveProject(null)} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         <button
           type="button"
           className="modal-nav-arrow modal-nav-arrow--prev"
@@ -457,6 +459,8 @@ export default function ProjectModal() {
           </svg>
         </button>
       </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
