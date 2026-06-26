@@ -71,8 +71,8 @@ export default function OliEasterEgg({ active }) {
           transition={{ type: 'spring', damping: 20, stiffness: 100 }}
           style={{
             position: 'absolute',
-            bottom: '0px',
-            right: '0px',
+            bottom: '10px',
+            right: '-30px',
             zIndex: 10,
             pointerEvents: 'none',
             width: '260px',
