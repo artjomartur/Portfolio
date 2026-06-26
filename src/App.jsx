@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, Suspense } from 'react'
-import { motion, useScroll } from 'framer-motion'
+import { motion, useScroll, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { useStore } from './store/useStore'
 import { sfx } from './sfx'
@@ -483,9 +483,11 @@ function App() {
         </div>
       )}
 
-      <Suspense fallback={null}>
-        <ProjectModal />
-      </Suspense>
+      <AnimatePresence>
+        <Suspense fallback={null}>
+          <ProjectModal />
+        </Suspense>
+      </AnimatePresence>
 
       {/* Foreground Easter Egg animations */}
       {activeProject?.id === 'atoss-sync' && (

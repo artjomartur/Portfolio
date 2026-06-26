@@ -15,10 +15,16 @@ export default function ProjectModal() {
 
   const activeProject = useStore((state) => state.activeProject);
   const setActiveProject = useStore((state) => state.setActiveProject);
-  const gitStats = useStore((state) => state.gitStats);
   const setIsPongActive = useStore((state) => state.setIsPongActive);
   const setIsMemoryActive = useStore((state) => state.setIsMemoryActive);
   const setShowOliVideo = useStore((state) => state.setShowOliVideo);
+
+  const previousProject = React.useRef(activeProject);
+  React.useEffect(() => {
+    if (activeProject) previousProject.current = activeProject;
+  }, [activeProject]);
+  
+  const projectToRender = activeProject || previousProject.current;
 
   const [activeModalTab, setActiveModalTab] = useState('overview');
   const [shareCopied, setShareCopied] = useState(false);
@@ -28,20 +34,20 @@ export default function ProjectModal() {
 
   useEffect(() => {
     setActiveModalTab('overview');
-    if (activeProject) {
-      sfx.playProjectOpen(activeProject.id);
+    if (projectToRender) {
+      sfx.playProjectOpen(projectToRender.id);
       setHasScrolledGallery(false);
     } else {
       setShowCaseOpener(false);
       setShowSkinStockApp(false);
     }
-  }, [activeProject]);
+  }, [projectToRender?.id]);
 
   useEffect(() => {
-    if (!activeProject || activeProject.id !== 'kinopolis-automation') {
+    if (!activeProject || projectToRender.id !== 'kinopolis-automation') {
       setShowOliVideo(false);
     }
-  }, [activeProject, setShowOliVideo]);
+  }, [projectToRender, setShowOliVideo]);
 
   const handleGalleryScroll = (e) => {
     if (e.target.scrollLeft > 10) {
@@ -58,7 +64,7 @@ export default function ProjectModal() {
     e.stopPropagation();
     if (!activeProject) return;
     const url = new URL(window.location.href);
-    url.searchParams.set('project', activeProject.id);
+    url.searchParams.set('project', projectToRender.id);
     navigator.clipboard.writeText(url.toString()).then(() => {
       setShareCopied(true);
       setTimeout(() => setShareCopied(false), 2000);
@@ -70,23 +76,29 @@ export default function ProjectModal() {
     useStore.getState().setActivePdfTitle(title);
   };
 
-  if (!activeProject) return null;
+  if (!projectToRender) return null;
 
   return (
     <>
       <SEO 
-        title={`${activeProject.title} | Artjom Becker`}
-        description={activeProject.short}
-        image={activeProject.image}
-        url={`https://artjombecker.com/?project=${activeProject.id}`}
+        title={`${projectToRender.title} | Artjom Becker`}
+        description={projectToRender.short}
+        image={projectToRender.image}
+        url={`https://artjombecker.com/?project=${projectToRender.id}`}
       />
-      <div className="modal-backdrop" onClick={() => setActiveProject(null)}>
+      <motion.div 
+        className="modal-backdrop" 
+        onClick={() => setActiveProject(null)}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
         <button
           type="button"
           className="modal-nav-arrow modal-nav-arrow--prev"
           onClick={(e) => {
             e.stopPropagation();
-            const currentIndex = ITEMS.findIndex((item) => item.id === activeProject.id);
+            const currentIndex = ITEMS.findIndex((item) => item.id === projectToRender.id);
             if (currentIndex !== -1) {
               const prevIndex = (currentIndex - 1 + ITEMS.length) % ITEMS.length;
               setActiveProject(ITEMS[prevIndex]);
@@ -101,19 +113,19 @@ export default function ProjectModal() {
         </button>
 
         <motion.div
-          key={activeProject.id}
-          layoutId={`project-container-${activeProject.id}`}
-          className={`project-modal ${activeProject.id === 'first-aid-simulator' ? 'project-modal--emergency' : ''}`}
+          key={projectToRender.id}
+          className={`project-modal ${projectToRender.id === 'first-aid-simulator' ? 'project-modal--emergency' : ''}`}
           initial={{ opacity: 0, y: 16, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 16, scale: 0.98 }}
           onClick={(e) => e.stopPropagation()}
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-title"
         >
-          {activeProject.id === 'first-aid-simulator' && <div className="emergency-glow" />}
-          {activeProject.id === 'portfolio' && <div className="git-graph-bg" />}
-          {activeProject.id === 'arcadesuite' && <div className="arcade-retro-bg" />}
+          {projectToRender.id === 'first-aid-simulator' && <div className="emergency-glow" />}
+          {projectToRender.id === 'portfolio' && <div className="git-graph-bg" />}
+          {projectToRender.id === 'arcadesuite' && <div className="arcade-retro-bg" />}
 
           <div className="modal-actions">
             <button
@@ -133,26 +145,26 @@ export default function ProjectModal() {
             </button>
           </div>
 
-          {activeProject.images ? (
+          {projectToRender.images ? (
             <div style={{ position: 'relative' }}>
               <div className="modal-image-gallery" onScroll={handleGalleryScroll}>
-                {activeProject.images.map((img, idx) => (
-                  <img key={idx} src={img} alt={`${activeProject.title} ${idx + 1}`} className="modal-image" loading="lazy" />
+                {projectToRender.images.map((img, idx) => (
+                  <img key={idx} src={img} alt={`${projectToRender.title} ${idx + 1}`} className="modal-image" loading="lazy" />
                 ))}
               </div>
-              {!hasScrolledGallery && activeProject.images.length > 1 && (
+              {!hasScrolledGallery && projectToRender.images.length > 1 && (
                 <div className="gallery-scroll-hint" aria-hidden="true">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </div>
               )}
             </div>
           ) : (
-            <img src={activeProject.image} alt={activeProject.title} className="modal-image" loading="lazy" />
+            <img src={projectToRender.image} alt={projectToRender.title} className="modal-image" loading="lazy" />
           )}
 
           <div className="modal-text-content">
-            <motion.h3 layoutId={`project-title-${activeProject.id}`} id="modal-title">{activeProject.title}</motion.h3>
-            <p>{activeProject.short}</p>
+            <motion.h3 id="modal-title">{projectToRender.title}</motion.h3>
+            <p>{projectToRender.short}</p>
 
             <div className="modal-tabs" role="tablist">
               <button
@@ -189,20 +201,20 @@ export default function ProjectModal() {
                   animate={{ opacity: 1, y: 0 }}
                   role="tabpanel"
                 >
-                  <li><strong>{lang === 'de' ? 'Rolle' : 'Role'}:</strong> {activeProject.details.role}</li>
-                  <li><strong>{lang === 'de' ? 'Kontext' : 'Context'}:</strong> {activeProject.details.context}</li>
-                  <li><strong>Impact:</strong> {activeProject.details.impact}</li>
-                  <li><strong>Tech:</strong> {activeProject.details.tech}</li>
+                  <li><strong>{lang === 'de' ? 'Rolle' : 'Role'}:</strong> {projectToRender.details.role}</li>
+                  <li><strong>{lang === 'de' ? 'Kontext' : 'Context'}:</strong> {projectToRender.details.context}</li>
+                  <li><strong>Impact:</strong> {projectToRender.details.impact}</li>
+                  <li><strong>Tech:</strong> {projectToRender.details.tech}</li>
                   <li>
                     <strong>{lang === 'de' ? 'Sprache(n)' : 'Language(s)'}:</strong>{' '}
-                    {activeProject.details.languages?.join(', ')}
+                    {projectToRender.details.languages?.join(', ')}
                   </li>
-                  {gitStats[activeProject.id] && (
+                  {gitStats[projectToRender.id] && (
                     <li>
                       <strong>GitHub:</strong>{' '}
-                      <span className="github-badge" aria-label={`GitHub Stars: ${gitStats[activeProject.id].stars}`}>⭐ {gitStats[activeProject.id].stars} Stars</span>
+                      <span className="github-badge" aria-label={`GitHub Stars: ${gitStats[projectToRender.id].stars}`}>⭐ {gitStats[projectToRender.id].stars} Stars</span>
                       {' · '}
-                      <span>{lang === 'de' ? 'Aktiv am' : 'Active on'} {gitStats[activeProject.id].updatedAt}</span>
+                      <span>{lang === 'de' ? 'Aktiv am' : 'Active on'} {gitStats[projectToRender.id].updatedAt}</span>
                     </li>
                   )}
                 </motion.ul>
@@ -216,9 +228,9 @@ export default function ProjectModal() {
                   role="tabpanel"
                 >
                   <h4>{lang === 'de' ? 'Herausforderung' : 'The Challenge'}</h4>
-                  <p>{activeProject.details.challenge}</p>
+                  <p>{projectToRender.details.challenge}</p>
                   <h4 style={{ marginTop: '16px' }}>{lang === 'de' ? 'Lösungsweg' : 'Our Solution'}</h4>
-                  <p>{activeProject.details.solution}</p>
+                  <p>{projectToRender.details.solution}</p>
                 </motion.div>
               )}
 
@@ -230,11 +242,11 @@ export default function ProjectModal() {
                   role="tabpanel"
                 >
                   <h4>{lang === 'de' ? 'Ergebnis & Impact' : 'Result & Impact'}</h4>
-                  <p>{activeProject.details.result}</p>
+                  <p>{projectToRender.details.result}</p>
 
                   <div className="modal-links-group" style={{ marginTop: '24px', display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-                    {activeProject.type === 'seminar' && activeProject.details.link && (
-                      (activeProject.details.link.endsWith('.pdf') || activeProject.details.link.endsWith('.pptx')) ? (
+                    {projectToRender.type === 'seminar' && projectToRender.details.link && (
+                      (projectToRender.details.link.endsWith('.pdf') || projectToRender.details.link.endsWith('.pptx')) ? (
                         <button
                           type="button"
                           className="link link-button"
@@ -244,13 +256,13 @@ export default function ProjectModal() {
                             padding: '6px 14px', borderRadius: '8px', fontSize: '13px', fontWeight: '600',
                             textDecoration: 'none', transition: 'all 0.2s', cursor: 'pointer'
                           }}
-                          onClick={() => handleViewPdf(activeProject.details.link, lang === 'de' ? `Seminararbeit - ${activeProject.title}` : `Seminar Paper - ${activeProject.title}`)}
+                          onClick={() => handleViewPdf(projectToRender.details.link, lang === 'de' ? `Seminararbeit - ${projectToRender.title}` : `Seminar Paper - ${projectToRender.title}`)}
                         >
                           📄 {t('modal.viewPaper')}
                         </button>
                       ) : (
                         <a
-                          href={activeProject.details.link}
+                          href={projectToRender.details.link}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="link link-button"
@@ -266,9 +278,9 @@ export default function ProjectModal() {
                       )
                     )}
 
-                    {activeProject.type === 'project' && activeProject.details.link && activeProject.details.link.startsWith('http') && (
+                    {projectToRender.type === 'project' && projectToRender.details.link && projectToRender.details.link.startsWith('http') && (
                       <a
-                        href={activeProject.details.link}
+                        href={projectToRender.details.link}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="link link-button"
@@ -279,7 +291,7 @@ export default function ProjectModal() {
                           textDecoration: 'none', transition: 'all 0.2s'
                         }}
                       >
-                        {activeProject.details.link.includes('github.com') ? (
+                        {projectToRender.details.link.includes('github.com') ? (
                           <>💻 {t('modal.viewRepo')}</>
                         ) : (
                           <>🌐 {t('modal.viewLive')}</>
@@ -287,7 +299,7 @@ export default function ProjectModal() {
                       </a>
                     )}
 
-                    {activeProject.details.pdf && (
+                    {projectToRender.details.pdf && (
                       <button
                         type="button"
                         className="link link-button"
@@ -297,14 +309,14 @@ export default function ProjectModal() {
                           padding: '6px 14px', borderRadius: '8px', fontSize: '13px', fontWeight: '600',
                           textDecoration: 'none', transition: 'all 0.2s', cursor: 'pointer'
                         }}
-                        onClick={() => handleViewPdf(activeProject.details.pdf, lang === 'de' ? `Dokumentation - ${activeProject.title}` : `Documentation - ${activeProject.title}`)}
+                        onClick={() => handleViewPdf(projectToRender.details.pdf, lang === 'de' ? `Dokumentation - ${projectToRender.title}` : `Documentation - ${projectToRender.title}`)}
                       >
                         📚 {t('modal.viewDocs')}
                       </button>
                     )}
 
-                    {activeProject.details.slides && (
-                      (activeProject.details.slides.endsWith('.pdf') || activeProject.details.slides.endsWith('.pptx')) ? (
+                    {projectToRender.details.slides && (
+                      (projectToRender.details.slides.endsWith('.pdf') || projectToRender.details.slides.endsWith('.pptx')) ? (
                         <button
                           type="button"
                           className="link link-button"
@@ -314,13 +326,13 @@ export default function ProjectModal() {
                             padding: '6px 14px', borderRadius: '8px', fontSize: '13px', fontWeight: '600',
                             textDecoration: 'none', transition: 'all 0.2s', cursor: 'pointer'
                           }}
-                          onClick={() => handleViewPdf(activeProject.details.slides, lang === 'de' ? `Präsentationsfolien - ${activeProject.title}` : `Presentation Slides - ${activeProject.title}`)}
+                          onClick={() => handleViewPdf(projectToRender.details.slides, lang === 'de' ? `Präsentationsfolien - ${projectToRender.title}` : `Presentation Slides - ${projectToRender.title}`)}
                         >
                           📊 {lang === 'de' ? 'Folien anzeigen ↗' : 'View Slides ↗'}
                         </button>
                       ) : (
                         <a
-                          href={activeProject.details.slides}
+                          href={projectToRender.details.slides}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="link link-button"
@@ -336,9 +348,9 @@ export default function ProjectModal() {
                       )
                     )}
 
-                    {activeProject.details.trailer && (
+                    {projectToRender.details.trailer && (
                       <a
-                        href={activeProject.details.trailer}
+                        href={projectToRender.details.trailer}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="link link-button"
@@ -353,7 +365,7 @@ export default function ProjectModal() {
                       </a>
                     )}
 
-                    {activeProject.details.hasEasterEgg && (
+                    {projectToRender.details.hasEasterEgg && (
                       <button
                         className="link link-button"
                         style={{
@@ -371,7 +383,7 @@ export default function ProjectModal() {
                       </button>
                     )}
 
-                    {activeProject.id === 'portfolio' && (
+                    {projectToRender.id === 'portfolio' && (
                       <button
                         className="link link-button"
                         style={{
@@ -390,7 +402,7 @@ export default function ProjectModal() {
                     )}
                   </div>
 
-                  {activeProject.id === 'skinstock' && (
+                  {projectToRender.id === 'skinstock' && (
                     showCaseOpener || showSkinStockApp ? (
                       <div>
                         <button
@@ -438,7 +450,7 @@ export default function ProjectModal() {
           className="modal-nav-arrow modal-nav-arrow--next"
           onClick={(e) => {
             e.stopPropagation();
-            const currentIndex = ITEMS.findIndex((item) => item.id === activeProject.id);
+            const currentIndex = ITEMS.findIndex((item) => item.id === projectToRender.id);
             if (currentIndex !== -1) {
               const nextIndex = (currentIndex + 1) % ITEMS.length;
               setActiveProject(ITEMS[nextIndex]);
@@ -451,7 +463,7 @@ export default function ProjectModal() {
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
         </button>
-      </div>
+      </motion.div>
     </>
   );
 }
