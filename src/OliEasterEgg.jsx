@@ -70,10 +70,10 @@ export default function OliEasterEgg({ active }) {
           exit={{ x: '50%', opacity: 0 }}
           transition={{ type: 'spring', damping: 20, stiffness: 100 }}
           style={{
-            position: 'fixed',
-            top: '150px',
-            right: '-23px',
-            zIndex: 9999,
+            position: 'absolute',
+            bottom: '0px',
+            right: '0px',
+            zIndex: 10,
             pointerEvents: 'none',
             width: '260px',
             filter: 'drop-shadow(-5px 10px 15px rgba(0,0,0,0.5))'

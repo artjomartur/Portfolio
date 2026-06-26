@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useStore } from '../store/useStore';
 import { sfx } from '../sfx';
+
+const OliEasterEgg = React.lazy(() => import('../OliEasterEgg'));
 import { ITEMS } from '../data/constants';
 import SEO from './SEO';
 
@@ -23,6 +25,7 @@ export default function ProjectModal() {
   const gitStats = useStore((state) => state.gitStats);
   const setIsPongActive = useStore((state) => state.setIsPongActive);
   const setIsMemoryActive = useStore((state) => state.setIsMemoryActive);
+  const showOliVideo = useStore((state) => state.showOliVideo);
   const setShowOliVideo = useStore((state) => state.setShowOliVideo);
 
   const [activeModalTab, setActiveModalTab] = useState('overview');
@@ -153,6 +156,7 @@ export default function ProjectModal() {
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </div>
               )}
+              <Suspense fallback={null}><OliEasterEgg active={showOliVideo} /></Suspense>
             </div>
           ) : (
             <img src={projectToRender.image} alt={projectToRender.title} className="modal-image" loading="lazy" />

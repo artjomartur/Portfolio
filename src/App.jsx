@@ -39,7 +39,7 @@ const PopcornEasterEgg = React.lazy(() => import('./PopcornEasterEgg'))
 const TechMemoryEasterEgg = React.lazy(() => import('./TechMemoryEasterEgg'))
 const ArcadeRainEasterEgg = React.lazy(() => import('./ArcadeRainEasterEgg'))
 const AtossSyncAnimation = React.lazy(() => import('./components/AtossSyncAnimation'))
-const OliEasterEgg = React.lazy(() => import('./OliEasterEgg'))
+
 const StickFigureFollower = React.lazy(() => import('./StickFigureFollower'))
 const MatrixRain = React.lazy(() => import('./components/MatrixRain').catch(() => {
   return { default: () => null } // Stub if MatrixRain doesn't exist
@@ -493,7 +493,7 @@ function App() {
           <Suspense fallback={null}><AtossSyncAnimation lang={lang} /></Suspense>
         </div>
       )}
-      <Suspense fallback={null}><OliEasterEgg active={showOliVideo} /></Suspense>
+
       {activeProject?.id === 'exercube' && showGame && (
         <Suspense fallback={null}><OsuEasterEgg onClose={() => setShowGame(false)} /></Suspense>
       )}
