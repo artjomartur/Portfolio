@@ -14,17 +14,16 @@ export default function ProjectModal() {
   const lang = i18n.language;
 
   const activeProject = useStore((state) => state.activeProject);
-  const setActiveProject = useStore((state) => state.setActiveProject);
-  const setIsPongActive = useStore((state) => state.setIsPongActive);
-  const setIsMemoryActive = useStore((state) => state.setIsMemoryActive);
-  const setShowOliVideo = useStore((state) => state.setShowOliVideo);
-
   const previousProject = React.useRef(activeProject);
   React.useEffect(() => {
     if (activeProject) previousProject.current = activeProject;
   }, [activeProject]);
-  
   const projectToRender = activeProject || previousProject.current;
+  const setActiveProject = useStore((state) => state.setActiveProject);
+  const gitStats = useStore((state) => state.gitStats);
+  const setIsPongActive = useStore((state) => state.setIsPongActive);
+  const setIsMemoryActive = useStore((state) => state.setIsMemoryActive);
+  const setShowOliVideo = useStore((state) => state.setShowOliVideo);
 
   const [activeModalTab, setActiveModalTab] = useState('overview');
   const [shareCopied, setShareCopied] = useState(false);
@@ -41,10 +40,10 @@ export default function ProjectModal() {
       setShowCaseOpener(false);
       setShowSkinStockApp(false);
     }
-  }, [projectToRender?.id]);
+  }, [projectToRender]);
 
   useEffect(() => {
-    if (!activeProject || projectToRender.id !== 'kinopolis-automation') {
+    if (!projectToRender || projectToRender.id !== 'kinopolis-automation') {
       setShowOliVideo(false);
     }
   }, [projectToRender, setShowOliVideo]);
@@ -53,7 +52,7 @@ export default function ProjectModal() {
     if (e.target.scrollLeft > 10) {
       setHasScrolledGallery(true);
     }
-    if (activeProject?.id !== 'kinopolis-automation') return;
+    if (projectToRender?.id !== 'kinopolis-automation') return;
     const { scrollLeft, scrollWidth, clientWidth } = e.target;
     if (scrollLeft + clientWidth >= scrollWidth - 20) {
       setShowOliVideo(true);
@@ -62,7 +61,7 @@ export default function ProjectModal() {
 
   const handleShareProject = (e) => {
     e.stopPropagation();
-    if (!activeProject) return;
+    if (!projectToRender) return;
     const url = new URL(window.location.href);
     url.searchParams.set('project', projectToRender.id);
     navigator.clipboard.writeText(url.toString()).then(() => {
@@ -86,13 +85,7 @@ export default function ProjectModal() {
         image={projectToRender.image}
         url={`https://artjombecker.com/?project=${projectToRender.id}`}
       />
-      <motion.div 
-        className="modal-backdrop" 
-        onClick={() => setActiveProject(null)}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
+      <motion.div className="modal-backdrop" onClick={() => setActiveProject(null)} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         <button
           type="button"
           className="modal-nav-arrow modal-nav-arrow--prev"
@@ -114,10 +107,10 @@ export default function ProjectModal() {
 
         <motion.div
           key={projectToRender.id}
+          layoutId={`project-container-${projectToRender.id}`}
           className={`project-modal ${projectToRender.id === 'first-aid-simulator' ? 'project-modal--emergency' : ''}`}
           initial={{ opacity: 0, y: 16, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 16, scale: 0.98 }}
           onClick={(e) => e.stopPropagation()}
           role="dialog"
           aria-modal="true"
@@ -163,7 +156,7 @@ export default function ProjectModal() {
           )}
 
           <div className="modal-text-content">
-            <motion.h3 id="modal-title">{projectToRender.title}</motion.h3>
+            <motion.h3 layoutId={`project-title-${projectToRender.id}`} id="modal-title">{projectToRender.title}</motion.h3>
             <p>{projectToRender.short}</p>
 
             <div className="modal-tabs" role="tablist">

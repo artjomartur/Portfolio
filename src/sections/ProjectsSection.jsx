@@ -87,6 +87,7 @@ export default function ProjectsSection({
           {visibleProjects.map((project, i) => (
             <motion.article 
               key={project.id} 
+              layoutId={`project-container-${project.id}`}
               className="project" 
               style={{ cursor: 'pointer' }}
               onMouseMove={handleCardMouseMove} 
@@ -120,7 +121,7 @@ export default function ProjectsSection({
                     </div>
                   )}
                 </div>
-                <motion.h3 className="project-title">{project.title}</motion.h3>
+                <motion.h3 layoutId={`project-title-${project.id}`} className="project-title">{project.title}</motion.h3>
                 <p className="project-desc">{project.short}</p>
                 <div className="project-actions">
                   <button 
