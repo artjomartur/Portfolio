@@ -97,6 +97,14 @@ const SKILLS = [
     level: 85,
     projectIds: ['social-psychology', 'serious-games', 'first-aid-simulator', 'exercube', 'datenschutz'],
     color: '#d83b01'
+  },
+  {
+    id: 'firebase',
+    name: 'Firebase',
+    category: 'backend',
+    level: 80,
+    projectIds: ['skinstock'],
+    color: '#ffca28'
   }
 ]
 
