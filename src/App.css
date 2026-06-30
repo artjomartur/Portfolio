@@ -4170,6 +4170,10 @@
   flex-shrink: 0;
 }
 
+.tech-marquee-icon.invert-icon {
+  filter: brightness(0) invert(1);
+}
+
 @keyframes tech-marquee-scroll {
   from { transform: translateX(0); }
   to { transform: translateX(calc(-100% / 3)); }

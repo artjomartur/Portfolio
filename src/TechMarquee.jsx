@@ -9,7 +9,7 @@ const TECH_LOGOS = [
   { name: 'TypeScript', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
   { name: 'JavaScript', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
   { name: 'PostgreSQL', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
-  { name: 'Framer Motion', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg' },
+  { name: 'Framer Motion', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg', invert: true },
   { name: 'LaTeX', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/latex/latex-original.svg', invert: true },
   { name: 'AppleScript', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apple/apple-original.svg', invert: true },
   { name: 'Git', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
@@ -30,9 +30,8 @@ export default function TechMarquee() {
               <img 
                 src={logo.src} 
                 alt={logo.name} 
-                className="tech-marquee-icon" 
+                className={`tech-marquee-icon ${logo.invert ? 'invert-icon' : ''}`}
                 loading="lazy" 
-                style={logo.invert ? { filter: 'brightness(0) invert(1)' } : undefined}
               />
               <span className="tech-marquee-name">{logo.name}</span>
             </div>
