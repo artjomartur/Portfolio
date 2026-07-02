@@ -35,6 +35,14 @@ const SKILLS = [
     color: '#10b981'
   },
   {
+    id: 'swift',
+    name: 'Swift / iOS',
+    category: 'language',
+    level: 80,
+    projectIds: ['skinstock'],
+    color: '#f05138'
+  },
+  {
     id: 'applescript',
     name: 'AppleScript',
     category: 'language',
