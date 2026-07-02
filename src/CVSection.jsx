@@ -155,7 +155,7 @@ const skills = [
     category: 'Technische Fähigkeiten',
     items: [
       'KI & Data Science: Machine Learning (Stable-Baselines3), Reinforcement Learning, Datenanalyse, Datenaufbereitung.',
-      'Programmierung & Tools: Python, Git, LaTeX, grundlegende Kenntnisse in Softwarearchitektur.',
+      'Programmierung & Tools: Swift, Python, Git, LaTeX, grundlegende Kenntnisse in Softwarearchitektur.',
       'Microsoft-Ökosystem: MS 365 (Expertise in PowerPoint, Excel für Datenanalyse, Teams, SharePoint).',
     ],
   },
