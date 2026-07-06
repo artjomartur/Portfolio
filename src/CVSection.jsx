@@ -109,6 +109,17 @@ const projects = [
       'Kalender-Management: Dynamische Bereinigung veralteter Schichtzeiträume und konfliktfreie Eintragung neuer Termine via AppleScript-Schnittstelle.',
     ],
   },
+  {
+    title: 'SkinStock CS2 Portfolio Tracker',
+    context: 'Eigenständiges Projekt • 2026',
+    role: 'Einzelprojekt • Swift, React, Capacitor, Firebase',
+    link: 'https://skinstock.artjombecker.com',
+    points: [
+      'Entwicklung einer plattformübergreifenden Web- und mobilen Applikation zur Echtzeit-Portfolio- und Preisüberwachung für CS2-Skins.',
+      'Native iOS-Integration: Einbindung nativer Systemkomponenten mit Capacitor und benutzerdefinierten Swift-Brücken für optimale Performance.',
+      'Fintech-Visualisierung: Hochperformante Echtzeit-Charts unter Verwendung von TradingView Lightweight Charts zur Darstellung historischer Preisdaten.',
+    ],
+  },
 ]
 
 const education = [
@@ -155,7 +166,7 @@ const skills = [
     category: 'Technische Fähigkeiten',
     items: [
       'KI & Data Science: Machine Learning (Stable-Baselines3), Reinforcement Learning, Datenanalyse, Datenaufbereitung.',
-      'Programmierung & Tools: Swift, Python, Git, LaTeX, grundlegende Kenntnisse in Softwarearchitektur.',
+      'Programmierung & Web: JavaScript, React, Node.js, Swift, Python, Git, LaTeX, Softwarearchitektur.',
       'Microsoft-Ökosystem: MS 365 (Expertise in PowerPoint, Excel für Datenanalyse, Teams, SharePoint).',
     ],
   },
