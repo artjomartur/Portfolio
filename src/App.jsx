@@ -736,7 +736,7 @@ function App() {
       {activePdfUrl && (
         <Suspense fallback={null}>
           <PdfViewerModal 
-            pdfUrl={activePdfUrl} 
+            url={activePdfUrl} 
             title={activePdfTitle} 
             onClose={() => setActivePdfUrl(null)} 
           />
