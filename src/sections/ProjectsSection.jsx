@@ -112,9 +112,11 @@ export default function ProjectsSection({
               <div className="project-content">
                 <div className="project-header-badges" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '8px' }}>
                   <span className={`type-badge type-badge--${project.type}`}>
-                    {project.type === 'seminar'
-                      ? t('projects.typeSeminar')
-                      : t('projects.typeProject')}
+                    {project.customType
+                      ? (t('projects.filterAll') === 'All' && project.customTypeEn ? project.customTypeEn : project.customType)
+                      : (project.type === 'seminar'
+                        ? t('projects.typeSeminar')
+                        : t('projects.typeProject'))}
                   </span>
                   {project.status === 'in-progress' && (
                     <div className="status-badge" style={{ marginBottom: 0 }}>

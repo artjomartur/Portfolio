@@ -1,5 +1,25 @@
 export const PROJECTS = [
   {
+    id: 'teamleitung-praktikum',
+    title: 'Teamleitung',
+    customType: 'Führung',
+    customTypeEn: 'Leadership',
+    status: 'completed',
+    short: 'Führung, Workshops und Mentoring für drei studentische Entwicklungsteams im Bachelor-Praktikum.',
+    image: '/team_leadership.png',
+    details: {
+      role: 'Team Lead & Mentor',
+      context: 'Bachelor-Praktikum, TU Darmstadt',
+      impact: 'Erfolgreiche Koordination von 3 Teams zu Bestnoten',
+      tech: 'Führung, Workshops, Mentoring, Agile',
+      languages: ['Deutsch'],
+      challenge: 'Drei Teams parallel bei Softwareprojekten koordinieren, fachlich anleiten und motivieren.',
+      solution: 'Regelmäßige Präsentationen gehalten, technische und methodische Workshops gegeben und die Teams engmaschig an die Hand genommen.',
+      result: 'Alle Teams haben sehr erfolgreiche Projekte abgeliefert.',
+      tags: ['Leadership', 'Mentoring', 'Management', 'Agile'],
+    },
+  },
+  {
     id: 'kinopolis-automation',
     title: 'Kinopolis Automation',
     status: 'in-progress',
@@ -211,7 +231,7 @@ export const ITEMS = [
 export const TIMELINE = [
   { year: '2026', de: 'Bereit fuer den naechsten Impact - gerne mit Ihrem Unternehmen.', en: 'Ready for the next impact - ideally with your company.' },
   { year: '2026', de: 'Kinopolis Dashboard - Operative Automatisierung (Live)', en: 'Kinopolis Dashboard - Operational Automation (Live)' },
-  { year: '2025', de: 'Teamleitung fuer drei Teams im Bachelor-Praktikum', en: 'Led three teams in a bachelor internship' },
+  { year: '2025', de: 'Teamleitung für drei Teams im Bachelor-Praktikum (Workshops, Präsentationen, Mentoring)', en: 'Led three teams in a bachelor internship (Workshops, Presentations, Mentoring)' },
   { year: '2025', de: 'ExerCube Gruppenprojekt mit Note 1,0', en: 'ExerCube group project graded 1.0' },
   { year: '2023', de: 'Start Informatik-Studium an der TU Darmstadt', en: 'Started computer science studies at TU Darmstadt' },
 ]
