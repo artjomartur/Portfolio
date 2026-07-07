@@ -221,8 +221,8 @@ export const THESES = [
 ];
 
 export const ITEMS = [
-  ...PROJECTS.map((p) => ({ ...p, type: 'project' })),
-  ...THESES.map((t) => ({ ...t, type: 'seminar' })),
+  ...PROJECTS.map((p) => ({ ...p, type: p.type || 'project' })),
+  ...THESES.map((t) => ({ ...t, type: t.type || 'seminar' })),
 ].sort((a, b) => {
   const aProgress = a.status === 'in-progress' ? 1 : 0;
   const bProgress = b.status === 'in-progress' ? 1 : 0;
