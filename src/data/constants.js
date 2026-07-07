@@ -13,7 +13,7 @@ export const PROJECTS = [
       context: 'Bachelor-Praktikum, TU Darmstadt',
       impact: 'Erfolgreiche Koordination von 3 Teams zu Bestnoten',
       tech: 'Führung, Workshops, Mentoring, Agile',
-      languages: ['Deutsch'],
+      languages: ['Deutsch', 'Englisch'],
       challenge: 'Drei Teams parallel bei Softwareprojekten koordinieren, fachlich anleiten und motivieren.',
       solution: 'Regelmäßige Präsentationen gehalten, technische und methodische Workshops gegeben und die Teams engmaschig an die Hand genommen.',
       result: 'Alle Teams haben sehr erfolgreiche Projekte abgeliefert.',
