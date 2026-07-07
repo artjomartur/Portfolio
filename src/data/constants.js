@@ -2,11 +2,12 @@ export const PROJECTS = [
   {
     id: 'teamleitung-praktikum',
     title: 'Teamleitung',
+    type: 'leadership',
     customType: 'Führung',
     customTypeEn: 'Leadership',
     status: 'completed',
     short: 'Führung, Workshops und Mentoring für drei studentische Entwicklungsteams im Bachelor-Praktikum.',
-    image: '/team_leadership.png',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80',
     details: {
       role: 'Team Lead & Mentor',
       context: 'Bachelor-Praktikum, TU Darmstadt',

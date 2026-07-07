@@ -1085,6 +1085,11 @@
   margin-bottom: 14px;
   position: relative;
   z-index: 2;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.modal-image:hover {
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
 }
 
 .modal-image-gallery {
@@ -3937,6 +3942,18 @@
   text-decoration: none;
 }
 
+.type-badge--leadership {
+  color: #f59e0b; /* Bernstein / Gold */
+  border-color: rgba(245, 158, 11, 0.3);
+  background: rgba(245, 158, 11, 0.05);
+}
+
+.type-badge--seminar {
+  color: #8b5cf6; /* Indigo */
+  border-color: rgba(139, 92, 246, 0.3);
+  background: rgba(139, 92, 246, 0.05);
+}
+
 .pdf-viewer-btn--download {
   color: #00f2fe;
   background: rgba(0, 242, 254, 0.06);
@@ -4562,4 +4579,10 @@
   .code-block {
     padding: 0 12px 0 0;
   }
+}
+
+.type-badge--leadership {
+  color: #f59e0b; /* Bernstein / Gold */
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  background: rgba(245, 158, 11, 0.05);
 }

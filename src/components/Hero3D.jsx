@@ -40,10 +40,12 @@ function StarField({ theme }) {
 export default function Hero3D({ theme = 'dark' }) {
   return (
     <div style={{ 
-      position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', 
+      position: 'absolute', top: 0, left: 0, width: '100%', height: '130vh', 
       zIndex: 0, pointerEvents: 'none', 
       opacity: theme === 'light' ? 0.9 : 0.7,
-      filter: theme === 'light' ? 'invert(1) contrast(1.2)' : 'none'
+      filter: theme === 'light' ? 'invert(1) contrast(1.2)' : 'none',
+      maskImage: 'linear-gradient(to bottom, black 0%, black 60%, transparent 100%)',
+      WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 60%, transparent 100%)'
     }}>
       <Canvas camera={{ position: [0, 0, 1], fov: 60 }}>
         <StarField theme={theme} />

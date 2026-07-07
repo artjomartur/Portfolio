@@ -159,7 +159,7 @@ export default function ProjectModal() {
               <Suspense fallback={null}><OliEasterEgg active={showOliVideo} /></Suspense>
             </div>
           ) : (
-            <img src={projectToRender.image} alt={projectToRender.title} className={`modal-image ${projectToRender.id === 'teamleitung-praktikum' ? 'animated-leadership' : ''}`} loading="lazy" />
+            <img src={projectToRender.image} alt={projectToRender.title} className="modal-image" loading="lazy" />
           )}
 
           <div className="modal-text-content">
