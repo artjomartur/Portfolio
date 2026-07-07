@@ -658,7 +658,7 @@ function App() {
             </Suspense>
 
             <section className="section skills-section">
-              <motion.div className="section-inner" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }}>
+              <motion.div className="section-inner" initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }} viewport={{ once: true, margin: '-100px' }}>
                 <Suspense fallback={null}>
                   <InteractiveSkills
                     lang={lang}
@@ -670,7 +670,7 @@ function App() {
             </section>
 
             <section id="timeline" className="section">
-              <motion.div className="section-inner" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }}>
+              <motion.div className="section-inner" initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }} viewport={{ once: true, margin: '-100px' }}>
                 <h2 className="section-title"><SplitFlapText text={t('timeline.title')} /></h2>
                 <div className="timeline">
                   {TIMELINE.map((entry) => (
@@ -684,7 +684,7 @@ function App() {
             </section>
 
             <section id="github" className="section">
-              <motion.div className="section-inner" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }}>
+              <motion.div className="section-inner" initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }} viewport={{ once: true, margin: '-100px' }}>
                 <h2 className="section-title"><SplitFlapText text={t('github.title')} /></h2>
                 <Suspense fallback={null}>
                   <GitHubActivity lang={lang} theme={theme} />

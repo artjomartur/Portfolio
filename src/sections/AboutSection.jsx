@@ -22,7 +22,7 @@ export default function AboutSection({
 
   return (
     <section id="about" className="section">
-      <motion.div className="section-inner" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }}>
+      <motion.div className="section-inner" initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }} viewport={{ once: true, margin: '-100px' }}>
         <h2 className="section-title"><SplitFlapText text={t('about.title')} /></h2>
         <Suspense fallback={<div className="terminal-placeholder">Lade Terminal...</div>}>
           <Terminal

@@ -29,7 +29,7 @@ export default function ProjectsSection({
 
   return (
     <section id="projects" className="section">
-      <motion.div className="section-inner" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }}>
+      <motion.div className="section-inner" initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }} viewport={{ once: true, margin: '-100px' }}>
         <h2 className="section-title"><SplitFlapText text={t('projects.title')} /></h2>
         
         {/* Primary Filter row */}
@@ -105,8 +105,8 @@ export default function ProjectsSection({
               onMouseLeave={handleCardMouseLeave} 
               onMouseEnter={handleHover}
               onClick={() => setActiveProject(project)}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
+              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ delay: i * 0.1 }}
               role="button"

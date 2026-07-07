@@ -19,7 +19,9 @@ export default function TestimonialLogo({ brand, color }) {
           <img 
             src="/projects/kinopolis.png" 
             alt="Kinopolis" 
-            style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
+            style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+            loading="lazy"
+            decoding="async" 
           />
         </div>
       )
@@ -29,7 +31,9 @@ export default function TestimonialLogo({ brand, color }) {
           <img 
             src="/projects/tud.svg" 
             alt="TU Darmstadt" 
-            style={{ width: '90%', height: '90%', objectFit: 'contain' }} 
+            style={{ width: '90%', height: '90%', objectFit: 'contain' }}
+            loading="lazy"
+            decoding="async" 
           />
         </div>
       )
@@ -39,7 +43,9 @@ export default function TestimonialLogo({ brand, color }) {
           <img 
             src="/projects/dm.svg" 
             alt="dm-drogerie markt" 
-            style={{ width: '90%', height: '90%', objectFit: 'contain' }} 
+            style={{ width: '90%', height: '90%', objectFit: 'contain' }}
+            loading="lazy"
+            decoding="async" 
           />
         </div>
       )
@@ -49,7 +55,9 @@ export default function TestimonialLogo({ brand, color }) {
           <img 
             src="/projects/exinpa.png" 
             alt="exinpa" 
-            style={{ width: '90%', height: '90%', objectFit: 'contain' }} 
+            style={{ width: '90%', height: '90%', objectFit: 'contain' }}
+            loading="lazy"
+            decoding="async" 
           />
         </div>
       )
@@ -59,7 +67,9 @@ export default function TestimonialLogo({ brand, color }) {
           <img 
             src="/projects/rewe.svg" 
             alt="REWE" 
-            style={{ width: '95%', height: '95%', objectFit: 'contain' }} 
+            style={{ width: '95%', height: '95%', objectFit: 'contain' }}
+            loading="lazy"
+            decoding="async" 
           />
         </div>
       )
@@ -69,7 +79,9 @@ export default function TestimonialLogo({ brand, color }) {
           <img 
             src="/projects/aramark.svg" 
             alt="Aramark" 
-            style={{ width: '95%', height: '95%', objectFit: 'contain' }} 
+            style={{ width: '95%', height: '95%', objectFit: 'contain' }}
+            loading="lazy"
+            decoding="async" 
           />
         </div>
       )
@@ -79,7 +91,9 @@ export default function TestimonialLogo({ brand, color }) {
           <img 
             src="/projects/tgs.svg" 
             alt="TGS Bornheim" 
-            style={{ width: '90%', height: '90%', objectFit: 'contain' }} 
+            style={{ width: '90%', height: '90%', objectFit: 'contain' }}
+            loading="lazy"
+            decoding="async" 
           />
         </div>
       )

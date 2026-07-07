@@ -186,6 +186,8 @@ function CsAnimation({ lang = 'de' }) {
                 src={skin.img} 
                 alt={skin.name} 
                 style={{ width: '70px', height: '70px', objectFit: 'contain', filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))' }} 
+                loading="lazy"
+                decoding="async"
               />
               <span style={{ 
                 fontSize: '9px', 
@@ -303,6 +305,8 @@ function CsAnimation({ lang = 'de' }) {
                   src={winner.img} 
                   alt={winner.name} 
                   style={{ width: '150px', height: '150px', objectFit: 'contain', margin: '0 auto 12px', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.5))' }} 
+                  loading="lazy"
+                  decoding="async"
                 />
 
                 <h3 style={{ margin: '0 0 6px', fontSize: '18px', fontWeight: '700', color: '#ffffff' }}>

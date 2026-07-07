@@ -10,7 +10,7 @@ export default function TestimonialsSection({ handleHover, handleLeave }) {
   const lang = i18n.language;
   return (
     <section id="testimonials" className="section">
-      <motion.div className="section-inner" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }}>
+      <motion.div className="section-inner" initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }} viewport={{ once: true, margin: '-100px' }}>
         <h2 className="section-title"><SplitFlapText text={lang === 'de' ? 'Empfehlungen' : 'Testimonials'} /></h2>
         <div className="testimonials-marquee-wrapper">
           <div className="testimonials-marquee-content">

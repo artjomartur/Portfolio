@@ -567,7 +567,7 @@ export default function SkinStockApp({ lang = 'de' }) {
                     >
                       <div className="skin-info-left">
                         <div className="skin-icon-container">
-                          <img src={skin.img} alt={skin.name} className="skin-img" />
+                          <img src={skin.img} alt={skin.name} className="skin-img" loading="lazy" decoding="async" />
                         </div>
                         <div className="skin-meta">
                           <span className="skin-name">{skin.name}</span>
@@ -625,7 +625,7 @@ export default function SkinStockApp({ lang = 'de' }) {
                       <div key={skinId} className="portfolio-card">
                         <div className="skin-info-left">
                           <div className="skin-icon-container">
-                            <img src={skin.img} alt={skin.name} className="skin-img" />
+                            <img src={skin.img} alt={skin.name} className="skin-img" loading="lazy" decoding="async" />
                           </div>
                           <div className="skin-meta">
                             <span className="skin-name">{skin.name}</span>

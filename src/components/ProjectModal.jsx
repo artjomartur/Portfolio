@@ -148,7 +148,7 @@ export default function ProjectModal() {
             <div style={{ position: 'relative' }}>
               <div className="modal-image-gallery" onScroll={handleGalleryScroll}>
                 {projectToRender.images.map((img, idx) => (
-                  <img key={idx} src={img} alt={`${projectToRender.title} ${idx + 1}`} className="modal-image" loading="lazy" />
+                  <img key={idx} src={img} alt={`${projectToRender.title} ${idx + 1}`} className="modal-image" loading="lazy" decoding="async" />
                 ))}
               </div>
               {!hasScrolledGallery && projectToRender.images.length > 1 && (
@@ -159,7 +159,7 @@ export default function ProjectModal() {
               <Suspense fallback={null}><OliEasterEgg active={showOliVideo} /></Suspense>
             </div>
           ) : (
-            <img src={projectToRender.image} alt={projectToRender.title} className="modal-image" loading="lazy" />
+            <img src={projectToRender.image} alt={projectToRender.title} className="modal-image" loading="lazy" decoding="async" />
           )}
 
           <div className="modal-text-content">

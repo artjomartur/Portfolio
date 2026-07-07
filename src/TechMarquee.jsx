@@ -33,6 +33,7 @@ export default function TechMarquee() {
                 alt={logo.name} 
                 className={`tech-marquee-icon ${logo.invert ? 'invert-icon' : ''}`}
                 loading="lazy" 
+                decoding="async"
               />
               <span className="tech-marquee-name">{logo.name}</span>
             </div>
