@@ -7,6 +7,18 @@ import { z } from 'zod';
 import { toast } from 'react-hot-toast';
 import { playSuccessSound } from '../utils/sound';
 import SplitFlapText from '../SplitFlapText';
+import MagneticButton from '../components/MagneticButton';
+import { 
+  GitHubIcon, 
+  LinkedInIcon, 
+  WhatsAppIcon, 
+  TelegramIcon, 
+  InstagramIcon, 
+  TikTokIcon, 
+  LetterboxdIcon, 
+  RedditIcon,
+  ItchIoIcon
+} from '../components/Icons';
 
 export default function ContactSection({ handleHover, handleLeave }) {
   const { t } = useTranslation();
@@ -118,6 +130,26 @@ export default function ContactSection({ handleHover, handleLeave }) {
             {isSubmitting ? t('contact.sending') : t('contact.sendBtn')}
           </button>
         </form>
+
+        <p className="contact-mail"><a href="mailto:hi@artjombecker.com" style={{ color: 'inherit', textDecoration: 'none' }}>hi@artjombecker.com</a></p>
+        <div className="contact-links">
+          <MagneticButton><a href="https://github.com/artjomartur" target="_blank" rel="noopener noreferrer" className="contact-link" aria-label="GitHub" onMouseEnter={handleHover} onMouseLeave={handleLeave}><GitHubIcon /></a></MagneticButton>
+          <MagneticButton>
+            <a href="https://x.com/artjombecker" target="_blank" rel="noopener noreferrer" className="contact-link" aria-label="X" onMouseEnter={handleHover} onMouseLeave={handleLeave}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ display: 'block' }}>
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+          </MagneticButton>
+          <MagneticButton><a href="https://artjomartur.itch.io/" target="_blank" rel="noopener noreferrer" className="contact-link" aria-label="Itch.io" onMouseEnter={handleHover} onMouseLeave={handleLeave}><ItchIoIcon /></a></MagneticButton>
+          <MagneticButton><a href="https://www.linkedin.com/in/artjom-becker-aba5413a3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="contact-link" aria-label="LinkedIn" onMouseEnter={handleHover} onMouseLeave={handleLeave}><LinkedInIcon /></a></MagneticButton>
+          <MagneticButton><a href="https://wa.me/4915203322770" target="_blank" rel="noopener noreferrer" className="contact-link" aria-label="WhatsApp" onMouseEnter={handleHover} onMouseLeave={handleLeave}><WhatsAppIcon /></a></MagneticButton>
+          <MagneticButton><a href="https://t.me/+4915203322770" target="_blank" rel="noopener noreferrer" className="contact-link" aria-label="Telegram" onMouseEnter={handleHover} onMouseLeave={handleLeave}><TelegramIcon /></a></MagneticButton>
+          <MagneticButton><a href="https://www.instagram.com/artjomartur777/" target="_blank" rel="noopener noreferrer" className="contact-link" aria-label="Instagram" onMouseEnter={handleHover} onMouseLeave={handleLeave}><InstagramIcon /></a></MagneticButton>
+          <MagneticButton><a href="https://www.tiktok.com/@artjom0711" target="_blank" rel="noopener noreferrer" className="contact-link" aria-label="TikTok" onMouseEnter={handleHover} onMouseLeave={handleLeave}><TikTokIcon /></a></MagneticButton>
+          <MagneticButton><a href="https://letterboxd.com/artjomartur/" target="_blank" rel="noopener noreferrer" className="contact-link" aria-label="Letterboxd" onMouseEnter={handleHover} onMouseLeave={handleLeave}><LetterboxdIcon /></a></MagneticButton>
+          <MagneticButton><a href="https://www.reddit.com/user/Artuhaaa/" target="_blank" rel="noopener noreferrer" className="contact-link" aria-label="Reddit" onMouseEnter={handleHover} onMouseLeave={handleLeave}><RedditIcon /></a></MagneticButton>
+        </div>
       </motion.div>
     </section>
   );
