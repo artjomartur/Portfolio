@@ -148,7 +148,7 @@ export default function ProjectsSection({
                       {t('projects.paper')}
                     </a>
                   ) : (
-                    project.details.link.startsWith('http') && (
+                    project.details.link?.startsWith('http') && (
                       <a 
                         href={project.details.link} 
                         target="_blank" 
