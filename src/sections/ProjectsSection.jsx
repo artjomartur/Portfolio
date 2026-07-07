@@ -64,6 +64,16 @@ export default function ProjectsSection({
           >
             {t('projects.filterSeminars')}
           </button>
+          <button
+            type="button"
+            className={`filter-chip ${primaryFilter === 'leadership' ? 'filter-chip--active' : ''}`}
+            onClick={() => {
+              setPrimaryFilter('leadership');
+              trackEvent('primary_filter', { type: 'leadership' });
+            }}
+          >
+            {t('projects.filterLeadership')}
+          </button>
         </div>
 
         {/* Secondary Filter row */}
