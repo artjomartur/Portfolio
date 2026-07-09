@@ -43,6 +43,14 @@ const SKILLS = [
     color: '#f05138'
   },
   {
+    id: 'xcode',
+    name: 'Xcode',
+    category: 'tool',
+    level: 85,
+    projectIds: ['skinstock', 'kinopolis-automation'],
+    color: '#157efb'
+  },
+  {
     id: 'applescript',
     name: 'AppleScript',
     category: 'language',

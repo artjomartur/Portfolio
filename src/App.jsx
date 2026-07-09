@@ -23,6 +23,7 @@ const ContactSection = React.lazy(() => import('./sections/ContactSection'))
 const ProjectModal = React.lazy(() => import('./components/ProjectModal'))
 import { SunIcon, MoonIcon } from './components/Icons'
 import SplitFlapText from './SplitFlapText'
+import AppleTabBar from './components/AppleTabBar'
 
 // Existing Lazy Components
 const Chatbot = React.lazy(() => import('./Chatbot'))
@@ -742,6 +743,8 @@ function App() {
           />
         </Suspense>
       )}
+
+      <AppleTabBar />
     </>
   )
 }
