@@ -39,7 +39,7 @@ const SKILLS = [
     name: 'Swift / iOS',
     category: 'language',
     level: 80,
-    projectIds: ['skinstock'],
+    projectIds: ['skinstock', 'kinopolis-automation'],
     color: '#f05138'
   },
   {
@@ -113,6 +113,14 @@ const SKILLS = [
     level: 80,
     projectIds: ['skinstock'],
     color: '#ffca28'
+  },
+  {
+    id: 'capacitor',
+    name: 'Capacitor',
+    category: 'tool',
+    level: 80,
+    projectIds: ['skinstock', 'kinopolis-automation'],
+    color: '#119eff'
   }
 ]
 
