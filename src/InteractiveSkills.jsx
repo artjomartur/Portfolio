@@ -129,6 +129,22 @@ const SKILLS = [
     level: 80,
     projectIds: ['skinstock', 'kinopolis-automation'],
     color: '#119eff'
+  },
+  {
+    id: 'figma',
+    name: 'Figma / UI/UX',
+    category: 'tool',
+    level: 85,
+    projectIds: ['portfolio', 'exercube', 'kinopolis-automation'],
+    color: '#f24e1e'
+  },
+  {
+    id: 'docker',
+    name: 'Docker',
+    category: 'tool',
+    level: 75,
+    projectIds: ['kinopolis-automation'],
+    color: '#2496ed'
   }
 ]
 
@@ -279,21 +295,25 @@ function InteractiveSkills({ lang = 'de', items = [], onProjectSelect }) {
             return (
               <g key={conn.id}>
                 {/* Background thicker glow path */}
-                <path
+                <motion.path
                   d={pathData}
                   stroke={conn.color}
                   strokeWidth="4"
                   fill="none"
-                  opacity="0.3"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 0.3 }}
                   style={{ filter: `drop-shadow(0 0 6px ${conn.color})` }}
+                  transition={{ duration: 0.3 }}
                 />
                 {/* Foreground animated pulsed path */}
-                <path
+                <motion.path
                   d={pathData}
                   stroke={conn.color}
                   strokeWidth="2.2"
                   fill="none"
-                  opacity="0.95"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 0.95 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
                   className="skills-graph-path-line"
                 />
               </g>
