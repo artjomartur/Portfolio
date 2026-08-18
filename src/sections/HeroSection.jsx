@@ -1,9 +1,8 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useStore } from '../store/useStore';
-
-const Hero3D = React.lazy(() => import('../components/Hero3D'));
+import heroImg from '../assets/hero.png';
 
 export default function HeroSection({ mouse, scrollY }) {
   const { t } = useTranslation();
@@ -11,9 +10,20 @@ export default function HeroSection({ mouse, scrollY }) {
 
   return (
     <section id="hero" className="hero">
-      <Suspense fallback={null}>
-        <Hero3D theme={theme} />
-      </Suspense>
+      <motion.div 
+        className="hero-image-container"
+        initial={{ opacity: 0, scale: 0.95, y: 40 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
+        <motion.img 
+          src={heroImg} 
+          alt="Artjom Becker Hero" 
+          className="hero-profile-image"
+          animate={{ y: [0, -15, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </motion.div>
       <div
         className="hero-spotlight"
         style={{

@@ -10,6 +10,7 @@ import SEO from './SEO';
 
 const CsAnimation = React.lazy(() => import('../CsAnimation'));
 const SkinStockApp = React.lazy(() => import('./SkinStockApp'));
+const Terminal = React.lazy(() => import('../Terminal'));
 
 export default function ProjectModal() {
   const { t, i18n } = useTranslation();
@@ -33,6 +34,7 @@ export default function ProjectModal() {
   const [hasScrolledGallery, setHasScrolledGallery] = useState(false);
   const [showCaseOpener, setShowCaseOpener] = useState(false);
   const [showSkinStockApp, setShowSkinStockApp] = useState(false);
+  const [showTerminal, setShowTerminal] = useState(false);
 
   useEffect(() => {
     setActiveModalTab('overview');
@@ -42,6 +44,7 @@ export default function ProjectModal() {
     } else {
       setShowCaseOpener(false);
       setShowSkinStockApp(false);
+      setShowBotAnimation(false);
     }
   }, [projectToRender]);
 
@@ -439,6 +442,7 @@ export default function ProjectModal() {
                       </div>
                     )
                   )}
+
                 </motion.div>
               )}
             </div>

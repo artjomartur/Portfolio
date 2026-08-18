@@ -5,7 +5,6 @@ import { useStore } from './store/useStore'
 import { sfx } from './sfx'
 import { useCursor } from './useCursor'
 import CommandPalette from './components/CommandPalette'
-import CodeShowcase from './components/CodeShowcase'
 import { useKonamiCode } from './hooks/useKonamiCode'
 import { Toaster } from 'react-hot-toast'
 import { playClickSound } from './utils/sound'
@@ -649,10 +648,6 @@ function App() {
               triggerDestruction={triggerDestruction} 
               triggerFollow={triggerFollow} 
             />
-
-            <Suspense fallback={null}>
-              <CodeShowcase lang={lang} />
-            </Suspense>
 
             <Suspense fallback={null}>
               <TechMarquee lang={lang} />

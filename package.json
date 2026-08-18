@@ -18,7 +18,7 @@
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
     "canvas-confetti": "^1.9.4",
-    "framer-motion": "^12.38.0",
+    "framer-motion": "^13.1.0",
     "i18next": "^26.3.3",
     "jspdf": "^4.2.1",
     "lightweight-charts": "^5.2.0",
