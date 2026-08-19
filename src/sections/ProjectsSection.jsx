@@ -27,6 +27,19 @@ export default function ProjectsSection({
   const setActiveProject = useStore((state) => state.setActiveProject);
   const gitStats = useStore((state) => state.gitStats);
 
+  const [activeCategory, setActiveCategory] = React.useState('All');
+
+  const TAG_CATEGORIES = {
+    'Sprachen': ['JavaScript', 'HTML', 'CSS', 'Swift', 'C#', 'Python', 'TypeScript', 'Node.js'],
+    'Frameworks': ['Xcode', 'Unity', 'SteamVR', 'Playwright', 'Firebase', 'React', 'Vite', 'Capacitor', 'SQL', 'Git'],
+    'Themen': ['Web', 'iOS', 'Mobile', 'UI/UX', 'Automation', 'Game Dev', 'UX', 'AI', 'Research', 'Branding', 'macOS', 'Productivity', 'Education', 'Datenschutz', 'DSGVO', 'Seminar', 'Psychology', 'Social Psychology', 'Groupthink', 'Bot', 'Fintech', 'App Store', 'Leadership', 'Mentoring', 'Management', 'Agile', 'Team']
+  };
+
+  // Determine which tags to show based on selected category
+  const tagsToDisplay = activeCategory === 'All'
+    ? dynamicTags
+    : dynamicTags.filter(tag => tag === 'All' || TAG_CATEGORIES[activeCategory]?.includes(tag));
+
   return (
     <section id="projects" className="section">
       <motion.div className="section-inner" initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }} viewport={{ once: true, margin: '-100px' }}>
@@ -76,13 +89,34 @@ export default function ProjectsSection({
           </button>
         </div>
 
-        {/* Secondary Filter row */}
+        {/* Tier 2: Category Filter */}
+        <div className="project-filters project-filters-categories" style={{ marginBottom: '16px' }}>
+          <button
+            type="button"
+            className={`filter-chip filter-chip-secondary ${activeCategory === 'All' ? 'filter-chip--active' : ''}`}
+            onClick={() => setActiveCategory('All')}
+          >
+            Alle Tags
+          </button>
+          {Object.keys(TAG_CATEGORIES).map(cat => (
+            <button
+              key={cat}
+              type="button"
+              className={`filter-chip filter-chip-secondary ${activeCategory === cat ? 'filter-chip--active' : ''}`}
+              onClick={() => setActiveCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Tier 3: Actual Tags (Secondary Filter row) */}
         <div className="project-filters" style={{ marginBottom: '32px' }}>
-          {dynamicTags.map((filter) => (
+          {tagsToDisplay.map((filter) => (
             <button
               key={filter}
               type="button"
-              className={`filter-chip ${projectFilter === filter ? 'filter-chip--active' : ''}`}
+              className={`filter-chip filter-chip-tertiary ${projectFilter === filter ? 'filter-chip--active' : ''}`}
               onClick={() => {
                 setProjectFilter(filter);
                 trackEvent('project_filter', { filter });
@@ -237,9 +271,12 @@ export default function ProjectsSection({
                       {t('projects.language', { lang: language })}
                     </span>
                   ))}
-                  {project.details.tags?.map((tag) => (
+                  {project.details.tags?.slice(0, 3).map((tag) => (
                     <span key={`${project.id}-${tag}`} className="project-tag">{tag}</span>
                   ))}
+                  {project.details.tags?.length > 3 && (
+                    <span className="project-tag" style={{ opacity: 0.6 }}>+{project.details.tags.length - 3}</span>
+                  )}
                 </div>
               </div>
             </motion.article>

@@ -27,8 +27,8 @@ function StarField({ theme }) {
       <Stars 
         radius={100} // Radius der Sternensphäre
         depth={50}  // Tiefe
-        count={4000} // Anzahl der Sterne
-        factor={theme === 'light' ? 6 : 4}   // Größe der Sterne anpassen
+        count={5000} // Anzahl der Sterne
+        factor={theme === 'light' ? 8 : 6}   // Größe der Sterne anpassen
         saturation={0} // 0 = weiß/grau (minimalistisch)
         fade         // Sterne faden in der Ferne aus
         speed={1}    // Animationsgeschwindigkeit für das Twinkeln
@@ -42,7 +42,7 @@ export default function Hero3D({ theme = 'dark' }) {
     <div style={{ 
       position: 'absolute', top: 0, left: 0, width: '100%', height: '130vh', 
       zIndex: 0, pointerEvents: 'none', 
-      opacity: theme === 'light' ? 0.9 : 0.7,
+      opacity: theme === 'light' ? 1.0 : 0.9,
       filter: theme === 'light' ? 'invert(1) contrast(1.2)' : 'none',
       maskImage: 'linear-gradient(to bottom, black 0%, black 60%, transparent 100%)',
       WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 60%, transparent 100%)'

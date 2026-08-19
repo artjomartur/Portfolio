@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useStore } from '../store/useStore';
-import heroImg from '../assets/hero.png';
+
+const Hero3D = React.lazy(() => import('../components/Hero3D'));
 
 export default function HeroSection({ mouse, scrollY }) {
   const { t } = useTranslation();
@@ -10,20 +11,9 @@ export default function HeroSection({ mouse, scrollY }) {
 
   return (
     <section id="hero" className="hero">
-      <motion.div 
-        className="hero-image-container"
-        initial={{ opacity: 0, scale: 0.95, y: 40 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-      >
-        <motion.img 
-          src={heroImg} 
-          alt="Artjom Becker Hero" 
-          className="hero-profile-image"
-          animate={{ y: [0, -15, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </motion.div>
+      <Suspense fallback={null}>
+        <Hero3D theme={theme} />
+      </Suspense>
       <div
         className="hero-spotlight"
         style={{
@@ -41,6 +31,36 @@ export default function HeroSection({ mouse, scrollY }) {
       <motion.p className="hero-tagline" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.3 }}>
         {t('hero.tagline')}
       </motion.p>
+      
+      <motion.div 
+        className="hero-cta" 
+        initial={{ opacity: 0, y: 20 }} 
+        animate={{ opacity: 1, y: 0 }} 
+        transition={{ duration: 0.6, delay: 0.4 }}
+        style={{ marginTop: '32px', marginBottom: '40px', position: 'relative', zIndex: 10 }}
+      >
+        <a 
+          href="#projects" 
+          className="btn" 
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+        >
+          {t('nav.projects', 'Projekte ansehen')}
+        </a>
+        <a 
+          href="#contact" 
+          className="btn btn-secondary" 
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+        >
+          {t('nav.contact', 'Kontakt aufnehmen')}
+        </a>
+      </motion.div>
+
       <motion.div
         className="hero-scroll-indicator"
         style={{ opacity: Math.max(0, 1 - scrollY / 50) }}

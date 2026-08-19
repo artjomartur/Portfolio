@@ -11,6 +11,7 @@ import SEO from './SEO';
 const CsAnimation = React.lazy(() => import('../CsAnimation'));
 const SkinStockApp = React.lazy(() => import('./SkinStockApp'));
 const Terminal = React.lazy(() => import('../Terminal'));
+const MafoBotAnimation = React.lazy(() => import('./MafoBotAnimation'));
 
 export default function ProjectModal() {
   const { t, i18n } = useTranslation();
@@ -34,7 +35,6 @@ export default function ProjectModal() {
   const [hasScrolledGallery, setHasScrolledGallery] = useState(false);
   const [showCaseOpener, setShowCaseOpener] = useState(false);
   const [showSkinStockApp, setShowSkinStockApp] = useState(false);
-  const [showTerminal, setShowTerminal] = useState(false);
 
   useEffect(() => {
     setActiveModalTab('overview');
@@ -44,7 +44,6 @@ export default function ProjectModal() {
     } else {
       setShowCaseOpener(false);
       setShowSkinStockApp(false);
-      setShowBotAnimation(false);
     }
   }, [projectToRender]);
 
@@ -147,7 +146,11 @@ export default function ProjectModal() {
             </button>
           </div>
 
-          {projectToRender.images ? (
+          {projectToRender.id === 'mafo-bot' ? (
+            <Suspense fallback={<div className="modal-image" style={{ background: '#0d1117' }} />}>
+              <MafoBotAnimation />
+            </Suspense>
+          ) : projectToRender.images ? (
             <div style={{ position: 'relative' }}>
               <div className="modal-image-gallery" onScroll={handleGalleryScroll}>
                 {projectToRender.images.map((img, idx) => (

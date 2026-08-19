@@ -12,12 +12,11 @@ import SEO from './components/SEO'
 import './App.css'
 
 // Extracted Sections & Components
-import HeroSection from './sections/HeroSection'
+import NameBanner from './components/NameBanner'
 import AboutSection from './sections/AboutSection'
 import ProjectsSection from './sections/ProjectsSection'
 
 const TestimonialsSection = React.lazy(() => import('./sections/TestimonialsSection'))
-const SocialHubSection = React.lazy(() => import('./sections/SocialHubSection'))
 const ContactSection = React.lazy(() => import('./sections/ContactSection'))
 const ProjectModal = React.lazy(() => import('./components/ProjectModal'))
 import { SunIcon, MoonIcon } from './components/Icons'
@@ -272,7 +271,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    const sectionIds = ['hero', 'about', 'timeline', 'projects', 'testimonials', 'contact']
+    const sectionIds = ['hero', 'about', 'projects', 'testimonials', 'contact']
     const sections = sectionIds
       .map((id) => document.getElementById(id))
       .filter(Boolean)
@@ -637,9 +636,9 @@ function App() {
           </Suspense>
         ) : (
           <>
-            <HeroSection mouse={mouse} scrollY={scrollY} />
+            <NameBanner name="Artjom Becker" />
 
-            <AboutSection 
+            <AboutSection  
               projectTitles={projectTitles} 
               handleHover={handleHover} 
               handleLeave={handleLeave} 
@@ -665,19 +664,7 @@ function App() {
               </motion.div>
             </section>
 
-            <section id="timeline" className="section">
-              <motion.div className="section-inner" initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }} viewport={{ once: true, margin: '-100px' }}>
-                <h2 className="section-title"><SplitFlapText text={t('timeline.title')} /></h2>
-                <div className="timeline">
-                  {TIMELINE.map((entry) => (
-                    <article key={`${entry.year}-${entry.de}`} className="timeline-item" tabIndex={0}>
-                      <p className="timeline-year">{entry.year}</p>
-                      <p className="timeline-text">{lang === 'de' ? entry.de : entry.en}</p>
-                    </article>
-                  ))}
-                </div>
-              </motion.div>
-            </section>
+
 
             <section id="github" className="section">
               <motion.div className="section-inner" initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }} viewport={{ once: true, margin: '-100px' }}>
@@ -703,10 +690,6 @@ function App() {
 
             <Suspense fallback={null}>
               <TestimonialsSection handleHover={handleHover} handleLeave={handleLeave} />
-            </Suspense>
-
-            <Suspense fallback={null}>
-              <SocialHubSection handleHover={handleHover} handleLeave={handleLeave} />
             </Suspense>
 
             <Suspense fallback={null}>

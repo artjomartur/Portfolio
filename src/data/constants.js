@@ -6,7 +6,7 @@ export const PROJECTS = [
     customType: 'Führung',
     customTypeEn: 'Leadership',
     status: 'completed',
-    short: 'Führung, Workshops und Mentoring für drei studentische Entwicklungsteams im Bachelor-Praktikum.',
+    short: 'Erreichte Bestnoten (1,0 & 1,3) für drei studentische Entwicklungsteams, gemessen an den finalen Projektabgaben, durch agile Führung, Mentoring und technische Workshops.',
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80',
     details: {
       role: 'Team Lead & Mentor',
@@ -24,7 +24,7 @@ export const PROJECTS = [
     id: 'kinopolis-automation',
     title: 'Kinopolis Automation',
     status: 'in-progress',
-    short: 'Modernes Dashboard für Echtzeit-Monitoring und operative Automatisierung im Kinobetrieb als Web & iOS App.',
+    short: 'Gestaltete den Kinobetrieb effizienter, gemessen an der Zeiteinsparung beim Plakatwechsel, durch die Entwicklung eines automatisierten Dashboards als Web- & native iOS-App.',
     image: '/kinopolis_hero.webp',
     images: ['/kinopolis_hero.webp', '/slide_final_1.webp', '/slide_final_2.webp', '/slide_final_3.webp', '/slide_final_4.webp', '/slide_final_5.webp'],
     details: {
@@ -43,7 +43,7 @@ export const PROJECTS = [
   {
     id: 'exercube',
     title: 'ExerCube',
-    short: 'Gruppenprojekt (Note 1,0) - Serious Games, TU Darmstadt.',
+    short: 'Erreichte die Bestnote 1,0 im Serious Games Projekt, gemessen an der positiven Evaluation des funktionalen Prototyps, durch die Entwicklung eines motivierenden VR-Fitness-Spiels in Unity.',
     image: '/exercube_hero.webp',
     details: {
       role: 'Unity-Entwickler & UX-Designer',
@@ -64,7 +64,7 @@ export const PROJECTS = [
   {
     id: 'arcadesuite',
     title: 'ArcadeSuite',
-    short: 'Eigenes Bachelor-Projekt mit Agenten auf Atari-Spielen.',
+    short: 'Schuf eine reproduzierbare Evaluationsbasis für KI-Modelle, gemessen an sauberen Benchmark-Ergebnissen, durch die Entwicklung einer modularen Agenten-Architektur in Python.',
     image:
       'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1600&q=80',
     details: {
@@ -86,7 +86,7 @@ export const PROJECTS = [
   {
     id: 'portfolio',
     title: 'Portfolio',
-    short: 'Apple-Style Portfolio mit Dark Mode und Custom Cursor.',
+    short: 'Etablierte eine hochperformante Web-Präsenz, gemessen an nahtloser UX und responsivem Design, durch die Entwicklung eines interaktiven Apple-Style Portfolios mit React und Framer Motion.',
     image:
       'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1600&q=80',
     details: {
@@ -105,7 +105,7 @@ export const PROJECTS = [
   {
     id: 'atoss-sync',
     title: 'ATOSS Calendar Sync',
-    short: 'Automatisierter Dienstplan-Sync in den Apple Calendar via Apple Mail & Python.',
+    short: 'Eliminierte den manuellen Aufwand bei der Dienstplanung, gemessen an der verzögerungsfreien Synchronisation, durch die Entwicklung einer Automatisierungs-Pipeline mit Python und AppleScript.',
     image: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1600&q=80',
     details: {
       role: 'Sole Developer',
@@ -123,7 +123,7 @@ export const PROJECTS = [
   {
     id: 'first-aid-simulator',
     title: 'First Aid Simulator',
-    short: 'Interaktiver Erste-Hilfe-Simulator – Serious Games Projekt.',
+    short: 'Vermittelte lebensrettendes Wissen spielerisch, gemessen an der erfolgreichen Veröffentlichung auf itch.io, durch die Entwicklung eines interaktiven Erste-Hilfe-Simulators in Unity.',
     image: '/first_aid_simulator_hero.webp',
     details: {
       role: 'Developer & Concept',
@@ -142,7 +142,7 @@ export const PROJECTS = [
     id: 'skinstock',
     title: 'SkinStock',
     status: 'in-progress',
-    short: 'Interaktiver CS2 Skin-Portfolio-Tracker, verpackt als native iOS App in Swift & Web via Capacitor.',
+    short: 'Realisierte ein flüssiges App-Erlebnis für komplexe Finanzdaten, gemessen an performanten Candlestick-Charts und Echtzeit-Simulationen, durch die Entwicklung einer iOS- & Web-App mit React und Swift.',
     image: '/skinstock_hero.webp',
     details: {
       role: 'Sole Developer / Single-Projekt',
@@ -157,6 +157,25 @@ export const PROJECTS = [
       link: 'https://skinstock.artjombecker.com',
     },
   },
+  {
+    id: 'mafo-bot',
+    title: 'MaFo Bot',
+    status: 'completed',
+    short: 'Reduzierte den manuellen Bewerbungsaufwand für Marktstudien um 100%, gemessen an den automatisiert abgeschickten Formularen, durch die Entwicklung eines Headless-Browser-Skripts mit Node.js.',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80',
+    details: {
+      role: 'Sole Developer',
+      context: 'Personal Automation Project',
+      impact: 'Automated study applications using Playwright.',
+      tech: 'Node.js, Playwright, JavaScript',
+      languages: ['JavaScript'],
+      challenge: 'Regelmäßiges, manuelles Prüfen und Bewerben auf Marktforschungsstudien automatisieren.',
+      solution: 'Entwicklung eines Headless Browser-Skripts mit Playwright, das die Webseite navigiert, Formulare analysiert und sich bewirbt.',
+      result: 'Vollautomatisierter Bewerbungsprozess, der viel Zeit und manuellen Aufwand spart.',
+      tags: ['Automation', 'Bot', 'Playwright', 'Node.js'],
+      link: 'https://github.com/artjomartur/mafo-bot',
+    },
+  },
 ]
 
 
@@ -164,7 +183,7 @@ export const THESES = [
   {
     id: 'datenschutz',
     title: 'Datenschutz',
-    short: 'Seminararbeit über Datenschutzkonzepte und deren Umsetzung in modernen Webprojekten.',
+    short: 'Erreichte die Note 2,0 in der Seminararbeit, gemessen an der fundierten wissenschaftlichen Ausarbeitung, durch die strukturierte Analyse und technische Aufbereitung von DSGVO-Richtlinien.',
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1600&q=80',
     details: {
       role: 'Autor',
@@ -183,7 +202,7 @@ export const THESES = [
   {
     id: 'serious-games',
     title: 'Serious Games',
-    short: 'Seminararbeit über Entwicklung und Evaluation von Lernspielen für die Hochschulbildung.',
+    short: 'Erzielte die Note 1,7 in der Seminararbeit, gemessen an der klaren Methodik der Evaluation, durch die wissenschaftliche Analyse von Game-Design-Prinzipien im Bildungskontext.',
     image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1600&q=80',
     details: {
       role: 'Autor',
@@ -202,7 +221,7 @@ export const THESES = [
   {
     id: 'social-psychology',
     title: 'Sozialpsychologie - Groupthink',
-    short: 'Seminarpräsentation über Irving Janis\' Theorie des Groupthink und Gruppenentscheidungsprozesse.',
+    short: 'Vermittelte psychologische Theorien anschaulich, gemessen am erfolgreichen Abschluss der Präsentation, durch die Gegenüberstellung von Groupthink-Symptomen und historischen Fallanalysen.',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80',
     details: {
       role: 'Referent',
@@ -224,6 +243,8 @@ export const ITEMS = [
   ...PROJECTS.map((p) => ({ ...p, type: p.type || 'project' })),
   ...THESES.map((t) => ({ ...t, type: t.type || 'seminar' })),
 ].sort((a, b) => {
+  if (a.id === 'mafo-bot') return 1;
+  if (b.id === 'mafo-bot') return -1;
   const aProgress = a.status === 'in-progress' ? 1 : 0;
   const bProgress = b.status === 'in-progress' ? 1 : 0;
   return bProgress - aProgress;
@@ -326,7 +347,6 @@ export const TESTIMONIALS = [
 
 export const NAV_ITEMS = [
   { id: 'about', labelDe: 'Über mich', labelEn: 'About' },
-  { id: 'timeline', labelDe: 'Timeline', labelEn: 'Timeline' },
   { id: 'projects', labelDe: 'Projekte', labelEn: 'Projects' },
   { id: 'testimonials', labelDe: 'Empfehlungen', labelEn: 'Reviews' },
   { id: 'cv', labelDe: 'CV', labelEn: 'CV' },
