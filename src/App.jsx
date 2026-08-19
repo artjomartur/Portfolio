@@ -52,8 +52,6 @@ function App() {
 
   const theme = useStore((state) => state.theme)
   const setTheme = useStore((state) => state.setTheme)
-  const themeWave = useStore((state) => state.themeWave)
-  const setThemeWave = useStore((state) => state.setThemeWave)
   
   const activeProject = useStore((state) => state.activeProject)
   const setActiveProject = useStore((state) => state.setActiveProject)
@@ -217,14 +215,21 @@ function App() {
   const toggleTheme = (e) => {
     playClickSound()
     const nextTheme = theme === 'dark' ? 'light' : 'dark'
-    const x = e?.clientX || window.innerWidth / 2
-    const y = e?.clientY || window.innerHeight / 2
-    setThemeWave({ x, y, active: true, targetTheme: nextTheme })
-  }
+    
+    if (!document.startViewTransition) {
+      setTheme(nextTheme)
+      return
+    }
 
-  const handleWaveEnd = () => {
-    setTheme(themeWave.targetTheme)
-    setThemeWave({ ...themeWave, active: false })
+    const x = e?.clientX ?? window.innerWidth / 2
+    const y = e?.clientY ?? window.innerHeight / 2
+    
+    document.documentElement.style.setProperty('--x', `${x}px`)
+    document.documentElement.style.setProperty('--y', `${y}px`)
+
+    document.startViewTransition(() => {
+      setTheme(nextTheme)
+    })
   }
 
   const toggleLang = () => i18n.changeLanguage(lang === 'de' ? 'en' : 'de')
@@ -431,14 +436,7 @@ function App() {
         toggleTheme={toggleTheme} 
         onViewPdf={handleViewPdf} 
       />
-      {themeWave.active && (
-        <div 
-          className={`theme-wave theme-wave--${themeWave.targetTheme}`} 
-          style={{ left: themeWave.x, top: themeWave.y }}
-          onAnimationEnd={handleWaveEnd}
-        />
-      )}
-      
+
       {/* Easter Eggs */}
       <Suspense fallback={null}>
         {isMatrixActive && <MatrixRain onClose={() => setIsMatrixActive(false)} />}
@@ -658,7 +656,10 @@ function App() {
                   <InteractiveSkills
                     lang={lang}
                     items={ITEMS}
-                    onProjectSelect={(item) => setActiveProject(item)}
+                    onProjectSelect={(item) => {
+                      playClickSound()
+                      setActiveProject(item)
+                    }}
                   />
                 </Suspense>
               </motion.div>

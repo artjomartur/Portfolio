@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { playHoverSound } from './utils/sound'
 
 export function useCursor() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 })
@@ -45,7 +46,10 @@ export function useCursor() {
     return () => cancelAnimationFrame(rafId)
   }, [])
 
-  const handleHover = () => setIsHovering(true)
+  const handleHover = () => {
+    setIsHovering(true)
+    playHoverSound()
+  }
   const handleLeave = () => setIsHovering(false)
 
   return { mouse, smoothMouse, isHovering, isVisible, handleHover, handleLeave }

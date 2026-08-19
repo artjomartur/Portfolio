@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { playClickSound } from '../utils/sound';
 import { useStore } from '../store/useStore';
 import { sfx } from '../sfx';
 
@@ -92,7 +93,7 @@ export default function ProjectModal() {
       />
       <AnimatePresence>
         {activeProject && (
-          <motion.div className="modal-backdrop" onClick={() => setActiveProject(null)} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+          <motion.div className="modal-backdrop" onClick={() => { playClickSound(); setActiveProject(null); }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         <button
           type="button"
           className="modal-nav-arrow modal-nav-arrow--prev"
@@ -141,7 +142,7 @@ export default function ProjectModal() {
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
               )}
             </button>
-            <button className="modal-close" onClick={() => setActiveProject(null)} title={t('modal.close')} aria-label={t('modal.close')}>
+            <button className="modal-close" onClick={() => { playClickSound(); setActiveProject(null); }} title={t('modal.close')} aria-label={t('modal.close')}>
               ×
             </button>
           </div>
@@ -177,7 +178,7 @@ export default function ProjectModal() {
                 role="tab"
                 aria-selected={activeModalTab === 'overview'}
                 className={`modal-tab-btn ${activeModalTab === 'overview' ? 'modal-tab-btn--active' : ''}`}
-                onClick={() => setActiveModalTab('overview')}
+                onClick={() => { playClickSound(); setActiveModalTab('overview'); }}
               >
                 {lang === 'de' ? 'Übersicht' : 'Overview'}
               </button>
@@ -185,7 +186,7 @@ export default function ProjectModal() {
                 role="tab"
                 aria-selected={activeModalTab === 'challenge'}
                 className={`modal-tab-btn ${activeModalTab === 'challenge' ? 'modal-tab-btn--active' : ''}`}
-                onClick={() => setActiveModalTab('challenge')}
+                onClick={() => { playClickSound(); setActiveModalTab('challenge'); }}
               >
                 {lang === 'de' ? 'Challenge & Lösung' : 'Challenge & Solution'}
               </button>
@@ -193,7 +194,7 @@ export default function ProjectModal() {
                 role="tab"
                 aria-selected={activeModalTab === 'outcome'}
                 className={`modal-tab-btn ${activeModalTab === 'outcome' ? 'modal-tab-btn--active' : ''}`}
-                onClick={() => setActiveModalTab('outcome')}
+                onClick={() => { playClickSound(); setActiveModalTab('outcome'); }}
               >
                 {lang === 'de' ? 'Ergebnis & Links' : 'Outcome & Links'}
               </button>
@@ -262,7 +263,7 @@ export default function ProjectModal() {
                             padding: '6px 14px', borderRadius: '8px', fontSize: '13px', fontWeight: '600',
                             textDecoration: 'none', transition: 'all 0.2s', cursor: 'pointer'
                           }}
-                          onClick={() => handleViewPdf(projectToRender.details.link, lang === 'de' ? `Seminararbeit - ${projectToRender.title}` : `Seminar Paper - ${projectToRender.title}`)}
+                          onClick={() => { playClickSound(); handleViewPdf(projectToRender.details.link, lang === 'de' ? `Seminararbeit - ${projectToRender.title}` : `Seminar Paper - ${projectToRender.title}`); }}
                         >
                           📄 {t('modal.viewPaper')}
                         </button>
@@ -315,7 +316,7 @@ export default function ProjectModal() {
                           padding: '6px 14px', borderRadius: '8px', fontSize: '13px', fontWeight: '600',
                           textDecoration: 'none', transition: 'all 0.2s', cursor: 'pointer'
                         }}
-                        onClick={() => handleViewPdf(projectToRender.details.pdf, lang === 'de' ? `Dokumentation - ${projectToRender.title}` : `Documentation - ${projectToRender.title}`)}
+                        onClick={() => { playClickSound(); handleViewPdf(projectToRender.details.pdf, lang === 'de' ? `Dokumentation - ${projectToRender.title}` : `Documentation - ${projectToRender.title}`); }}
                       >
                         📚 {t('modal.viewDocs')}
                       </button>
@@ -332,7 +333,7 @@ export default function ProjectModal() {
                             padding: '6px 14px', borderRadius: '8px', fontSize: '13px', fontWeight: '600',
                             textDecoration: 'none', transition: 'all 0.2s', cursor: 'pointer'
                           }}
-                          onClick={() => handleViewPdf(projectToRender.details.slides, lang === 'de' ? `Präsentationsfolien - ${projectToRender.title}` : `Presentation Slides - ${projectToRender.title}`)}
+                          onClick={() => { playClickSound(); handleViewPdf(projectToRender.details.slides, lang === 'de' ? `Präsentationsfolien - ${projectToRender.title}` : `Presentation Slides - ${projectToRender.title}`); }}
                         >
                           📊 {lang === 'de' ? 'Folien anzeigen ↗' : 'View Slides ↗'}
                         </button>
@@ -432,7 +433,7 @@ export default function ProjectModal() {
                     ) : (
                       <div style={{ display: 'flex', gap: '12px', marginTop: '20px', flexWrap: 'wrap' }}>
                         <button
-                          onClick={() => setShowCaseOpener(true)}
+                          onClick={() => { playClickSound(); setShowCaseOpener(true); }}
                           className="link link-button"
                           style={{
                             display: 'inline-flex', alignItems: 'center', gap: '6px', margin: 0,

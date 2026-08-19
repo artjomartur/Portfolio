@@ -3599,34 +3599,37 @@
   50% { opacity: 0; }
 }
 
-/* Theme Reveal Wave Transition */
-.theme-wave {
-  position: fixed;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  pointer-events: none;
+/* View Transitions Theme Toggle */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+[data-theme='dark']::view-transition-old(root) {
+  z-index: 1;
+}
+
+[data-theme='dark']::view-transition-new(root) {
   z-index: 9999;
-  transform: translate(-50%, -50%);
-  animation: themeWaveAnim 0.7s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  animation: clipCircle 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-.theme-wave--light {
-  background: #fbfbfd;
+[data-theme='light']::view-transition-old(root) {
+  z-index: 9999;
+  animation: clipCircle 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards reverse;
 }
 
-.theme-wave--dark {
-  background: #0d0d0f;
+[data-theme='light']::view-transition-new(root) {
+  z-index: 1;
 }
 
-@keyframes themeWaveAnim {
+@keyframes clipCircle {
   0% {
-    width: 0;
-    height: 0;
+    clip-path: circle(0px at var(--x, 50%) var(--y, 50%));
   }
   100% {
-    width: 250vmax;
-    height: 250vmax;
+    clip-path: circle(150vmax at var(--x, 50%) var(--y, 50%));
   }
 }
 
