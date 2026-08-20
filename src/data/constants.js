@@ -181,6 +181,24 @@ export const PROJECTS = [
 
 export const THESES = [
   {
+    id: 'bachelor-thesis',
+    title: 'Bachelorarbeit',
+    status: 'in-progress',
+    short: 'Weitere Informationen folgen in Kürze. Die Arbeit befindet sich in Planung.',
+    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1600&q=80',
+    details: {
+      role: 'Autor',
+      context: 'TU Darmstadt',
+      impact: 'Thema und Impact werden demnächst definiert',
+      tech: 'Technologien folgen',
+      languages: ['Deutsch'],
+      tags: ['Research', 'Seminar'],
+      challenge: 'Das genaue Thema wird bald festgelegt.',
+      solution: 'Die Umsetzung wird nach dem offiziellen Start dokumentiert.',
+      result: 'Wird geplant',
+    },
+  },
+  {
     id: 'datenschutz',
     title: 'Datenschutz',
     short: 'Erreichte die Note 2,0 in der Seminararbeit, gemessen an der fundierten wissenschaftlichen Ausarbeitung, durch die strukturierte Analyse und technische Aufbereitung von DSGVO-Richtlinien.',

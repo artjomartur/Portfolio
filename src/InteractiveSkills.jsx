@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ChevronDown } from 'lucide-react'
 
 const SKILLS = [
   {
@@ -157,6 +158,9 @@ function InteractiveSkills({ lang = 'de', items = [], onProjectSelect }) {
   const containerRef = useRef(null)
   const skillRefs = useRef({})
   const projectRefs = useRef({})
+  const projectsColumnRef = useRef(null)
+
+  const [isProjectsAtBottom, setIsProjectsAtBottom] = useState(false)
 
   const activeSkill = hoveredSkill || selectedSkill
 
@@ -237,6 +241,28 @@ function InteractiveSkills({ lang = 'de', items = [], onProjectSelect }) {
       clearTimeout(t)
     }
   }, [hoveredSkill, selectedSkill, hoveredProject, items])
+
+  // Check initial scroll state for projects column
+  useEffect(() => {
+    if (projectsColumnRef.current) {
+      const { scrollHeight, clientHeight } = projectsColumnRef.current
+      if (scrollHeight <= clientHeight) {
+        setIsProjectsAtBottom(true)
+      } else {
+        setIsProjectsAtBottom(false)
+      }
+    }
+  }, [items])
+
+  const handleProjectsScroll = (e) => {
+    updateConnections()
+    const { scrollTop, scrollHeight, clientHeight } = e.target
+    if (scrollHeight - scrollTop - clientHeight < 20) {
+      setIsProjectsAtBottom(true)
+    } else {
+      setIsProjectsAtBottom(false)
+    }
+  }
 
   const handleSkillClick = (skill) => {
     if (selectedSkill?.id === skill.id) {
@@ -356,7 +382,11 @@ function InteractiveSkills({ lang = 'de', items = [], onProjectSelect }) {
         </div>
 
         {/* Right Column: Mini Project Nodes */}
-        <div className="projects-column" onScroll={updateConnections}>
+        <div 
+          className="projects-column" 
+          onScroll={handleProjectsScroll}
+          ref={projectsColumnRef}
+        >
           <h4 className="skills-category-title">{lang === 'de' ? 'Herausragende Arbeiten' : 'Featured Works'}</h4>
           <div className="skills-projects-nodes-list">
             {items.map((proj) => {
@@ -388,6 +418,42 @@ function InteractiveSkills({ lang = 'de', items = [], onProjectSelect }) {
               )
             })}
           </div>
+          
+          <AnimatePresence>
+            {!isProjectsAtBottom && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, y: [0, 5, 0] }}
+                exit={{ opacity: 0 }}
+                transition={{ opacity: { duration: 0.3 }, y: { repeat: Infinity, duration: 1.5 } }}
+                style={{
+                  position: 'sticky',
+                  bottom: '10px',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  pointerEvents: 'none',
+                  zIndex: 10,
+                  marginTop: '-30px'
+                }}
+              >
+                <div style={{
+                  background: 'rgba(20, 20, 20, 0.85)',
+                  backdropFilter: 'blur(6px)',
+                  borderRadius: '50%',
+                  width: '32px',
+                  height: '32px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  color: 'rgba(255,255,255,0.8)',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.5)'
+                }}>
+                  <ChevronDown size={20} />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </div>
