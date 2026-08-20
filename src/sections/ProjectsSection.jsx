@@ -89,6 +89,16 @@ export default function ProjectsSection({
           >
             {t('projects.filterLeadership')}
           </button>
+          <button
+            type="button"
+            className={`filter-chip ${primaryFilter === 'thesis' ? 'filter-chip--active' : ''}`}
+            onClick={() => {
+              setPrimaryFilter('thesis');
+              trackEvent('primary_filter', { type: 'thesis' });
+            }}
+          >
+            {t('projects.filterAll') === 'All' ? 'Theses' : 'Abschlussarbeiten'}
+          </button>
           
           <button
             type="button"
@@ -197,6 +207,8 @@ export default function ProjectsSection({
                       ? (t('projects.filterAll') === 'All' && project.customTypeEn ? project.customTypeEn : project.customType)
                       : (project.type === 'seminar'
                         ? t('projects.typeSeminar')
+                        : project.type === 'thesis'
+                        ? 'Thesis'
                         : t('projects.typeProject'))}
                   </span>
                   {project.status === 'in-progress' && (
