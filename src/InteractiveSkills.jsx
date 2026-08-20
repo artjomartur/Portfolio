@@ -322,12 +322,12 @@ function InteractiveSkills({ lang = 'de', items = [], onProjectSelect }) {
         </svg>
 
         {/* Left Column: Skill categories */}
-        <div className="skills-column">
+        <div className="skills-column" onScroll={updateConnections}>
           {Object.entries(categories).map(([catKey, catName]) => (
             <div key={catKey} className="skills-category-group">
               <h4 className="skills-category-title">{catName}</h4>
               <div className="skills-bubbles">
-                {SKILLS.filter((s) => s.category === catKey && !['applescript', 'office', 'capacitor', 'latex', 'docker'].includes(s.id)).map((skill) => {
+                {SKILLS.filter((s) => s.category === catKey).map((skill) => {
                   const isSelected = selectedSkill?.id === skill.id
                   const isDimmed = isSkillDimmed(skill.id)
 
@@ -353,16 +353,13 @@ function InteractiveSkills({ lang = 'de', items = [], onProjectSelect }) {
               </div>
             </div>
           ))}
-          <div style={{ marginTop: '24px', textAlign: 'center', fontSize: '13px', color: 'var(--text-secondary)', opacity: 0.6 }}>
-            {lang === 'de' ? '... und weitere Skills in der CV-Sektion.' : '... and more skills in the CV section.'}
-          </div>
         </div>
 
         {/* Right Column: Mini Project Nodes */}
-        <div className="projects-column">
+        <div className="projects-column" onScroll={updateConnections}>
           <h4 className="skills-category-title">{lang === 'de' ? 'Herausragende Arbeiten' : 'Featured Works'}</h4>
           <div className="skills-projects-nodes-list">
-            {items.slice(0, 4).map((proj) => {
+            {items.map((proj) => {
               const isDimmed = isProjectDimmed(proj.id)
               const isHighlighted = (activeSkill?.projectIds.includes(proj.id)) || hoveredProject?.id === proj.id
 
@@ -391,11 +388,6 @@ function InteractiveSkills({ lang = 'de', items = [], onProjectSelect }) {
               )
             })}
           </div>
-          {items.length > 4 && (
-            <div style={{ marginTop: '24px', textAlign: 'center', fontSize: '13px', color: 'var(--text-secondary)', opacity: 0.6 }}>
-              {lang === 'de' ? `... und ${items.length - 4} weitere Projekte in der Timeline.` : `... and ${items.length - 4} more projects in the timeline.`}
-            </div>
-          )}
         </div>
       </div>
     </div>

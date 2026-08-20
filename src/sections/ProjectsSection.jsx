@@ -1,8 +1,9 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useStore } from '../store/useStore';
 import SplitFlapText from '../SplitFlapText';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function ProjectsSection({
   dynamicTags,
@@ -27,7 +28,8 @@ export default function ProjectsSection({
   const setActiveProject = useStore((state) => state.setActiveProject);
   const gitStats = useStore((state) => state.gitStats);
 
-  const [activeCategory, setActiveCategory] = React.useState('All');
+  const [activeCategory, setActiveCategory] = useState('All');
+  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
 
   const TAG_CATEGORIES = {
     'Sprachen': ['JavaScript', 'HTML', 'CSS', 'Swift', 'C#', 'Python', 'TypeScript', 'Node.js'],
@@ -87,7 +89,32 @@ export default function ProjectsSection({
           >
             {t('projects.filterLeadership')}
           </button>
+          
+          <button
+            type="button"
+            className="filter-chip filter-chip-secondary"
+            onClick={() => {
+              if (showAdvancedFilters) {
+                setProjectFilter('All');
+                setActiveCategory('All');
+              }
+              setShowAdvancedFilters(!showAdvancedFilters);
+            }}
+            style={{ marginLeft: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}
+          >
+            {showAdvancedFilters ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+            {showAdvancedFilters ? t('projects.hideFilters', 'Weniger') : t('projects.showFilters', 'Filter')}
+          </button>
         </div>
+
+        <AnimatePresence>
+          {showAdvancedFilters && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              style={{ overflow: 'hidden' }}
+            >
 
         {/* Tier 2: Category Filter */}
         <div className="project-filters project-filters-categories" style={{ marginBottom: '16px' }}>
@@ -111,21 +138,31 @@ export default function ProjectsSection({
         </div>
 
         {/* Tier 3: Actual Tags (Secondary Filter row) */}
-        <div className="project-filters" style={{ marginBottom: '32px' }}>
-          {tagsToDisplay.map((filter) => (
-            <button
-              key={filter}
-              type="button"
-              className={`filter-chip filter-chip-tertiary ${projectFilter === filter ? 'filter-chip--active' : ''}`}
-              onClick={() => {
-                setProjectFilter(filter);
-                trackEvent('project_filter', { filter });
-              }}
-            >
-              {filter === 'All' ? t('projects.filterAll') : filter}
-            </button>
-          ))}
-        </div>
+        <motion.div layout className="project-filters" style={{ marginBottom: '32px' }}>
+          <AnimatePresence mode="popLayout">
+            {tagsToDisplay.map((filter, i) => (
+              <motion.button
+                layout
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.2, delay: i * 0.03 }}
+                key={filter}
+                type="button"
+                className={`filter-chip filter-chip-tertiary ${projectFilter === filter ? 'filter-chip--active' : ''}`}
+                onClick={() => {
+                  setProjectFilter(filter);
+                  trackEvent('project_filter', { filter });
+                }}
+              >
+                {filter === 'All' ? t('projects.filterAll') : filter}
+              </motion.button>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div className="projects-list">
           {visibleProjects.map((project, i) => (
@@ -163,7 +200,7 @@ export default function ProjectsSection({
                         : t('projects.typeProject'))}
                   </span>
                   {project.status === 'in-progress' && (
-                    <div className="status-badge" style={{ marginBottom: 0 }}>
+                    <div className="status-badge status-badge--in-progress" style={{ marginBottom: 0 }}>
                       {t('projects.inProgress')}
                     </div>
                   )}
