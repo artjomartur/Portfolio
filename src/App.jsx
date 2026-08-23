@@ -6,6 +6,7 @@ import { sfx } from './sfx'
 import { useCursor } from './useCursor'
 import CommandPalette from './components/CommandPalette'
 import { useKonamiCode } from './hooks/useKonamiCode'
+import { useRetroCode } from './hooks/useRetroCode'
 import { Toaster } from 'react-hot-toast'
 import { playClickSound } from './utils/sound'
 import SEO from './components/SEO'
@@ -92,6 +93,7 @@ function App() {
 
   const { scrollYProgress } = useScroll()
   const isKonamiCodeActive = useKonamiCode()
+  const isRetroModeActive = useRetroCode()
   
   const [navScrolled, setNavScrolled] = useState(false)
   const [scrollY, setScrollY] = useState(0)
@@ -267,6 +269,14 @@ function App() {
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [activeProject, setActiveProject])
+
+  useEffect(() => {
+    if (isRetroModeActive) {
+      document.body.classList.add('crt-mode')
+    } else {
+      document.body.classList.remove('crt-mode')
+    }
+  }, [isRetroModeActive])
 
   useEffect(() => {
     const onHashChange = () => setIsCvView(window.location.hash === '#cv')

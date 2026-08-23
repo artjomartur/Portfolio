@@ -8,6 +8,7 @@ import { sfx } from '../sfx';
 const OliEasterEgg = React.lazy(() => import('../OliEasterEgg'));
 import { ITEMS } from '../data/constants';
 import SEO from './SEO';
+import ThesisRoadmap from './ThesisRoadmap';
 
 const CsAnimation = React.lazy(() => import('../CsAnimation'));
 const SkinStockApp = React.lazy(() => import('./SkinStockApp'));
@@ -151,6 +152,8 @@ export default function ProjectModal() {
             <Suspense fallback={<div className="modal-image" style={{ background: '#0d1117' }} />}>
               <MafoBotAnimation />
             </Suspense>
+          ) : projectToRender.id === 'bachelor-thesis' ? (
+            <ThesisRoadmap />
           ) : projectToRender.images ? (
             <div style={{ position: 'relative' }}>
               <div className="modal-image-gallery" onScroll={handleGalleryScroll}>

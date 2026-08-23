@@ -401,6 +401,14 @@ function InteractiveSkills({ lang = 'de', items = [], onProjectSelect }) {
                   onMouseEnter={() => setHoveredProject(proj)}
                   onMouseLeave={() => setHoveredProject(null)}
                   onClick={() => onProjectSelect(proj)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      onProjectSelect(proj);
+                    }
+                  }}
                 >
                   <div className="project-node-img-wrapper">
                     <img src={proj.image} alt="" className="project-node-img" />
