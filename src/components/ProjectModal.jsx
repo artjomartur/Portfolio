@@ -14,6 +14,7 @@ const CsAnimation = React.lazy(() => import('../CsAnimation'));
 const SkinStockApp = React.lazy(() => import('./SkinStockApp'));
 const Terminal = React.lazy(() => import('../Terminal'));
 const MafoBotAnimation = React.lazy(() => import('./MafoBotAnimation'));
+const KinopolisAppShowcase = React.lazy(() => import('./KinopolisAppShowcase'));
 
 export default function ProjectModal() {
   const { t, i18n } = useTranslation();
@@ -151,6 +152,11 @@ export default function ProjectModal() {
           {projectToRender.id === 'mafo-bot' ? (
             <Suspense fallback={<div className="modal-image" style={{ background: '#0d1117' }} />}>
               <MafoBotAnimation />
+            </Suspense>
+          ) : projectToRender.id === 'kinopolis-automation' ? (
+            <Suspense fallback={<div className="modal-image" style={{ background: '#0d1117' }} />}>
+              <KinopolisAppShowcase lang={lang} />
+              <OliEasterEgg active={showOliVideo} />
             </Suspense>
           ) : projectToRender.id === 'bachelor-thesis' ? (
             <ThesisRoadmap />

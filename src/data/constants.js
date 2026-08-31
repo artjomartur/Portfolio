@@ -279,16 +279,6 @@ export const TIMELINE = [
 
 export const TESTIMONIALS = [
   {
-    author: 'Kinopolis Mitarbeiter',
-    roleDe: 'Operativer Betrieb, Kinopolis',
-    roleEn: 'Cinema Operations, Kinopolis',
-    quoteDe: '„Artjoms Dashboard hat unseren Arbeitsalltag im Kino extrem vereinfacht. Die Echtzeit-Sitzpläne sparen uns täglich viel Zeit bei der operativen Planung.“',
-    quoteEn: '“Artjom\'s dashboard has simplified our daily cinema operations immensely. The real-time seat maps save us so much time every day.”',
-    initials: 'KM',
-    brand: 'kinopolis',
-    color: '#e30613'
-  },
-  {
     author: 'Serious Games Teammitglied',
     roleDe: 'Projektpartner, TU Darmstadt',
     roleEn: 'Project Partner, TU Darmstadt',
