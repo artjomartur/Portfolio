@@ -147,8 +147,8 @@ const APPSTORE_SLIDES = [
 const WEB_SCREENS = [
   {
     id: 'dashboard',
-    labelDe: '📊 Live Radar',
-    labelEn: '📊 Live Radar',
+    labelDe: '📊 Projektübersicht',
+    labelEn: '📊 Project Overview',
     img: '/projects/kinopolis/web_showcase/web_1_dashboard.png',
     titleDe: 'Operatives Multi-Saal-Radar',
     titleEn: 'Operational Multi-Hall Radar'
@@ -180,7 +180,7 @@ const WEB_SCREENS = [
 ];
 
 export default function KinopolisAppShowcase({ lang = 'de' }) {
-  const [viewMode, setViewMode] = useState('ios'); // 'ios' | 'slides' | 'web'
+  const [viewMode, setViewMode] = useState('web'); // 'ios' | 'slides' | 'web'
   const [activeScreenIndex, setActiveScreenIndex] = useState(0);
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const [activeWebIndex, setActiveWebIndex] = useState(0);

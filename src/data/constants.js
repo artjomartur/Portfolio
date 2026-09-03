@@ -26,7 +26,8 @@ export const PROJECTS = [
     status: 'in-progress',
     short: 'Gestaltete den Kinobetrieb effizienter, gemessen an der Zeiteinsparung beim Plakatwechsel, durch die Entwicklung eines automatisierten Dashboards als Web- & native iOS-App.',
     image: '/kinopolis_hero.webp',
-    images: ['/kinopolis_hero.webp', '/slide_final_1.webp', '/slide_final_2.webp', '/slide_final_3.webp', '/slide_final_4.webp', '/slide_final_5.webp'],
+    overviewImage: '/projects/kinopolis/web_showcase/web_1_dashboard.png',
+    images: ['/projects/kinopolis/web_showcase/web_1_dashboard.png', '/kinopolis_hero.webp', '/slide_final_1.webp', '/slide_final_2.webp', '/slide_final_3.webp', '/slide_final_4.webp', '/slide_final_5.webp'],
     details: {
       role: 'Fullstack Developer & Automation',
       context: 'Operative Unterstützung Kinopolis',
