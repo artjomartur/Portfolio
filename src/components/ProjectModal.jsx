@@ -315,6 +315,23 @@ export default function ProjectModal() {
                       </a>
                     )}
 
+                    {projectToRender.details.overviewPage && (
+                      <a
+                        href={projectToRender.details.overviewPage}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link link-button"
+                        style={{
+                          display: 'inline-flex', alignItems: 'center', gap: '6px', margin: 0,
+                          color: '#fbbf24', background: 'rgba(251, 191, 36, 0.08)', border: '1px solid rgba(251, 191, 36, 0.25)',
+                          padding: '6px 14px', borderRadius: '8px', fontSize: '13px', fontWeight: '600',
+                          textDecoration: 'none', transition: 'all 0.2s'
+                        }}
+                      >
+                        📋 {lang === 'de' ? 'Projektübersicht öffnen' : 'Open Project Overview'}
+                      </a>
+                    )}
+
                     {projectToRender.details.pdf && (
                       <button
                         type="button"

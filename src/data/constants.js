@@ -39,6 +39,7 @@ export const PROJECTS = [
       result: 'Live im Einsatz zur Unterstützung der täglichen Abläufe.',
       tags: ['Web', 'iOS', 'Mobile', 'UI/UX', 'Automation', 'Xcode'],
       link: 'https://kinopolis.artjombecker.com',
+      overviewPage: '/projects/kinopolis/Projektuebersicht.html',
     },
   },
   {
