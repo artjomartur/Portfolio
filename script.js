@@ -166,6 +166,21 @@ function initThreeLaptop() {
     camera.updateProjectionMatrix();
     renderer.setSize(nextWidth, nextHeight);
   });
+
+  const projectDock = document.querySelector('.project-dock');
+  const updateScrollFocus = () => {
+    const progress = Math.min(window.scrollY / Math.max(window.innerHeight * 0.8, 1), 1);
+    camera.position.z = 5.2 - progress * 1.25;
+    camera.position.y = 0.5 - progress * 0.22;
+    laptopGroup.position.x = progress * 0.18;
+    laptopGroup.scale.setScalar(1 + progress * 0.24);
+    if (projectDock) {
+      projectDock.style.opacity = String(1 - progress * 0.52);
+      projectDock.style.transform = `translateX(${progress * 34}px)`;
+    }
+  };
+  window.addEventListener('scroll', updateScrollFocus, { passive: true });
+  updateScrollFocus();
 }
 
 initThreeLaptop();
