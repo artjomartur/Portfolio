@@ -13,6 +13,11 @@
 }
 
 @media (max-width: 900px) {
+  .hero-laptop-section {
+    height: 360vh !important;
+    min-height: 360vh !important;
+  }
+
   .dock-list {
     display: block !important;
     max-height: min(34vh, 300px) !important;
