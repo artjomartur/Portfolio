@@ -29,11 +29,11 @@ function initThreeLaptop() {
   const screenContext = screenCanvas.getContext('2d');
   const screenTexture = new THREE.CanvasTexture(screenCanvas);
 
-  scene.add(new THREE.AmbientLight(0x9cbcff, 1.7));
-  const blueLight = new THREE.DirectionalLight(0x3e80ff, 3);
+  scene.add(new THREE.AmbientLight(0xffd9b5, 1.8));
+  const blueLight = new THREE.DirectionalLight(0xffb45f, 3.2);
   blueLight.position.set(3, 4, 4);
   scene.add(blueLight);
-  const rimLight = new THREE.PointLight(0x1e5bff, 4, 7);
+  const rimLight = new THREE.PointLight(0xf27a38, 4, 7);
   rimLight.position.set(-2, 1, 2);
   scene.add(rimLight);
 
@@ -41,8 +41,8 @@ function initThreeLaptop() {
   laptopGroup.rotation.set(-0.08, -0.2, 0);
   scene.add(laptopGroup);
 
-  const metal = new THREE.MeshStandardMaterial({ color: 0x27334b, metalness: 0.85, roughness: 0.23 });
-  const darkMetal = new THREE.MeshStandardMaterial({ color: 0x080c15, metalness: 0.7, roughness: 0.3 });
+  const metal = new THREE.MeshStandardMaterial({ color: 0xc8783d, metalness: 0.8, roughness: 0.24 });
+  const darkMetal = new THREE.MeshStandardMaterial({ color: 0x71351f, metalness: 0.72, roughness: 0.3 });
   const screenMaterial = new THREE.MeshBasicMaterial({ map: screenTexture, toneMapped: false });
 
   const base = new THREE.Mesh(new THREE.BoxGeometry(2.9, 0.08, 1.85), metal);
@@ -54,12 +54,12 @@ function initThreeLaptop() {
   laptopGroup.add(keyboard);
 
   for (let row = 0; row < 5; row += 1) {
-    const keys = new THREE.Mesh(new THREE.BoxGeometry(2.36, 0.012, 0.12), new THREE.MeshStandardMaterial({ color: row === 2 ? 0x1b315d : 0x111a2b, metalness: 0.35, roughness: 0.5 }));
+    const keys = new THREE.Mesh(new THREE.BoxGeometry(2.36, 0.012, 0.12), new THREE.MeshStandardMaterial({ color: row === 2 ? 0xb95e2f : 0x8e4426, metalness: 0.35, roughness: 0.5 }));
     keys.position.set(0, 0.04, -0.56 + row * 0.16);
     laptopGroup.add(keys);
   }
 
-  const trackpad = new THREE.Mesh(new THREE.BoxGeometry(0.82, 0.012, 0.5), new THREE.MeshStandardMaterial({ color: 0x33405a, metalness: 0.65, roughness: 0.3 }));
+  const trackpad = new THREE.Mesh(new THREE.BoxGeometry(0.82, 0.012, 0.5), new THREE.MeshStandardMaterial({ color: 0xd99050, metalness: 0.65, roughness: 0.3 }));
   trackpad.position.set(0, 0.04, 0.48);
   laptopGroup.add(trackpad);
 
@@ -86,7 +86,7 @@ function initThreeLaptop() {
     particlePositions[index * 3 + 1] = (Math.random() - 0.5) * 1.8;
     particlePositions[index * 3 + 2] = Math.sin(angle) * radius;
   }
-  const particles = new THREE.Points(new THREE.BufferGeometry(), new THREE.PointsMaterial({ color: 0x5f9cff, size: 0.025, transparent: true, opacity: 0.65 }));
+  const particles = new THREE.Points(new THREE.BufferGeometry(), new THREE.PointsMaterial({ color: 0xffd08e, size: 0.025, transparent: true, opacity: 0.65 }));
   particles.geometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
   laptopGroup.add(particles);
 
