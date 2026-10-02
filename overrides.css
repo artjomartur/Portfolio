@@ -1,0 +1,26 @@
+@media (max-width: 560px) {
+  .hero-title {
+    top: 126px !important;
+  }
+
+  .hero-title h1 {
+    font-size: 14vw !important;
+  }
+
+  .hero-title p {
+    margin-top: 10px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .dock-list {
+    display: block !important;
+    max-height: min(34vh, 300px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  .dock-project {
+    min-width: 0 !important;
+  }
+}
