@@ -287,6 +287,7 @@ function initThreeLaptop() {
     camera.position.y = 0.5 - progress * 0.08;
     laptopGroup.position.x = progress * 0.18;
     laptopGroup.scale.setScalar(1 + progress * 0.14);
+    lidGroup.rotation.x = 0.18 + progress * 1.28;
     stageGroup.position.y = -0.55 - progress * 0.7;
     stageGroup.scale.setScalar(1 - progress * 0.25);
     stageGroup.visible = progress < 0.34;
