@@ -8,6 +8,7 @@ const projectData = [
 
 const threeLaptopContainer = document.querySelector('[data-three-laptop]');
 const lightSwitch = document.querySelector('.light-switch');
+let activeProject = 0;
 let setSceneLighting = () => {};
 let renderProjectScreen = () => {};
 
@@ -32,18 +33,23 @@ function initThreeLaptop() {
   const screenTexture = new THREE.CanvasTexture(screenCanvas);
   let projectFocusActive = false;
 
-  const ambientLight = new THREE.AmbientLight(0x9cbcff, 1.8);
+  const ambientLight = new THREE.AmbientLight(0x0a1a40, 2.2);
   scene.add(ambientLight);
-  const blueLight = new THREE.DirectionalLight(0x4a88ff, 3.2);
-  blueLight.position.set(3, 4, 4);
+  const blueLight = new THREE.DirectionalLight(0x1a3a8a, 2.4);
+  blueLight.position.set(-3, 6, 3);
   scene.add(blueLight);
-  const rimLight = new THREE.PointLight(0x1e5bff, 4, 7);
-  rimLight.position.set(-2, 1, 2);
+  // strong cyan spotlight from behind-right — key visual from the reference image
+  const cyanSpot = new THREE.PointLight(0x00d4ff, 8, 14);
+  cyanSpot.position.set(3.2, 2.8, -2.2);
+  scene.add(cyanSpot);
+  const rimLight = new THREE.PointLight(0x0844bb, 3, 8);
+  rimLight.position.set(-3, 1, 3);
   scene.add(rimLight);
   setSceneLighting = (isLit) => {
-    ambientLight.intensity = isLit ? 2.8 : 1.2;
-    blueLight.intensity = isLit ? 5.2 : 2.1;
-    rimLight.intensity = isLit ? 7 : 2.4;
+    ambientLight.intensity = isLit ? 3.2 : 1.6;
+    blueLight.intensity   = isLit ? 4.0 : 2.0;
+    cyanSpot.intensity    = isLit ? 14  : 8;
+    rimLight.intensity    = isLit ? 5   : 3;
   };
 
   const laptopGroup = new THREE.Group();
@@ -54,77 +60,195 @@ function initThreeLaptop() {
   stageGroup.position.y = -0.55;
   scene.add(stageGroup);
 
-  const metal = new THREE.MeshStandardMaterial({ color: 0x31589d, metalness: 0.8, roughness: 0.24 });
-  const darkMetal = new THREE.MeshStandardMaterial({ color: 0x0a1736, metalness: 0.72, roughness: 0.3 });
+  const metal = new THREE.MeshStandardMaterial({ color: 0x1a3a7a, metalness: 0.92, roughness: 0.12 });
+  const darkMetal = new THREE.MeshStandardMaterial({ color: 0x060e22, metalness: 0.85, roughness: 0.18 });
   const screenMaterial = new THREE.MeshBasicMaterial({ map: screenTexture, toneMapped: false });
 
-  const stageMaterial = new THREE.MeshStandardMaterial({ color: 0x153b83, metalness: 0.25, roughness: 0.65, transparent: true, opacity: 0.92 });
-  const wallMaterial = new THREE.MeshStandardMaterial({ color: 0x214c9a, metalness: 0.1, roughness: 0.8, transparent: true, opacity: 0.78 });
-  const accentMaterial = new THREE.MeshStandardMaterial({ color: 0x5b9cff, metalness: 0.55, roughness: 0.3, transparent: true, opacity: 0.95 });
+  // ── PODIUM — two flat circular tiers with chrome rim (reference exact) ────
+  const podiumDarkMat = new THREE.MeshStandardMaterial({ color: 0x0a1830, metalness: 0.45, roughness: 0.55 });
+  const podiumChromeMat = new THREE.MeshStandardMaterial({ color: 0x7aaac8, metalness: 0.95, roughness: 0.06 });
 
-  const podium = new THREE.Mesh(new THREE.CylinderGeometry(2.35, 2.65, 0.28, 64), stageMaterial);
-  podium.position.set(0, -0.2, 0.25);
-  stageGroup.add(podium);
-  const podiumTop = new THREE.Mesh(new THREE.CylinderGeometry(2.2, 2.2, 0.035, 64), accentMaterial);
-  podiumTop.position.set(0, -0.04, 0.25);
-  stageGroup.add(podiumTop);
-  const podiumRing = new THREE.Mesh(new THREE.TorusGeometry(1.95, 0.025, 12, 64), new THREE.MeshStandardMaterial({ color: 0x8ec5ff, emissive: 0x174a9e, emissiveIntensity: 0.7, metalness: 0.6, roughness: 0.25 }));
-  podiumRing.rotation.x = Math.PI / 2;
-  podiumRing.position.set(0, -0.015, 0.25);
-  stageGroup.add(podiumRing);
+  // lower wider tier
+  const tierLow = new THREE.Mesh(new THREE.CylinderGeometry(2.7, 2.9, 0.18, 96), podiumDarkMat);
+  tierLow.position.set(0, -0.42, 0.15);
+  stageGroup.add(tierLow);
+  // chrome ring at base of lower tier
+  const chromeLow = new THREE.Mesh(new THREE.TorusGeometry(2.88, 0.028, 12, 96), podiumChromeMat);
+  chromeLow.rotation.x = Math.PI / 2;
+  chromeLow.position.set(0, -0.33, 0.15);
+  stageGroup.add(chromeLow);
 
-  const wall = new THREE.Mesh(new THREE.BoxGeometry(1.2, 3.4, 0.14), wallMaterial);
-  wall.position.set(-2.45, 1.25, -0.75);
-  wall.rotation.z = -0.06;
-  stageGroup.add(wall);
-  for (let stripe = 0; stripe < 5; stripe += 1) {
-    const wallStripe = new THREE.Mesh(new THREE.BoxGeometry(0.035, 3.05, 0.02), accentMaterial);
-    wallStripe.position.set(-2.82 + stripe * 0.2, 1.25, -0.66);
-    wallStripe.rotation.z = -0.06;
-    stageGroup.add(wallStripe);
+  // upper narrower tier
+  const tierHigh = new THREE.Mesh(new THREE.CylinderGeometry(2.25, 2.7, 0.26, 96), podiumDarkMat);
+  tierHigh.position.set(0, -0.12, 0.15);
+  stageGroup.add(tierHigh);
+  // chrome ring at top edge of upper tier
+  const chromeTop = new THREE.Mesh(new THREE.TorusGeometry(2.25, 0.032, 12, 96), podiumChromeMat);
+  chromeTop.rotation.x = Math.PI / 2;
+  chromeTop.position.set(0, 0.01, 0.15);
+  stageGroup.add(chromeTop);
+  // subtle inner chrome band halfway up
+  const chromeMid = new THREE.Mesh(new THREE.TorusGeometry(2.48, 0.016, 8, 96), podiumChromeMat);
+  chromeMid.rotation.x = Math.PI / 2;
+  chromeMid.position.set(0, -0.22, 0.15);
+  stageGroup.add(chromeMid);
+
+  // ── LEFT PANELS — ~20 slabs in a concave circular arc ────────────────────
+  // In the reference the panels stand in a curved row behind-left, all parallel
+  // to each other (not fanned), forming a concave wall facing the viewer.
+  const panelCount = 19;
+  const arcRadius = 5.2;          // radius of the imaginary circle the panels sit on
+  const arcCenterX = -1.8;        // arc center X (shifted right so the curve wraps left)
+  const arcCenterZ = -4.5;        // arc center Z (behind the scene)
+  const arcStart = 1.18;          // start angle (radians) — left edge
+  const arcEnd   = 1.72;          // end angle — right edge (toward center-back)
+
+  const panelMat = new THREE.MeshStandardMaterial({ color: 0x0c1e4a, metalness: 0.82, roughness: 0.22 });
+  const panelFaceMat = new THREE.MeshStandardMaterial({ color: 0x142a5e, metalness: 0.75, roughness: 0.28 });
+
+  for (let i = 0; i < panelCount; i += 1) {
+    const t = i / (panelCount - 1);
+    const angle = arcStart + t * (arcEnd - arcStart);
+
+    const px = arcCenterX + Math.cos(angle) * arcRadius;
+    const pz = arcCenterZ + Math.sin(angle) * arcRadius;
+
+    // panels get slightly taller toward the right end (like reference)
+    const panelH = 3.5 + t * 0.9;
+    const panelW = 0.18;
+    const panelD = 0.09;
+
+    // each panel faces the arc centre (tangent orientation)
+    const panelYaw = angle - Math.PI / 2;
+
+    const panel = new THREE.Mesh(new THREE.BoxGeometry(panelW, panelH, panelD), i % 2 === 0 ? panelMat : panelFaceMat);
+    panel.position.set(px, panelH / 2 - 0.5, pz);
+    panel.rotation.y = panelYaw;
+    stageGroup.add(panel);
   }
-  const wallTop = new THREE.Mesh(new THREE.BoxGeometry(1.32, 0.035, 0.2), accentMaterial);
-  wallTop.position.set(-2.45, 2.98, -0.72);
-  wallTop.rotation.z = -0.06;
-  stageGroup.add(wallTop);
 
-  const hat = new THREE.Group();
-  const hatBase = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.5, 0.12, 32), darkMetal);
-  const hatTop = new THREE.Mesh(new THREE.CylinderGeometry(0.31, 0.31, 0.38, 32), metal);
-  hatTop.position.y = 0.22;
-  const hatTassel = new THREE.Mesh(new THREE.SphereGeometry(0.08, 16, 16), accentMaterial);
-  hatTassel.position.set(0.27, 0.48, 0);
-  hat.add(hatBase, hatTop, hatTassel);
-  hat.position.set(-1.55, 0.2, 0.5);
-  hat.rotation.z = -0.12;
-  stageGroup.add(hat);
+  // ── RIGHT NEON BUILDINGS — exact wireframe outlines from reference ────────
+  const LT = 0.022;   // line thickness
+  const neonBrightMat = new THREE.MeshStandardMaterial({ color: 0x00eeff, emissive: 0x00ccee, emissiveIntensity: 4.0, roughness: 1 });
+  const neonDimMat    = new THREE.MeshStandardMaterial({ color: 0x00aacc, emissive: 0x008899, emissiveIntensity: 2.0, roughness: 1, transparent: true, opacity: 0.75 });
 
-  const makeTower = (x, height, width, cap, crown = false) => {
-    const tower = new THREE.Group();
-    const body = new THREE.Mesh(new THREE.BoxGeometry(width, height, width), wallMaterial);
-    body.position.y = height / 2;
-    tower.add(body);
-    const roof = new THREE.Mesh(new THREE.ConeGeometry(width * 0.75, cap, 4), accentMaterial);
-    roof.position.y = height + cap / 2;
-    roof.rotation.y = Math.PI / 4;
-    tower.add(roof);
-    if (crown) {
-      for (let finger = 0; finger < 5; finger += 1) {
-        const arch = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.34, 0.07), accentMaterial);
-        arch.position.set((finger - 2) * width * 0.22, height + cap + 0.13, 0);
-        tower.add(arch);
-      }
-    }
-    for (let floor = 0; floor < Math.floor(height / 0.24); floor += 1) {
-      const window = new THREE.Mesh(new THREE.BoxGeometry(width * 0.65, 0.025, 0.01), accentMaterial);
-      window.position.set(0, 0.14 + floor * 0.24, width / 2 + 0.01);
-      tower.add(window);
-    }
-    tower.position.set(x, -0.08, -0.9);
-    return tower;
+  // Helper: draw a box frame (wireframe outline) at given position
+  const addBox = (group, cx, cy, cz, w, h, d, mat) => {
+    // vertical edges
+    [[- w/2, -d/2],[w/2,-d/2],[w/2,d/2],[-w/2,d/2]].forEach(([ex, ez]) => {
+      const m = new THREE.Mesh(new THREE.BoxGeometry(LT, h, LT), mat);
+      m.position.set(cx + ex, cy, cz + ez);
+      group.add(m);
+    });
+    // horizontal edges top
+    [[-d/2],[d/2]].forEach(([ez]) => {
+      const m = new THREE.Mesh(new THREE.BoxGeometry(w, LT, LT), mat);
+      m.position.set(cx, cy + h/2, cz + ez);
+      group.add(m);
+    });
+    [[-w/2],[w/2]].forEach(([ex]) => {
+      const m = new THREE.Mesh(new THREE.BoxGeometry(LT, LT, d), mat);
+      m.position.set(cx + ex, cy + h/2, cz);
+      group.add(m);
+    });
+    // horizontal edges bottom
+    [[-d/2],[d/2]].forEach(([ez]) => {
+      const m = new THREE.Mesh(new THREE.BoxGeometry(w, LT, LT), neonDimMat);
+      m.position.set(cx, cy - h/2, cz + ez);
+      group.add(m);
+    });
+    [[-w/2],[w/2]].forEach(([ex]) => {
+      const m = new THREE.Mesh(new THREE.BoxGeometry(LT, LT, d), neonDimMat);
+      m.position.set(cx + ex, cy - h/2, cz);
+      group.add(m);
+    });
   };
-  stageGroup.add(makeTower(2.15, 2.55, 0.32, 0.55));
-  stageGroup.add(makeTower(2.78, 1.45, 0.58, 0.18, true));
+
+  // ── Building A: slim skyscraper with floor lines + side ladder ────────────
+  const buildA = new THREE.Group();
+  const bAW = 0.38, bAD = 0.22, bAH = 3.2;
+
+  // main body frame
+  addBox(buildA, 0, bAH/2, 0, bAW, bAH, bAD, neonBrightMat);
+
+  // floor level lines (horizontal lines across front face)
+  const floorCount = 7;
+  for (let f = 1; f < floorCount; f += 1) {
+    const fy = (f / floorCount) * bAH;
+    const fl = new THREE.Mesh(new THREE.BoxGeometry(bAW, LT, LT), neonDimMat);
+    fl.position.set(0, fy, -bAD/2 - 0.001);
+    buildA.add(fl);
+  }
+
+  // antenna / spire on top
+  const spireH = 0.55;
+  const spire = new THREE.Mesh(new THREE.BoxGeometry(LT, spireH, LT), neonBrightMat);
+  spire.position.set(0, bAH + spireH/2, 0);
+  buildA.add(spire);
+  // small horizontal bar near spire top
+  const spireBar = new THREE.Mesh(new THREE.BoxGeometry(0.14, LT, LT), neonBrightMat);
+  spireBar.position.set(0, bAH + spireH * 0.72, 0);
+  buildA.add(spireBar);
+  const spireBar2 = new THREE.Mesh(new THREE.BoxGeometry(0.08, LT, LT), neonBrightMat);
+  spireBar2.position.set(0, bAH + spireH * 0.9, 0);
+  buildA.add(spireBar2);
+
+  // side ladder (attached to right face) — 2 rails + 6 rungs
+  const ladderX = bAW/2 + 0.04;
+  const ladderH = bAH * 0.58;
+  const ladderBot = 0.15;
+  const railL = new THREE.Mesh(new THREE.BoxGeometry(LT, ladderH, LT), neonDimMat);
+  const railR = railL.clone();
+  railL.position.set(ladderX + 0.08, ladderBot + ladderH/2, 0);
+  railR.position.set(ladderX - 0.08, ladderBot + ladderH/2, 0);
+  buildA.add(railL, railR);
+  const rungCount = 7;
+  for (let r = 0; r <= rungCount; r += 1) {
+    const rung = new THREE.Mesh(new THREE.BoxGeometry(0.18, LT, LT), neonDimMat);
+    rung.position.set(ladderX, ladderBot + (r / rungCount) * ladderH, 0);
+    buildA.add(rung);
+  }
+
+  buildA.position.set(2.28, -0.08, -1.05);
+  stageGroup.add(buildA);
+
+  // ── Building B: wide colonnade/arch tower on right ────────────────────────
+  const buildB = new THREE.Group();
+  const bBW = 0.82, bBD = 0.32, bBH = 1.65;
+
+  // main body frame
+  addBox(buildB, 0, bBH/2, 0, bBW, bBH, bBD, neonBrightMat);
+
+  // decorative horizontal band near mid-height
+  const band = new THREE.Mesh(new THREE.BoxGeometry(bBW, LT, LT), neonBrightMat);
+  band.position.set(0, bBH * 0.62, -bBD/2 - 0.001);
+  buildB.add(band);
+
+  // crown: 5 arch columns sitting on top
+  const archN = 5;
+  const archH = 0.32;
+  const archSpacing = bBW / (archN);
+  for (let a = 0; a < archN; a += 1) {
+    const ax = -bBW/2 + archSpacing * (a + 0.5);
+    // vertical pillar
+    const pillar = new THREE.Mesh(new THREE.BoxGeometry(LT, archH, LT), neonBrightMat);
+    pillar.position.set(ax, bBH + archH/2, -bBD/2);
+    buildB.add(pillar);
+    // arch top cap
+    const cap = new THREE.Mesh(new THREE.BoxGeometry(archSpacing - 0.04, LT, LT), neonDimMat);
+    cap.position.set(ax, bBH + archH, -bBD/2);
+    buildB.add(cap);
+  }
+  // crown base bar connecting all pillars
+  const crownBase = new THREE.Mesh(new THREE.BoxGeometry(bBW, LT, LT), neonBrightMat);
+  crownBase.position.set(0, bBH, -bBD/2);
+  buildB.add(crownBase);
+
+  // small base step below the tower
+  addBox(buildB, 0, -0.09, 0, bBW + 0.12, 0.18, bBD + 0.08, neonDimMat);
+
+  buildB.position.set(3.3, -0.08, -0.85);
+  stageGroup.add(buildB);
 
   const base = new THREE.Mesh(new THREE.BoxGeometry(2.9, 0.08, 1.85), metal);
   base.position.y = -0.04;
@@ -282,7 +406,8 @@ function initThreeLaptop() {
   const projectDock = document.querySelector('.project-dock');
   let hasEnteredProjectFocus = false;
   const updateScrollFocus = () => {
-    const progress = Math.min(window.scrollY / Math.max(window.innerHeight * 0.8, 1), 1);
+    const scrollRange = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    const progress = Math.min(window.scrollY / scrollRange, 1);
     camera.position.z = 5.2 - progress * 0.72;
     camera.position.y = 0.5 - progress * 0.08;
     laptopGroup.position.x = progress * 0.18;
@@ -296,14 +421,18 @@ function initThreeLaptop() {
     });
     if (projectDock) {
       const projectProgress = Math.max(0, Math.min((progress - 0.38) / 0.42, 1));
-      projectDock.style.opacity = String(projectProgress);
-      projectDock.style.transform = `translateX(${(1 - projectProgress) * 54}px) scale(${0.96 + projectProgress * 0.04})`;
-      projectDock.style.pointerEvents = projectProgress > 0.05 ? 'auto' : 'none';
+      const projectIndex = Math.min(projectData.length - 1, Math.floor(Math.max(0, progress - 0.38) / 0.2));
+      const closeProgress = Math.max(0, Math.min((progress - 0.88) / 0.12, 1));
+      const windowProgress = projectProgress * (1 - closeProgress);
+      projectDock.style.opacity = String(windowProgress);
+      projectDock.style.transform = `translateX(${(1 - windowProgress) * 54}px) scale(${0.96 + windowProgress * 0.04})`;
+      projectDock.style.pointerEvents = windowProgress > 0.05 ? 'auto' : 'none';
       if (projectProgress > 0.05 && !hasEnteredProjectFocus) {
         hasEnteredProjectFocus = true;
         projectFocusActive = true;
         renderProjectScreen(activeProject);
       }
+      if (projectFocusActive && projectIndex !== activeProject && closeProgress < 1) selectProject(projectIndex);
     }
   };
   window.addEventListener('scroll', updateScrollFocus, { passive: true });
@@ -324,7 +453,6 @@ if (lightSwitch) {
 const laptopStage = document.querySelector('[data-laptop-stage]');
 const laptop = document.querySelector('[data-laptop]');
 const projectButtons = document.querySelectorAll('[data-project]');
-let activeProject = 0;
 
 function selectProject(index) {
   const project = projectData[index];
