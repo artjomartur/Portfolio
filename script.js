@@ -31,6 +31,7 @@ function initThreeLaptop() {
   screenCanvas.height = 750;
   const screenContext = screenCanvas.getContext('2d');
   const screenTexture = new THREE.CanvasTexture(screenCanvas);
+  let projectFocusActive = false;
 
   const ambientLight = new THREE.AmbientLight(0x9cbcff, 1.8);
   scene.add(ambientLight);
@@ -50,9 +51,81 @@ function initThreeLaptop() {
   laptopGroup.rotation.set(-0.08, -0.2, 0);
   scene.add(laptopGroup);
 
+  const stageGroup = new THREE.Group();
+  stageGroup.position.y = -0.55;
+  scene.add(stageGroup);
+
   const metal = new THREE.MeshStandardMaterial({ color: 0x31589d, metalness: 0.8, roughness: 0.24 });
   const darkMetal = new THREE.MeshStandardMaterial({ color: 0x0a1736, metalness: 0.72, roughness: 0.3 });
   const screenMaterial = new THREE.MeshBasicMaterial({ map: screenTexture, toneMapped: false });
+
+  const stageMaterial = new THREE.MeshStandardMaterial({ color: 0x153b83, metalness: 0.25, roughness: 0.65, transparent: true, opacity: 0.92 });
+  const wallMaterial = new THREE.MeshStandardMaterial({ color: 0x214c9a, metalness: 0.1, roughness: 0.8, transparent: true, opacity: 0.78 });
+  const accentMaterial = new THREE.MeshStandardMaterial({ color: 0x5b9cff, metalness: 0.55, roughness: 0.3, transparent: true, opacity: 0.95 });
+
+  const podium = new THREE.Mesh(new THREE.CylinderGeometry(2.35, 2.65, 0.28, 64), stageMaterial);
+  podium.position.set(0, -0.2, 0.25);
+  stageGroup.add(podium);
+  const podiumTop = new THREE.Mesh(new THREE.CylinderGeometry(2.2, 2.2, 0.035, 64), accentMaterial);
+  podiumTop.position.set(0, -0.04, 0.25);
+  stageGroup.add(podiumTop);
+  const podiumRing = new THREE.Mesh(new THREE.TorusGeometry(1.95, 0.025, 12, 64), new THREE.MeshStandardMaterial({ color: 0x8ec5ff, emissive: 0x174a9e, emissiveIntensity: 0.7, metalness: 0.6, roughness: 0.25 }));
+  podiumRing.rotation.x = Math.PI / 2;
+  podiumRing.position.set(0, -0.015, 0.25);
+  stageGroup.add(podiumRing);
+
+  const wall = new THREE.Mesh(new THREE.BoxGeometry(1.2, 3.4, 0.14), wallMaterial);
+  wall.position.set(-2.45, 1.25, -0.75);
+  wall.rotation.z = -0.06;
+  stageGroup.add(wall);
+  for (let stripe = 0; stripe < 5; stripe += 1) {
+    const wallStripe = new THREE.Mesh(new THREE.BoxGeometry(0.035, 3.05, 0.02), accentMaterial);
+    wallStripe.position.set(-2.82 + stripe * 0.2, 1.25, -0.66);
+    wallStripe.rotation.z = -0.06;
+    stageGroup.add(wallStripe);
+  }
+  const wallTop = new THREE.Mesh(new THREE.BoxGeometry(1.32, 0.035, 0.2), accentMaterial);
+  wallTop.position.set(-2.45, 2.98, -0.72);
+  wallTop.rotation.z = -0.06;
+  stageGroup.add(wallTop);
+
+  const hat = new THREE.Group();
+  const hatBase = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.5, 0.12, 32), darkMetal);
+  const hatTop = new THREE.Mesh(new THREE.CylinderGeometry(0.31, 0.31, 0.38, 32), metal);
+  hatTop.position.y = 0.22;
+  const hatTassel = new THREE.Mesh(new THREE.SphereGeometry(0.08, 16, 16), accentMaterial);
+  hatTassel.position.set(0.27, 0.48, 0);
+  hat.add(hatBase, hatTop, hatTassel);
+  hat.position.set(-1.55, 0.2, 0.5);
+  hat.rotation.z = -0.12;
+  stageGroup.add(hat);
+
+  const makeTower = (x, height, width, cap, crown = false) => {
+    const tower = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.BoxGeometry(width, height, width), wallMaterial);
+    body.position.y = height / 2;
+    tower.add(body);
+    const roof = new THREE.Mesh(new THREE.ConeGeometry(width * 0.75, cap, 4), accentMaterial);
+    roof.position.y = height + cap / 2;
+    roof.rotation.y = Math.PI / 4;
+    tower.add(roof);
+    if (crown) {
+      for (let finger = 0; finger < 5; finger += 1) {
+        const arch = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.34, 0.07), accentMaterial);
+        arch.position.set((finger - 2) * width * 0.22, height + cap + 0.13, 0);
+        tower.add(arch);
+      }
+    }
+    for (let floor = 0; floor < Math.floor(height / 0.24); floor += 1) {
+      const window = new THREE.Mesh(new THREE.BoxGeometry(width * 0.65, 0.025, 0.01), accentMaterial);
+      window.position.set(0, 0.14 + floor * 0.24, width / 2 + 0.01);
+      tower.add(window);
+    }
+    tower.position.set(x, -0.08, -0.9);
+    return tower;
+  };
+  stageGroup.add(makeTower(2.15, 2.55, 0.32, 0.55));
+  stageGroup.add(makeTower(2.78, 1.45, 0.58, 0.18, true));
 
   const base = new THREE.Mesh(new THREE.BoxGeometry(2.9, 0.08, 1.85), metal);
   base.position.y = -0.04;
@@ -117,6 +190,24 @@ function initThreeLaptop() {
     screenContext.fillStyle = '#7790bb';
     screenContext.font = '16px monospace';
     screenContext.fillText('artjom-becker / portfolio-preview', 112, 30);
+    if (!projectFocusActive) {
+      screenContext.fillStyle = '#8fbaff';
+      screenContext.font = 'bold 38px Arial';
+      screenContext.fillText('SYSTEM STANDBY', 72, 220);
+      screenContext.fillStyle = '#7895c2';
+      screenContext.font = '20px monospace';
+      screenContext.fillText('scroll to inspect selected projects', 72, 270);
+      screenContext.strokeStyle = '#3d75d8';
+      screenContext.lineWidth = 4;
+      screenContext.strokeRect(72, 330, 420, 8);
+      screenContext.fillStyle = '#4f9aff';
+      screenContext.fillRect(72, 330, 190, 8);
+      screenContext.fillStyle = '#6b8fc7';
+      screenContext.font = '15px monospace';
+      screenContext.fillText('stage / ready / awaiting focus', 72, 410);
+      screenTexture.needsUpdate = true;
+      return;
+    }
     screenContext.fillStyle = '#4f9aff';
     screenContext.font = 'bold 19px monospace';
     screenContext.fillText(project.kicker, 72, 125);
@@ -192,15 +283,28 @@ function initThreeLaptop() {
   });
 
   const projectDock = document.querySelector('.project-dock');
+  let hasEnteredProjectFocus = false;
   const updateScrollFocus = () => {
     const progress = Math.min(window.scrollY / Math.max(window.innerHeight * 0.8, 1), 1);
     camera.position.z = 5.2 - progress * 1.25;
     camera.position.y = 0.5 - progress * 0.22;
     laptopGroup.position.x = progress * 0.18;
     laptopGroup.scale.setScalar(1 + progress * 0.24);
+    stageGroup.position.y = -0.55 - progress * 0.7;
+    stageGroup.scale.setScalar(1 - progress * 0.25);
+    stageGroup.traverse((object) => {
+      if (object.material && object.material.transparent) object.material.opacity = Math.max(0, 0.92 - progress * 0.92);
+    });
     if (projectDock) {
-      projectDock.style.opacity = String(1 - progress * 0.52);
-      projectDock.style.transform = `translateX(${progress * 34}px)`;
+      const projectProgress = Math.max(0, Math.min((progress - 0.38) / 0.42, 1));
+      projectDock.style.opacity = String(projectProgress);
+      projectDock.style.transform = `translateX(${(1 - projectProgress) * 54}px) scale(${0.96 + projectProgress * 0.04})`;
+      projectDock.style.pointerEvents = projectProgress > 0.05 ? 'auto' : 'none';
+      if (projectProgress > 0.05 && !hasEnteredProjectFocus) {
+        hasEnteredProjectFocus = true;
+        projectFocusActive = true;
+        renderProjectScreen(activeProject);
+      }
     }
   };
   window.addEventListener('scroll', updateScrollFocus, { passive: true });
