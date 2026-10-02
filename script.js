@@ -289,6 +289,7 @@ function initThreeLaptop() {
     laptopGroup.scale.setScalar(1 + progress * 0.14);
     stageGroup.position.y = -0.55 - progress * 0.7;
     stageGroup.scale.setScalar(1 - progress * 0.25);
+    stageGroup.visible = progress < 0.34;
     stageGroup.traverse((object) => {
       if (object.material && object.material.transparent) object.material.opacity = Math.max(0, 0.92 - progress * 0.92);
     });
