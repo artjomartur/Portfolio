@@ -7,7 +7,6 @@ const projectData = [
 ];
 
 const threeLaptopContainer = document.querySelector('[data-three-laptop]');
-const heroTitle = document.querySelector('.hero-title h1');
 const lightSwitch = document.querySelector('.light-switch');
 let setSceneLighting = () => {};
 let renderProjectScreen = () => {};
@@ -252,14 +251,12 @@ function initThreeLaptop() {
     targetX = pointerY * -0.34 - 0.08;
     targetZ = pointerX * -0.045;
     pointerActive = true;
-    if (heroTitle) heroTitle.style.transform = `translateX(${pointerX * 16}px) translateY(${pointerY * 8}px)`;
   });
   threeLaptopContainer.addEventListener('pointerleave', () => {
     targetX = -0.08;
     targetY = -0.2;
     targetZ = 0;
     pointerActive = false;
-    if (heroTitle) heroTitle.style.transform = 'translateX(0) translateY(0)';
   });
 
   const animate = (time) => {
