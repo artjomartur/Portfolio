@@ -332,7 +332,8 @@ function initThreeLaptop() {
     camera.position.x = progress * -1.2;
     camera.position.y = 0.3 - progress * 0.1;
     laptopGroup.scale.setScalar(1 - progress * 0.08);
-    lidGroup.rotation.x = 0.18 + progress * 1.28;
+    const laptopCloseProgress = Math.max(0, Math.min((progress - 0.9) / 0.1, 1));
+    lidGroup.rotation.x = 0.18 + laptopCloseProgress * 1.28;
     if (projectDock) {
       const projectProgress = Math.max(0, Math.min((progress - 0.18) / 0.68, 1));
       const projectIndex = Math.min(projectData.length - 1, Math.floor(Math.max(0, progress - 0.18) / 0.22));
