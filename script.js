@@ -8,6 +8,8 @@ const projectData = [
 
 const threeLaptopContainer = document.querySelector('[data-three-laptop]');
 const heroTitle = document.querySelector('.hero-title h1');
+const lightSwitch = document.querySelector('.light-switch');
+let setSceneLighting = () => {};
 let renderProjectScreen = () => {};
 
 function initThreeLaptop() {
@@ -30,13 +32,19 @@ function initThreeLaptop() {
   const screenContext = screenCanvas.getContext('2d');
   const screenTexture = new THREE.CanvasTexture(screenCanvas);
 
-  scene.add(new THREE.AmbientLight(0x9cbcff, 1.8));
+  const ambientLight = new THREE.AmbientLight(0x9cbcff, 1.8);
+  scene.add(ambientLight);
   const blueLight = new THREE.DirectionalLight(0x4a88ff, 3.2);
   blueLight.position.set(3, 4, 4);
   scene.add(blueLight);
   const rimLight = new THREE.PointLight(0x1e5bff, 4, 7);
   rimLight.position.set(-2, 1, 2);
   scene.add(rimLight);
+  setSceneLighting = (isLit) => {
+    ambientLight.intensity = isLit ? 2.8 : 1.2;
+    blueLight.intensity = isLit ? 5.2 : 2.1;
+    rimLight.intensity = isLit ? 7 : 2.4;
+  };
 
   const laptopGroup = new THREE.Group();
   laptopGroup.rotation.set(-0.08, -0.2, 0);
@@ -200,6 +208,15 @@ function initThreeLaptop() {
 }
 
 initThreeLaptop();
+
+if (lightSwitch) {
+  lightSwitch.addEventListener('click', () => {
+    const isLit = document.body.classList.toggle('is-lit');
+    lightSwitch.setAttribute('aria-pressed', String(isLit));
+    lightSwitch.setAttribute('aria-label', isLit ? 'Licht ausschalten' : 'Licht einschalten');
+    setSceneLighting(isLit);
+  });
+}
 
 const laptopStage = document.querySelector('[data-laptop-stage]');
 const laptop = document.querySelector('[data-laptop]');
