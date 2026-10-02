@@ -7,7 +7,7 @@ const projectData = [
 ];
 
 const threeLaptopContainer = document.querySelector('[data-three-laptop]');
-const heroTitle = document.querySelector('.glitch-title');
+const heroTitle = document.querySelector('.hero-title h1');
 let renderProjectScreen = () => {};
 
 function initThreeLaptop() {
