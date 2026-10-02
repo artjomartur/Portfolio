@@ -7,6 +7,7 @@ const projectData = [
 ];
 
 const threeLaptopContainer = document.querySelector('[data-three-laptop]');
+const heroTitle = document.querySelector('.glitch-title');
 let renderProjectScreen = () => {};
 
 function initThreeLaptop() {
@@ -142,18 +143,33 @@ function initThreeLaptop() {
 
   let targetX = -0.08;
   let targetY = -0.2;
+  let targetZ = 0;
+  let pointerActive = false;
   threeLaptopContainer.addEventListener('pointermove', (event) => {
     const bounds = threeLaptopContainer.getBoundingClientRect();
-    targetY = ((event.clientX - bounds.left) / bounds.width - 0.5) * 0.38;
-    targetX = ((event.clientY - bounds.top) / bounds.height - 0.5) * -0.22;
+    const pointerX = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const pointerY = (event.clientY - bounds.top) / bounds.height - 0.5;
+    targetY = pointerX * 0.62 - 0.2;
+    targetX = pointerY * -0.34 - 0.08;
+    targetZ = pointerX * -0.045;
+    pointerActive = true;
+    if (heroTitle) heroTitle.style.transform = `translateX(${pointerX * 16}px) translateY(${pointerY * 8}px)`;
   });
-  threeLaptopContainer.addEventListener('pointerleave', () => { targetX = -0.08; targetY = -0.2; });
+  threeLaptopContainer.addEventListener('pointerleave', () => {
+    targetX = -0.08;
+    targetY = -0.2;
+    targetZ = 0;
+    pointerActive = false;
+    if (heroTitle) heroTitle.style.transform = 'translateX(0) translateY(0)';
+  });
 
   const animate = (time) => {
     requestAnimationFrame(animate);
     laptopGroup.rotation.x += (targetX - laptopGroup.rotation.x) * 0.035;
     laptopGroup.rotation.y += (targetY - laptopGroup.rotation.y) * 0.035;
+    laptopGroup.rotation.z += (targetZ - laptopGroup.rotation.z) * 0.035;
     laptopGroup.position.y = Math.sin(time * 0.0018) * 0.09;
+    laptopGroup.position.x += (((pointerActive ? targetZ * -3 : 0) + Math.sin(time * 0.0012) * 0.015) - laptopGroup.position.x) * 0.035;
     particles.rotation.y = time * 0.00025;
     renderer.render(scene, camera);
   };
