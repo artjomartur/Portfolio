@@ -283,10 +283,10 @@ function initThreeLaptop() {
   let hasEnteredProjectFocus = false;
   const updateScrollFocus = () => {
     const progress = Math.min(window.scrollY / Math.max(window.innerHeight * 0.8, 1), 1);
-    camera.position.z = 5.2 - progress * 1.25;
-    camera.position.y = 0.5 - progress * 0.22;
+    camera.position.z = 5.2 - progress * 0.72;
+    camera.position.y = 0.5 - progress * 0.08;
     laptopGroup.position.x = progress * 0.18;
-    laptopGroup.scale.setScalar(1 + progress * 0.24);
+    laptopGroup.scale.setScalar(1 + progress * 0.14);
     stageGroup.position.y = -0.55 - progress * 0.7;
     stageGroup.scale.setScalar(1 - progress * 0.25);
     stageGroup.traverse((object) => {
