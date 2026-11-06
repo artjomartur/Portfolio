@@ -55,39 +55,12 @@ function ue() {
   return (t && (n = t === w || t.endsWith(`.${w}`)), n);
 }
 function de(e) {
-  return c((t, n) => {
-    let r = p(T, E, D),
-      i = y.current() === y.canvas;
-    return r && !i
-      ? null
-      : s(e, {
-          ...t,
-          ref: n,
-          onClick: (e) => {
-            (e.preventDefault(),
-              o.open(
-                `https://www.framer.com/r/badge/?utm_campaign=freeplanbadge&utm_source=${encodeURIComponent(o?.location?.origin)}`
-              ));
-          },
-          style: { ...t.style, pointerEvents: `auto` },
-          title: `Create a free website with Framer, the website builder loved by startups, designers and agencies.`,
-          className: t.className + ` __framer-badge`,
-        });
-  });
+  return c((t, n) => null);
 }
 function fe(e) {
-  return c((t, n) =>
-    u(f, {
-      children: [
-        s(`p`, {
-          style: { position: `absolute`, transform: `scale(0.001)` },
-          children: `Create a free website with Framer, the website builder loved by startups, designers and agencies.`,
-        }),
-        s(e, { ...t, ref: n }),
-      ],
-    })
-  );
+  return c((t, n) => null);
 }
+
 var w,
   T,
   E,
@@ -282,150 +255,9 @@ e(() => {
     (Se = (e, t) => (e.layoutDependency ? t.join(`-`) + e.layoutDependency : t.join(`-`))),
     (Q = b(
       c(function (e, t) {
-        let n = r(null),
-          i = t ?? n,
-          a = ee(),
-          { activeLocale: o, setLocale: c } = se();
-        ce();
-        let { style: l, className: d, layoutId: f, variant: p, ...h } = xe(e),
-          {
-            baseVariant: ne,
-            classNames: g,
-            clearLoadingGesture: re,
-            gestureHandlers: _,
-            gestureVariant: ie,
-            isLoading: ae,
-            setGestureState: y,
-            setVariant: b,
-            variants: x,
-          } = le({ defaultVariant: `HK2sXlagE`, ref: i, variant: p, variantClassNames: Y }),
-          S = Se(e, x),
-          C = v(J);
-        return s(te, {
-          id: f ?? a,
-          children: s(be, {
-            animate: x,
-            initial: !1,
-            children: s(ye, {
-              value: ge,
-              children: s(oe, {
-                href: `https://www.framer.com`,
-                motionChild: !0,
-                nodeId: `HK2sXlagE`,
-                openInNewTab: !1,
-                relValues: [],
-                scopeId: `PX9hIOIVM`,
-                children: u(q, {
-                  ...h,
-                  ..._,
-                  __framer__presenceAnimate: X,
-                  __framer__presenceInitial: Z,
-                  __perspectiveFX: !1,
-                  __smartComponentFX: !0,
-                  __targetOpacity: 1,
-                  className: `${v(C, `framer-n0ccwk`, d, g)} framer-bmpgw8`,
-                  "data-framer-appear-id": `n0ccwk`,
-                  "data-framer-name": `Light`,
-                  "data-nosnippet": !0,
-                  layoutDependency: S,
-                  layoutId: `HK2sXlagE`,
-                  optimized: !0,
-                  ref: i,
-                  style: { ...l },
-                  children: [
-                    s(m.div, {
-                      className: `framer-13yxzio`,
-                      "data-framer-name": `Backdrop`,
-                      layoutDependency: S,
-                      layoutId: `IH1cvP0s5`,
-                      style: {
-                        backgroundColor: `rgb(255, 255, 255)`,
-                        borderBottomLeftRadius: 10,
-                        borderBottomRightRadius: 10,
-                        borderTopLeftRadius: 10,
-                        borderTopRightRadius: 10,
-                        boxShadow: `0px 0.6021873017743928px 1.5656869846134214px -1.5px rgba(0, 0, 0, 0.17), 0px 2.288533303243457px 5.950186588432988px -3px rgba(0, 0, 0, 0.14), 0px 10px 26px -4.5px rgba(0, 0, 0, 0.02)`,
-                      },
-                    }),
-                    u(m.div, {
-                      className: `framer-19yaanm`,
-                      "data-framer-name": `Content`,
-                      layoutDependency: S,
-                      layoutId: `U6HIU1IEW`,
-                      transformTemplate: _e,
-                      children: [
-                        s(m.div, {
-                          className: `framer-1kflzx5`,
-                          layoutDependency: S,
-                          layoutId: `roMJYXHnO`,
-                          children: s(U, {
-                            animated: !0,
-                            className: `framer-e50co`,
-                            "data-framer-name": `Logo`,
-                            layoutDependency: S,
-                            layoutId: `O3s3GcxMZ`,
-                            style: { "--1bd4d3i": `rgb(0, 0, 0)`, "--otdjsv": `rgb(0, 0, 0)` },
-                            transformTemplate: ve,
-                          }),
-                        }),
-                        s(K, {
-                          animated: !0,
-                          className: `framer-1um7t9d`,
-                          "data-framer-name": `Text`,
-                          layoutDependency: S,
-                          layoutId: `pBR1Ew0r8`,
-                          style: { "--1bd4d3i": `rgb(0, 0, 0)`, "--otdjsv": `rgb(0, 0, 0)` },
-                        }),
-                      ],
-                    }),
-                    s(m.div, {
-                      className: `framer-j4ugry`,
-                      "data-framer-name": `Bottom`,
-                      layoutDependency: S,
-                      layoutId: `vCwsHyUh8`,
-                      style: {
-                        borderBottomLeftRadius: 11,
-                        borderBottomRightRadius: 11,
-                        borderTopLeftRadius: 11,
-                        borderTopRightRadius: 11,
-                        boxShadow: `inset 0px 0px 0px 1px rgb(0, 0, 0)`,
-                        mask: `linear-gradient(180deg, rgba(0,0,0,0) 65%, rgba(0,0,0,1) 100%) add`,
-                        opacity: 0.06,
-                        WebkitMask: `linear-gradient(180deg, rgba(0,0,0,0) 65%, rgba(0,0,0,1) 100%) add`,
-                      },
-                    }),
-                    s(m.div, {
-                      className: `framer-jnuwbw`,
-                      "data-framer-name": `Border`,
-                      layoutDependency: S,
-                      layoutId: `ZirFGX8Eh`,
-                      style: {
-                        borderBottomLeftRadius: 11,
-                        borderBottomRightRadius: 11,
-                        borderTopLeftRadius: 11,
-                        borderTopRightRadius: 11,
-                        boxShadow: `inset 0px 0px 0px 1px rgb(0, 0, 0)`,
-                        opacity: 0.04,
-                      },
-                    }),
-                  ],
-                }),
-              }),
-            }),
-          }),
-        });
+        return null;
       }),
-      [
-        `@supports (aspect-ratio: 1) { body { --framer-aspect-ratio-supported: auto; } }`,
-        `.framer-6jWyo.framer-bmpgw8, .framer-6jWyo .framer-bmpgw8 { display: block; }`,
-        `.framer-6jWyo.framer-n0ccwk { gap: 10px; height: 38px; overflow: visible; position: relative; text-decoration: none; width: 140px; }`,
-        `.framer-6jWyo .framer-13yxzio { bottom: 1px; flex: none; left: 1px; overflow: hidden; position: absolute; right: 1px; top: 1px; will-change: var(--framer-will-change-override, transform); }`,
-        `.framer-6jWyo .framer-19yaanm { align-content: center; align-items: center; display: flex; flex: none; flex-direction: row; flex-wrap: nowrap; gap: 10px; height: min-content; justify-content: flex-start; left: 50%; overflow: visible; padding: 0px; position: absolute; top: 50%; width: min-content; }`,
-        `.framer-6jWyo .framer-1kflzx5 { flex: none; height: 16px; overflow: visible; position: relative; width: 12px; }`,
-        `.framer-6jWyo .framer-e50co { flex: none; height: var(--framer-aspect-ratio-supported, 20px); left: 50%; position: absolute; top: -2px; }`,
-        `.framer-6jWyo .framer-1um7t9d { flex: none; height: var(--framer-aspect-ratio-supported, 10px); position: relative; }`,
-        `.framer-6jWyo .framer-j4ugry, .framer-6jWyo .framer-jnuwbw { bottom: 0px; flex: none; left: 0px; overflow: visible; pointer-events: none; position: absolute; right: 0px; top: 0px; }`,
-      ],
+      [],
       `framer-6jWyo`
     )),
     (Q.displayName = `Badge`),
