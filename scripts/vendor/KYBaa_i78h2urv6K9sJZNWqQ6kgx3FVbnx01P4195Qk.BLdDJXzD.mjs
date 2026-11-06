@@ -3407,7 +3407,7 @@ e(() => {
                                                                     height: `100%`,
                                                                     id: `PYKR9OC4y`,
                                                                     layoutId: `PYKR9OC4y`,
-                                                                    ownerName: `Masen James`,
+                                                                    ownerName: `Artjom Becker`,
                                                                     size: `default`,
                                                                     style: {
                                                                       height: `100%`,
@@ -6268,7 +6268,7 @@ e(() => {
                                                                         height: `100%`,
                                                                         id: `f11IpZw2V`,
                                                                         layoutId: `f11IpZw2V`,
-                                                                        ownerName: `Masen James`,
+                                                                        ownerName: `Artjom Becker`,
                                                                         size: `default`,
                                                                         style: {
                                                                           height: `100%`,
