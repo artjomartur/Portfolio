@@ -1,6 +1,7 @@
 {
   "type": "module",
   "scripts": {
+    "build": "echo 'Static site ready'",
     "serve": "node serve.js"
   }
 }
