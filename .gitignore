@@ -6,3 +6,5 @@ node_modules/
 .npx/
 *.log
 .wrangler/
+export.log
+export-report.json
