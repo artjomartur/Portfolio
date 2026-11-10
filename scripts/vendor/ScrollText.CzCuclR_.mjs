@@ -309,17 +309,17 @@ var z,
         customFont: h,
       }) => {
         let g = e,
-          _ = u(a, [t, n], [r, i]),
-          v = u(a, [t, n], c === `slide` ? [20, 0] : [0, 0]),
-          y = u(a, [t, n], l ? [10, 0] : [0, 0]),
-          b = u(y, (e) => `blur(${e}px)`),
+          _ = u(a, [t, n], [1, 1]),
+          v = u(a, [t, n], [0, 0]),
+          y = u(a, [t, n], [0, 0]),
+          b = u(y, (e) => `none`),
           x = { stiffness: 100, damping: 20, mass: 1 },
           S = d(_, x),
           C = d(v, x),
-          w = u(d(y, x), (e) => `blur(${e}px)`),
-          T = m ? 1 : p ? S : _,
-          E = m ? 0 : p ? C : v,
-          D = m ? `none` : p ? w : b;
+          w = `none`,
+          T = 1,
+          E = 0,
+          D = `none`;
         return s
           ? o(f.span, {
               style: {

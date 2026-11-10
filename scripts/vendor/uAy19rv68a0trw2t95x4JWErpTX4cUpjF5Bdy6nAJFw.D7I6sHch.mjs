@@ -4049,7 +4049,7 @@ t(() => {
                               },
                               children: l(De, {
                                 animationStyle: `slide`,
-                                enableBlur: !0,
+                                enableBlur: !1,
                                 enableSmooth: !0,
                                 endOffset: 0.8,
                                 endOpacity: 1,
@@ -4222,7 +4222,7 @@ t(() => {
                                 ],
                                 slotScale: 1,
                                 startOffset: 1,
-                                startOpacity: 0.2,
+                                startOpacity: 1,
                                 style: { width: `100%` },
                                 text: `[1]Artjom Becker is a software developer[2]and CS student at TU Darmstadt[3]engineering high-performance web systems, 3D graphics, and AI agent architectures into[4]cohesive digital platforms.[5] He builds projects End-to-End, [6]from scalable distributed backends to interactive frontends,[7]combining deep algorithmic rigor[8]with modern execution.`,
                                 textColor: `var(--token-2d91bfb1-1bb0-467e-bf37-8ef020f4f815, rgb(0, 0, 0))`,
