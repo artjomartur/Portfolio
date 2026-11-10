@@ -11068,7 +11068,183 @@ var Qo,
                                   "data-framer-name": `Frame 2147239632`,
                                   layoutDependency: k,
                                   layoutId: `xKibRNYwD`,
-                                  children: [
+                                                                    children: [
+                                    _(C.div, {
+                                      className: `framer-1i6c6q4`,
+                                      "data-framer-name": `Frame 2147228818`,
+                                      layoutDependency: k,
+                                      layoutId: `tpse_Lus9dnXdK`,
+                                      children: [
+                                        _(C.div, {
+                                          className: `framer-fvoycf`,
+                                          "data-framer-name": `Frame 2147228815`,
+                                          layoutDependency: k,
+                                          layoutId: `tpse_dmyurSmqq`,
+                                          children: [
+                                            _(C.div, {
+                                              className: `framer-zvo2m7`,
+                                              "data-framer-name": `Frame 2147228816`,
+                                              layoutDependency: k,
+                                              layoutId: `tpse_Ab6gaCorY`,
+                                              children: [
+                                                d(B, {
+                                                  __fromCanvasComponent: !0,
+                                                  children: d(s, {
+                                                    children: d(C.p, {
+                                                      className: `framer-styles-preset-1jfuvsp`,
+                                                      "data-styles-preset": `VxqxLxYbu`,
+                                                      dir: `auto`,
+                                                      style: {
+                                                        "--framer-text-color": `var(--extracted-r6o4lv, var(--token-1000dd73-bde8-4ac7-9fb1-7ba3d170cea9, rgb(77, 77, 77)))`,
+                                                      },
+                                                      children: `2023 — Present`,
+                                                    }),
+                                                  }),
+                                                  className: `framer-ncmva2`,
+                                                  "data-framer-name": `2023 — Present`,
+                                                  fonts: [`Inter`],
+                                                  layoutDependency: k,
+                                                  layoutId: `tpse_WkRk23Opf`,
+                                                  style: {
+                                                    "--extracted-r6o4lv": `var(--token-1000dd73-bde8-4ac7-9fb1-7ba3d170cea9, rgb(77, 77, 77))`,
+                                                    "--framer-paragraph-spacing": `0px`,
+                                                  },
+                                                  verticalAlignment: `top`,
+                                                  withExternalLayout: !0,
+                                                }),
+                                                d(C.div, {
+                                                  className: `framer-1bzynew`,
+                                                  "data-framer-name": `Frame 2147228804`,
+                                                  layoutDependency: k,
+                                                  layoutId: `tpse_qeQEfeuca`,
+                                                  style: {
+                                                    backgroundColor: `var(--token-0325ba7f-ca73-4b97-ad8f-36261c02946f, rgb(229, 229, 234))`,
+                                                    borderBottomLeftRadius: 100,
+                                                    borderBottomRightRadius: 100,
+                                                    borderTopLeftRadius: 100,
+                                                    borderTopRightRadius: 100,
+                                                  },
+                                                }),
+                                                d(C.div, {
+                                                  className: `framer-1euuc2c`,
+                                                  "data-framer-name": `Frame 2147228817`,
+                                                  layoutDependency: k,
+                                                  layoutId: `tpse_USOtpNAVv`,
+                                                  children: d(B, {
+                                                    __fromCanvasComponent: !0,
+                                                    children: d(s, {
+                                                      children: d(C.p, {
+                                                        className: `framer-styles-preset-1jfuvsp`,
+                                                        "data-styles-preset": `VxqxLxYbu`,
+                                                        dir: `auto`,
+                                                        style: {
+                                                          "--framer-text-color": `var(--extracted-r6o4lv, var(--token-1000dd73-bde8-4ac7-9fb1-7ba3d170cea9, rgb(77, 77, 77)))`,
+                                                        },
+                                                        children: `TU Darmstadt`,
+                                                      }),
+                                                    }),
+                                                    className: `framer-1rs7nks`,
+                                                    "data-framer-name": `TU Darmstadt`,
+                                                    fonts: [`Inter`],
+                                                    layoutDependency: k,
+                                                    layoutId: `tpse_yY5M8btq5`,
+                                                    style: {
+                                                      "--extracted-r6o4lv": `var(--token-1000dd73-bde8-4ac7-9fb1-7ba3d170cea9, rgb(77, 77, 77))`,
+                                                      "--framer-paragraph-spacing": `0px`,
+                                                    },
+                                                    verticalAlignment: `center`,
+                                                    withExternalLayout: !0,
+                                                  }),
+                                                }),
+                                              ],
+                                            }),
+                                            d(C.div, {
+                                              className: `framer-1jg140q`,
+                                              "data-framer-name": `Frame 2147228814`,
+                                              layoutDependency: k,
+                                              layoutId: `tpse_U_P_3AziD`,
+                                              children: _(C.div, {
+                                                className: `framer-1w552u9`,
+                                                "data-framer-name": `Frame 2147228813`,
+                                                layoutDependency: k,
+                                                layoutId: `tpse_d5VE8Dbwh`,
+                                                children: [
+                                                  d(B, {
+                                                    __fromCanvasComponent: !0,
+                                                    children: d(s, {
+                                                      children: d(C.p, {
+                                                        className: `framer-styles-preset-1r4uuyb`,
+                                                        "data-styles-preset": `kgfBK__jR`,
+                                                        dir: `auto`,
+                                                        style: {
+                                                          "--framer-text-color": `var(--extracted-r6o4lv, var(--token-1000dd73-bde8-4ac7-9fb1-7ba3d170cea9, rgb(77, 77, 77)))`,
+                                                        },
+                                                        children: `Teamleiter der Teamleiter & Organisation (HiWi)`,
+                                                      }),
+                                                    }),
+                                                    className: `framer-70g1c8`,
+                                                    "data-framer-name": `Teamleiter der Teamleiter & Organisation (HiWi)`,
+                                                    fonts: [`Inter`],
+                                                    layoutDependency: k,
+                                                    layoutId: `tpse_JJGHvVNGS`,
+                                                    style: {
+                                                      "--extracted-r6o4lv": `var(--token-1000dd73-bde8-4ac7-9fb1-7ba3d170cea9, rgb(77, 77, 77))`,
+                                                      "--framer-paragraph-spacing": `0px`,
+                                                    },
+                                                    verticalAlignment: `top`,
+                                                    withExternalLayout: !0,
+                                                  }),
+                                                  d(B, {
+                                                    __fromCanvasComponent: !0,
+                                                    children: d(s, {
+                                                      children: d(C.p, {
+                                                        className: `framer-styles-preset-1jfuvsp`,
+                                                        "data-styles-preset": `VxqxLxYbu`,
+                                                        dir: `auto`,
+                                                        children: `TPSE · TU Darmstadt`,
+                                                      }),
+                                                    }),
+                                                    className: `framer-13g7kmc`,
+                                                    "data-framer-name": `TPSE · TU Darmstadt`,
+                                                    fonts: [`Inter`],
+                                                    layoutDependency: k,
+                                                    layoutId: `tpse_ek8OhHZko`,
+                                                    style: { "--framer-paragraph-spacing": `0px` },
+                                                    verticalAlignment: `top`,
+                                                    withExternalLayout: !0,
+                                                  }),
+                                                ],
+                                              }),
+                                            }),
+                                          ],
+                                        }),
+                                        d(B, {
+                                          __fromCanvasComponent: !0,
+                                          children: d(s, {
+                                            children: d(C.p, {
+                                              className: `framer-styles-preset-1jfuvsp`,
+                                              "data-styles-preset": `VxqxLxYbu`,
+                                              dir: `auto`,
+                                              style: {
+                                                "--framer-text-color": `var(--extracted-r6o4lv, var(--token-1000dd73-bde8-4ac7-9fb1-7ba3d170cea9, rgb(77, 77, 77)))`,
+                                              },
+                                              children: `Leitung und Koordination aller Teamleiter im Teamprojekt Software Engineering (TPSE) an der TU Darmstadt. Übernahme zentraler organisatorischer Aufgaben, Steuerung der Entwicklerteams, Sicherstellung hoher Architekturstandards und Mentoring in agiler Softwareentwicklung.`,
+                                            }),
+                                          }),
+                                          className: `framer-6gc23q`,
+                                          "data-framer-name": `TPSE HiWi Teamleiter der Teamleiter und Organisation`,
+                                          fonts: [`Inter`],
+                                          layoutDependency: k,
+                                          layoutId: `tpse_LvSJb3itc`,
+                                          style: {
+                                            "--extracted-r6o4lv": `var(--token-1000dd73-bde8-4ac7-9fb1-7ba3d170cea9, rgb(77, 77, 77))`,
+                                            "--framer-paragraph-spacing": `0px`,
+                                          },
+                                          verticalAlignment: `top`,
+                                          withExternalLayout: !0,
+                                        }),
+                                      ],
+                                    }),
                                     _(C.div, {
                                       className: `framer-1i6c6q4`,
                                       "data-framer-name": `Frame 2147228818`,
