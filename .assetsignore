@@ -1,0 +1,9 @@
+.git/
+.wrangler/
+node_modules/
+.vscode/
+.cursor/
+.agents/
+.npx/
+*.log
+serve.js
