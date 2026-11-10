@@ -6358,7 +6358,7 @@ Psychological Tasks`,
                                         },
                                         children: `*`,
                                       }),
-                                      `Institutions, companies and platforms I have engineered solutions for.`,
+                                      `Universities, institutions and employers I have worked and engineered with.`,
                                     ],
                                   }),
                                 }),
@@ -6494,24 +6494,13 @@ Psychological Tasks`,
                                                       breakpoint: T,
                                                       overrides: {
                                                         BYVZE4WeS: {
-                                                          kIp5EpMd3: `../../assets/videos/main-f2f972.mp4`,
-                                                          m_Tifg3X2: e[1],
+                                                                                                                    m_Tifg3X2: e[1],
                                                         },
                                                         Dgv7oRDPe: { m_Tifg3X2: e[2] },
                                                       },
-                                                      children: l(so, {
-                                                        Egm481Id_: $(
-                                                          {
-                                                            pixelHeight: 403,
-                                                            pixelWidth: 600,
-                                                            src: `../../assets/images/TOWJS5MUqxf0AqCS6k4cyarVzY.jpg`,
-                                                            srcSet: `https://framerusercontent.com/images/TOWJS5MUqxf0AqCS6k4cyarVzY.jpg?scale-down-to=512&width=600&height=403 512w,../../assets/images/TOWJS5MUqxf0AqCS6k4cyarVzY.jpg 600w`,
-                                                          },
-                                                          ``
-                                                        ),
+                                                      children: l(X, {
                                                         height: `100%`,
                                                         id: `eGWHUdgxS`,
-                                                        kIp5EpMd3: `../../assets/videos/main-cf3553.mp4`,
                                                         layoutId: `eGWHUdgxS`,
                                                         m_Tifg3X2: e[0],
                                                         style: { height: `100%`, width: `100%` },
@@ -6523,7 +6512,16 @@ Psychological Tasks`,
                                                           },
                                                           ``
                                                         ),
-                                                        variant: Q(`SKok4jMLr`),
+                                                        variant: Q(`GV6jvMGC1`),
+                                                        VypX2yAlC: $(
+                                                          {
+                                                            pixelHeight: 403,
+                                                            pixelWidth: 600,
+                                                            src: `../../assets/images/TOWJS5MUqxf0AqCS6k4cyarVzY.jpg`,
+                                                            srcSet: `../../assets/images/TOWJS5MUqxf0AqCS6k4cyarVzY.jpg 600w`,
+                                                          },
+                                                          ``
+                                                        ),
                                                         width: `100%`,
                                                       }),
                                                     }),
@@ -6688,19 +6686,9 @@ Psychological Tasks`,
                                                           BYVZE4WeS: { m_Tifg3X2: e[1] },
                                                           Dgv7oRDPe: { m_Tifg3X2: e[2] },
                                                         },
-                                                        children: l(co, {
-                                                          Egm481Id_: $(
-                                                            {
-                                                              pixelHeight: 403,
-                                                              pixelWidth: 600,
-                                                              src: `../../assets/images/obk7Ti7nUMhyfX69fexY8uK5l0.jpg`,
-                                                              srcSet: `https://framerusercontent.com/images/obk7Ti7nUMhyfX69fexY8uK5l0.jpg?scale-down-to=512&width=600&height=403 512w,../../assets/images/obk7Ti7nUMhyfX69fexY8uK5l0.jpg 600w`,
-                                                            },
-                                                            ``
-                                                          ),
+                                                        children: l(X, {
                                                           height: `100%`,
                                                           id: `SoeONp5nr`,
-                                                          kIp5EpMd3: `../../assets/videos/main-746a2e.mp4`,
                                                           layoutId: `SoeONp5nr`,
                                                           m_Tifg3X2: e[0],
                                                           style: { height: `100%`, width: `100%` },
@@ -6712,7 +6700,16 @@ Psychological Tasks`,
                                                             },
                                                             ``
                                                           ),
-                                                          variant: Q(`SKok4jMLr`),
+                                                          variant: Q(`GV6jvMGC1`),
+                                                          VypX2yAlC: $(
+                                                            {
+                                                              pixelHeight: 403,
+                                                              pixelWidth: 600,
+                                                              src: `../../assets/images/obk7Ti7nUMhyfX69fexY8uK5l0.jpg`,
+                                                              srcSet: `../../assets/images/obk7Ti7nUMhyfX69fexY8uK5l0.jpg 600w`,
+                                                            },
+                                                            ``
+                                                          ),
                                                           width: `100%`,
                                                         }),
                                                       }),
