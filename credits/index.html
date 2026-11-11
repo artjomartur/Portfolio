@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credits &amp; Design Attribution · Artjom Becker</title>
+  <meta name="description" content="Credits und Urheberrechtshinweise bezüglich Visual Design, Template-Ursprung und technischer Implementierung des Portfolios von Artjom Becker.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #0a0a0a;
+      color: #e5e5e5;
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      color: #9d80ff;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    a:hover {
+      color: #c4b5fd;
+      text-decoration: underline;
+    }
+    .header-bar {
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1a1a1a;
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+    }
+    .back-btn {
+      font-size: 13px;
+      font-weight: 500;
+      color: #888;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid #262626;
+      background: #141414;
+      transition: all 0.2s ease;
+    }
+    .back-btn:hover {
+      color: #fff;
+      border-color: #404040;
+      text-decoration: none;
+      background: #1c1c1c;
+    }
+    .main-wrap {
+      flex: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+      width: 100%;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fe3c01;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 36px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .lead {
+      font-size: 16px;
+      color: #a3a3a3;
+      margin-bottom: 48px;
+      font-weight: 400;
+    }
+    .card {
+      background: #121212;
+      border: 1px solid #222222;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+      transition: border-color 0.2s ease;
+    }
+    .card:hover {
+      border-color: #333333;
+    }
+    .card h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card p {
+      font-size: 14.5px;
+      color: #b5b5b5;
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+    .footer-bar {
+      padding: 32px 24px;
+      text-align: center;
+      border-top: 1px solid #1a1a1a;
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header class="header-bar">
+    <a href="/" class="logo">ab</a>
+    <a href="/" class="back-btn">← artjombecker.com</a>
+  </header>
+
+  <main class="main-wrap">
+    <span class="badge">Disclaimer &amp; Attributions</span>
+    <h1>Credits &amp; Design-Hinweis</h1>
+    <p class="lead">Transparenzhinweis bezüglich des visuellen Template-Ursprungs, Urheberrechten und der eigenständigen Softwareentwicklung.</p>
+
+    <section class="card">
+      <h2>🎨 Visuelles Design &amp; Layout-Konzept</h2>
+      <p>
+        Das gestalterische Grundkonzept, die typografische Struktur und das interaktive Präsentationslayout dieser Portfolio-Website basieren auf dem preisgekrönten Design von <strong>YanXin Zhang</strong> (<a href="https://yanxinzhang.com" target="_blank" rel="noopener noreferrer">yanxinzhang.com</a>).
+      </p>
+      <p>
+        Sämtliche visuellen Urheberrechte des ursprünglichen Designentwurfs und der 3D-Bühnenchoreografie liegen bei YanXin Zhang.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>💻 Technische Entwicklung &amp; Systemarchitektur</h2>
+      <p>
+        Die gesamte Codebasis, das serverseitige Edge-Routing, Cloudflare-Infrastruktur-Pipelines, CI/CD-Workflows, Performance-Audits sowie die Integration dynamischer Komponenten wurden eigenständig von <strong>Artjom Becker</strong> implementiert, refaktoriert und gepflegt.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>🚀 Projekte, Inhalte &amp; Nachweise</h2>
+      <p>
+        Alle auf dieser Seite präsentierten Projekte — einschließlich der <em>Kinopolis Automation Suite</em>, der <em>ATOSS Schedule Automation</em>, des <em>SkinStock CS2 Marketplace</em> und der B.Sc.-Forschungsarbeit <em>Architect of Mind</em> (TU Darmstadt) — sind authentische, eigenständige Entwicklungen von Artjom Becker.
+      </p>
+      <p>
+        Alle genannten Metriken, Vorführungen, Videoaufzeichnungen und Software-Repositories spiegeln reale Software-Engineering-Leistungen wider.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>📬 Kontakt &amp; Impressum</h2>
+      <p>
+        Artjom Becker<br>
+        Informatik (B.Sc.) · Technische Universität Darmstadt<br>
+        Frankfurt am Main / Darmstadt, Deutschland
+      </p>
+      <p style="margin-top: 10px;">
+        E-Mail: <a href="mailto:contact@artjombecker.com">contact@artjombecker.com</a><br>
+        GitHub: <a href="https://github.com/artjomartur" target="_blank" rel="noopener noreferrer">github.com/artjomartur</a><br>
+        LinkedIn: <a href="https://www.linkedin.com/in/artjom-becker" target="_blank" rel="noopener noreferrer">linkedin.com/in/artjom-becker</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer-bar">
+    <p>© 2026 Artjom Becker · All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

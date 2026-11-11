@@ -4481,30 +4481,30 @@ t(() => {
                                           Dgv7oRDPe: { variant: Q(`NNrysK8nr`), y4zHDIvQS: e[2] },
                                         },
                                         children: l(Qa, {
-                                          a4Op4GMGU: `TU Darmstadt · Research`,
+                                          a4Op4GMGU: `Kinopolis · Operations & Automation`,
                                           Fb5Stv0oc: $(
                                             {
-                                              pixelHeight: 675,
-                                              pixelWidth: 1200,
-                                              src: `../../assets/images/JOYEDJGngCqgqUqMFY63032jAr4.jpg`,
-                                              srcSet: `https://framerusercontent.com/images/JOYEDJGngCqgqUqMFY63032jAr4.jpg?scale-down-to=512&width=1200&height=675 512w,https://framerusercontent.com/images/JOYEDJGngCqgqUqMFY63032jAr4.jpg?scale-down-to=1024&width=1200&height=675 1024w,../../assets/images/JOYEDJGngCqgqUqMFY63032jAr4.jpg 1200w`,
+                                              pixelHeight: 768,
+                                              pixelWidth: 1376,
+                                              src: `../../assets/images/kinopolis_hero_bear.jpg`,
+                                              srcSet: `../../assets/images/kinopolis_hero_bear.jpg 512w,../../assets/images/kinopolis_hero_bear.jpg 1024w,../../assets/images/kinopolis_hero_bear.jpg 1376w`,
                                             },
                                             ``
                                           ),
                                           height: `100%`,
                                           id: `PrSWzkOLu`,
                                           layoutId: `PrSWzkOLu`,
-                                          LgdGA4U0Z: `Three.js & WebGL
-Relational Algebra
-TypeScript & AST
-Interactive Query Engine`,
+                                          LgdGA4U0Z: `Live-Saalüberwachung
+Foyer- & Peak-Radar
+Automatisierte Berichte
+Cloudflare D1 & Vite`,
                                           m75mHruIi: !0,
                                           style: { maxWidth: `100%`, width: `100%` },
                                           tkjUg1GHk: `../../assets/videos/main-5eb755.mp4`,
                                           variant: Q(`vM0nzArsA`),
                                           width: `100%`,
                                           y4zHDIvQS: e[0],
-                                          Zsl7YX1CQ: `Relational Algebra Visualizer`,
+                                          Zsl7YX1CQ: `Kinopolis Automation Suite`,
                                         }),
                                       }),
                                     }),
@@ -4551,7 +4551,7 @@ Interactive Query Engine`,
                                           Dgv7oRDPe: { variant: Q(`C2qNZZEgm`), y4zHDIvQS: e[2] },
                                         },
                                         children: l(se, {
-                                          a4Op4GMGU: `Kinopolis · Operations`,
+                                          a4Op4GMGU: `Workflow Automation · macOS`,
                                           d90GarC1x: !1,
                                           height: `100%`,
                                           id: `MivpxP5Sr`,
@@ -4565,15 +4565,15 @@ Interactive Query Engine`,
                                             ``
                                           ),
                                           layoutId: `MivpxP5Sr`,
-                                          LgdGA4U0Z: `React Native
-Real-Time Sync
-Offline Scanning
-Operations Tech`,
+                                          LgdGA4U0Z: `PDF Schedule Parsing
+AppleScript & Native Sync
+Automated Event Pipeline
+Zero-Click Integration`,
                                           style: { maxWidth: `100%`, width: `100%` },
                                           variant: Q(`eUYo2gsWO`),
                                           width: `100%`,
                                           y4zHDIvQS: e[0],
-                                          Zsl7YX1CQ: `Kinopolis Operations System`,
+                                          Zsl7YX1CQ: `ATOSS Schedule Automation`,
                                         }),
                                       }),
                                     }),

@@ -7460,6 +7460,27 @@ e(() => {
                                                                       },
                                                                       children: `All Rights Reserved.`,
                                                                     }),
+                                                                    l(`p`, {
+                                                                      dir: `auto`,
+                                                                      style: {
+                                                                        "--font-selector": `RlM7T3V0Zml0LXJlZ3VsYXI=`,
+                                                                        "--framer-font-family": `"Outfit", "Outfit Placeholder", sans-serif`,
+                                                                        "--framer-font-size": `10px`,
+                                                                        "--framer-line-height": `1em`,
+                                                                        "--framer-text-alignment": `center`,
+                                                                        marginTop: `6px`,
+                                                                        opacity: 0.35,
+                                                                      },
+                                                                      children: l(`a`, {
+                                                                        href: `/credits`,
+                                                                        style: {
+                                                                          color: `inherit`,
+                                                                          textDecoration: `none`,
+                                                                          letterSpacing: `0.05em`,
+                                                                        },
+                                                                        children: `credits`,
+                                                                      }),
+                                                                    }),
                                                                   ],
                                                                 }),
                                                                 className: `framer-3uep3r`,

@@ -949,29 +949,29 @@ e(() => {
                                     VEtW6bOPL: { variant: q(`C2qNZZEgm`), y4zHDIvQS: e[2] },
                                   },
                                   children: s(I, {
-                                    a4Op4GMGU: `TU Darmstadt · Research`,
+                                    a4Op4GMGU: `Kinopolis · Operations & Automation`,
                                     d90GarC1x: !1,
                                     height: `100%`,
                                     id: `pHGNg9hXH`,
                                     K46KcvR9i: Q(
                                       {
-                                        pixelHeight: 1270,
-                                        pixelWidth: 1920,
-                                        src: `../../assets/images/V7nEAsQ2vwwmTnBD9HMef2WB7M-f87908.jpg`,
-                                        srcSet: `../../assets/images/V7nEAsQ2vwwmTnBD9HMef2WB7M-1e082e.jpg 512w,../../assets/images/V7nEAsQ2vwwmTnBD9HMef2WB7M.jpg 1024w,../../assets/images/V7nEAsQ2vwwmTnBD9HMef2WB7M-f87908.jpg 1920w`,
+                                        pixelHeight: 768,
+                                        pixelWidth: 1376,
+                                        src: `../../assets/images/kinopolis_hero_bear.jpg`,
+                                        srcSet: `../../assets/images/kinopolis_hero_bear.jpg 512w,../../assets/images/kinopolis_hero_bear.jpg 1024w,../../assets/images/kinopolis_hero_bear.jpg 1376w`,
                                       },
                                       ``
                                     ),
                                     layoutId: `pHGNg9hXH`,
-                                    LgdGA4U0Z: `Three.js & WebGL
-Relational Algebra
-TypeScript & AST
-Interactive Query Engine`,
+                                    LgdGA4U0Z: `Live-Saalüberwachung
+Foyer- & Peak-Radar
+Automatisierte Berichte
+Cloudflare D1 & Vite`,
                                     style: { maxWidth: `100%`, width: `100%` },
                                     variant: q(`eUYo2gsWO`),
                                     width: `100%`,
                                     y4zHDIvQS: e[0],
-                                    Zsl7YX1CQ: `Relational Algebra Visualizer`,
+                                    Zsl7YX1CQ: `Kinopolis Automation Suite`,
                                   }),
                                 }),
                               }),
@@ -1008,7 +1008,7 @@ Interactive Query Engine`,
                                     VEtW6bOPL: { variant: q(`NNrysK8nr`), y4zHDIvQS: e[2] },
                                   },
                                   children: s(rt, {
-                                    a4Op4GMGU: `Kinopolis · Operations`,
+                                    a4Op4GMGU: `Workflow Automation · macOS`,
                                     Fb5Stv0oc: Q(
                                       {
                                         pixelHeight: 675,
@@ -1021,17 +1021,17 @@ Interactive Query Engine`,
                                     height: `100%`,
                                     id: `dJ1s0mlIG`,
                                     layoutId: `dJ1s0mlIG`,
-                                    LgdGA4U0Z: `React Native
-Real-Time Sync
-Offline Scanning
-Operations Tech`,
+                                    LgdGA4U0Z: `PDF Schedule Parsing
+AppleScript & Native Sync
+Automated Event Pipeline
+Zero-Click Integration`,
                                     m75mHruIi: !0,
                                     style: { maxWidth: `100%`, width: `100%` },
                                     tkjUg1GHk: `../../assets/videos/main-5eb755.mp4`,
                                     variant: q(`vM0nzArsA`),
                                     width: `100%`,
                                     y4zHDIvQS: e[0],
-                                    Zsl7YX1CQ: `Kinopolis Operations System`,
+                                    Zsl7YX1CQ: `ATOSS Schedule Automation`,
                                   }),
                                 }),
                               }),
