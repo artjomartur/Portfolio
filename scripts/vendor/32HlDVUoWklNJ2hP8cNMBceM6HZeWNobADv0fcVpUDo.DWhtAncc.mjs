@@ -1006,7 +1006,7 @@ e(() => {
                                   pixelHeight: 1080,
                                   pixelWidth: 1920,
                                   src: `../../assets/images/projects/kinopolis_story_5_shift_report.jpg`,
-                                  srcSet: `https://framerusercontent.com/images/IX61JWPLJGJF2z2hFTcw0o6ug.png?scale-down-to=512&width=1920&height=1080 512w,https://framerusercontent.com/images/IX61JWPLJGJF2z2hFTcw0o6ug.png?scale-down-to=1024&width=1920&height=1080 1024w,../../assets/images/projects/kinopolis_story_5_shift_report.jpg 1920w`,
+                                  srcSet: `../../assets/images/projects/kinopolis_story_5_shift_report.jpg 512w,../../assets/images/projects/kinopolis_story_5_shift_report.jpg 1024w,../../assets/images/projects/kinopolis_story_5_shift_report.jpg 1920w`,
                                 },
                                 ``
                               ),
