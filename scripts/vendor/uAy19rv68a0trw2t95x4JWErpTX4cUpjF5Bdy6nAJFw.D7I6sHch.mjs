@@ -4518,74 +4518,6 @@ Cloudflare D1 & Vite`,
                                   "data-framer-name": `Bottom Line`,
                                 }),
                               }),
-                              l(J, {
-                                links: [
-                                  {
-                                    href: { webPageId: `f4PIrYHTh` },
-                                    implicitPathVariables: void 0,
-                                  },
-                                  {
-                                    href: { webPageId: `f4PIrYHTh` },
-                                    implicitPathVariables: void 0,
-                                  },
-                                  {
-                                    href: { webPageId: `f4PIrYHTh` },
-                                    implicitPathVariables: void 0,
-                                  },
-                                ],
-                                children: (e) =>
-                                  l(W, {
-                                    height: 405,
-                                    width: `min(${_?.width || `100vw`} - 48px, 1500px)`,
-                                    children: l(z, {
-                                      className: `framer-10blw20-container`,
-                                      "data-framer-cursor": `1bsa85u`,
-                                      id: oe,
-                                      nodeId: `MivpxP5Sr`,
-                                      ref: q,
-                                      scopeId: `KMvorioYR`,
-                                      children: l(F, {
-                                        breakpoint: T,
-                                        overrides: {
-                                          BYVZE4WeS: { variant: Q(`QHpQrO7Yv`), y4zHDIvQS: e[1] },
-                                          Dgv7oRDPe: { variant: Q(`C2qNZZEgm`), y4zHDIvQS: e[2] },
-                                        },
-                                        children: l(se, {
-                                          a4Op4GMGU: `Workflow Automation · macOS`,
-                                          d90GarC1x: !1,
-                                          height: `100%`,
-                                          id: `MivpxP5Sr`,
-                                          K46KcvR9i: $(
-                                            {
-                                              pixelHeight: 1280,
-                                              pixelWidth: 1920,
-                                              src: `../../assets/images/wMsJeUgDAt07Spb9jgbEdL7tifs-46437f.jpg`,
-                                              srcSet: `../../assets/images/wMsJeUgDAt07Spb9jgbEdL7tifs-9d3440.jpg 512w,../../assets/images/wMsJeUgDAt07Spb9jgbEdL7tifs.jpg 1024w,../../assets/images/wMsJeUgDAt07Spb9jgbEdL7tifs-46437f.jpg 1920w`,
-                                            },
-                                            ``
-                                          ),
-                                          layoutId: `MivpxP5Sr`,
-                                          LgdGA4U0Z: `PDF Schedule Parsing
-AppleScript & Native Sync
-Automated Event Pipeline
-Zero-Click Integration`,
-                                          style: { maxWidth: `100%`, width: `100%` },
-                                          variant: Q(`eUYo2gsWO`),
-                                          width: `100%`,
-                                          y4zHDIvQS: e[0],
-                                          Zsl7YX1CQ: `ATOSS Schedule Automation`,
-                                        }),
-                                      }),
-                                    }),
-                                  }),
-                              }),
-                              l(`div`, {
-                                className: `framer-1e33vkn`,
-                                "data-framer-name": `DividerLine`,
-                                children: l(`div`, {
-                                  className: `framer-1ffaker`,
-                                  "data-framer-name": `Bottom Line`,
-                                }),
                               }),
                               l(J, {
                                 links: [
@@ -4695,8 +4627,8 @@ Edge Architecture`,
                                             {
                                               pixelHeight: 1280,
                                               pixelWidth: 1920,
-                                              src: `../../assets/images/jKSWb8nhDHekUUhy7TU93bZUo-ed7907.jpg`,
-                                              srcSet: `../../assets/images/jKSWb8nhDHekUUhy7TU93bZUo-c9353d.jpg 512w,../../assets/images/jKSWb8nhDHekUUhy7TU93bZUo.jpg 1024w,../../assets/images/jKSWb8nhDHekUUhy7TU93bZUo-ed7907.jpg 1920w`,
+                                              src: `../../assets/images/projects/aom_brandboard.jpg`,
+                                              srcSet: `../../assets/images/projects/aom_brandboard.jpg 512w,../../assets/images/projects/aom_brandboard.jpg 1024w,../../assets/images/projects/aom_brandboard.jpg 1920w`,
                                             },
                                             ``
                                           ),

@@ -985,65 +985,6 @@ Cloudflare D1 & Vite`,
                             "data-framer-name": `Bottom Line`,
                           }),
                         }),
-                        s(P, {
-                          links: [
-                            { href: { webPageId: `yQH2AVVxR` }, implicitPathVariables: void 0 },
-                            { href: { webPageId: `yQH2AVVxR` }, implicitPathVariables: void 0 },
-                            { href: { webPageId: `yQH2AVVxR` }, implicitPathVariables: void 0 },
-                          ],
-                          children: (e) =>
-                            s(A, {
-                              height: 405,
-                              width: `min(${v?.width || `100vw`}, 1500px)`,
-                              children: s(D, {
-                                className: `framer-660n66-container`,
-                                "data-framer-cursor": `1bsa85u`,
-                                nodeId: `dJ1s0mlIG`,
-                                rendersWithMotion: !0,
-                                scopeId: `vjUZoXgWM`,
-                                children: s(E, {
-                                  breakpoint: T,
-                                  overrides: {
-                                    cYTuptfoX: { variant: q(`dkfzYjcx_`), y4zHDIvQS: e[1] },
-                                    VEtW6bOPL: { variant: q(`NNrysK8nr`), y4zHDIvQS: e[2] },
-                                  },
-                                  children: s(rt, {
-                                    a4Op4GMGU: `Workflow Automation · macOS`,
-                                    Fb5Stv0oc: Q(
-                                      {
-                                        pixelHeight: 675,
-                                        pixelWidth: 1200,
-                                        src: `../../assets/images/JOYEDJGngCqgqUqMFY63032jAr4.jpg`,
-                                        srcSet: `https://framerusercontent.com/images/JOYEDJGngCqgqUqMFY63032jAr4.jpg?scale-down-to=512&width=1200&height=675 512w,https://framerusercontent.com/images/JOYEDJGngCqgqUqMFY63032jAr4.jpg?scale-down-to=1024&width=1200&height=675 1024w,../../assets/images/JOYEDJGngCqgqUqMFY63032jAr4.jpg 1200w`,
-                                      },
-                                      ``
-                                    ),
-                                    height: `100%`,
-                                    id: `dJ1s0mlIG`,
-                                    layoutId: `dJ1s0mlIG`,
-                                    LgdGA4U0Z: `PDF Schedule Parsing
-AppleScript & Native Sync
-Automated Event Pipeline
-Zero-Click Integration`,
-                                    m75mHruIi: !0,
-                                    style: { maxWidth: `100%`, width: `100%` },
-                                    tkjUg1GHk: `../../assets/videos/main-5eb755.mp4`,
-                                    variant: q(`vM0nzArsA`),
-                                    width: `100%`,
-                                    y4zHDIvQS: e[0],
-                                    Zsl7YX1CQ: `ATOSS Schedule Automation`,
-                                  }),
-                                }),
-                              }),
-                            }),
-                        }),
-                        s(`div`, {
-                          className: `framer-s7kfc1`,
-                          "data-framer-name": `DividerLine`,
-                          children: s(`div`, {
-                            className: `framer-15r3my7`,
-                            "data-framer-name": `Bottom Line`,
-                          }),
                         }),
                         s(P, {
                           links: [
@@ -1133,8 +1074,8 @@ Edge Architecture`,
                                       {
                                         pixelHeight: 1280,
                                         pixelWidth: 1920,
-                                        src: `../../assets/images/wMsJeUgDAt07Spb9jgbEdL7tifs-46437f.jpg`,
-                                        srcSet: `../../assets/images/wMsJeUgDAt07Spb9jgbEdL7tifs-9d3440.jpg 512w,../../assets/images/wMsJeUgDAt07Spb9jgbEdL7tifs.jpg 1024w,../../assets/images/wMsJeUgDAt07Spb9jgbEdL7tifs-46437f.jpg 1920w`,
+                                        src: `../../assets/images/projects/aom_brandboard.jpg`,
+                                        srcSet: `../../assets/images/projects/aom_brandboard.jpg 512w,../../assets/images/projects/aom_brandboard.jpg 1024w,../../assets/images/projects/aom_brandboard.jpg 1920w`,
                                       },
                                       ``
                                     ),
@@ -1191,8 +1132,8 @@ Psychological Tasks`,
                                       {
                                         pixelHeight: 1280,
                                         pixelWidth: 1920,
-                                        src: `../../assets/images/jKSWb8nhDHekUUhy7TU93bZUo-ed7907.jpg`,
-                                        srcSet: `../../assets/images/jKSWb8nhDHekUUhy7TU93bZUo-c9353d.jpg 512w,../../assets/images/jKSWb8nhDHekUUhy7TU93bZUo.jpg 1024w,../../assets/images/jKSWb8nhDHekUUhy7TU93bZUo-ed7907.jpg 1920w`,
+                                        src: `../../assets/images/projects/aom_brandboard.jpg`,
+                                        srcSet: `../../assets/images/jKSWb8nhDHekUUhy7TU93bZUo-c9353d.jpg 512w,../../assets/images/jKSWb8nhDHekUUhy7TU93bZUo.jpg 1024w,../../assets/images/projects/aom_brandboard.jpg 1920w`,
                                       },
                                       ``
                                     ),
