@@ -985,65 +985,6 @@ Cloudflare D1 & Vite`,
                             "data-framer-name": `Bottom Line`,
                           }),
                         }),
-                        }),
-                        s(P, {
-                          links: [
-                            { href: { webPageId: `Q1TLs1t8l` }, implicitPathVariables: void 0 },
-                            { href: { webPageId: `Q1TLs1t8l` }, implicitPathVariables: void 0 },
-                            { href: { webPageId: `Q1TLs1t8l` }, implicitPathVariables: void 0 },
-                          ],
-                          children: (e) =>
-                            s(A, {
-                              height: 405,
-                              width: `min(${v?.width || `100vw`}, 1500px)`,
-                              children: s(D, {
-                                className: `framer-wfj2pz-container`,
-                                "data-framer-cursor": `1bsa85u`,
-                                nodeId: `almtJ9SDW`,
-                                scopeId: `vjUZoXgWM`,
-                                children: s(E, {
-                                  breakpoint: T,
-                                  overrides: {
-                                    cYTuptfoX: { variant: q(`QHpQrO7Yv`), y4zHDIvQS: e[1] },
-                                    VEtW6bOPL: { variant: q(`C2qNZZEgm`), y4zHDIvQS: e[2] },
-                                  },
-                                  children: s(I, {
-                                    a4Op4GMGU: `Skinstock · Marketplace`,
-                                    d90GarC1x: !0,
-                                    height: `100%`,
-                                    id: `almtJ9SDW`,
-                                    K46KcvR9i: Q(
-                                      {
-                                        pixelHeight: 1775,
-                                        pixelWidth: 3156,
-                                        src: `../../assets/images/S7Nc9C1dkNxnEebdAzlnlrnB4-77ff80.jpg`,
-                                        srcSet: `../../assets/images/S7Nc9C1dkNxnEebdAzlnlrnB4-2f5db7.jpg 512w,../../assets/images/S7Nc9C1dkNxnEebdAzlnlrnB4.jpg 1024w,../../assets/images/S7Nc9C1dkNxnEebdAzlnlrnB4-a263f2.jpg 2048w,../../assets/images/S7Nc9C1dkNxnEebdAzlnlrnB4-77ff80.jpg 3156w`,
-                                      },
-                                      ``
-                                    ),
-                                    layoutId: `almtJ9SDW`,
-                                    LgdGA4U0Z: `Next.js & React
-High-Frequency Trading
-Stripe Checkout
-Edge Architecture`,
-                                    style: { maxWidth: `100%`, width: `100%` },
-                                    variant: q(`eUYo2gsWO`),
-                                    width: `100%`,
-                                    y4zHDIvQS: e[0],
-                                    Zsl7YX1CQ: `Skinstock Marketplace`,
-                                  }),
-                                }),
-                              }),
-                            }),
-                        }),
-                        s(`div`, {
-                          className: `framer-1n89cym`,
-                          "data-framer-name": `DividerLine`,
-                          children: s(`div`, {
-                            className: `framer-d0tgp6`,
-                            "data-framer-name": `Bottom Line`,
-                          }),
-                        }),
                         s(P, {
                           links: [
                             { href: { webPageId: `f4PIrYHTh` }, implicitPathVariables: void 0 },
@@ -1359,7 +1300,7 @@ Edge Architecture`,
                                     VEtW6bOPL: { variant: q(`NNrysK8nr`), y4zHDIvQS: e[2] },
                                   },
                                   children: s(at, {
-                                    a4Op4GMGU: `Skinstock · Marketplace`,
+                                    a4Op4GMGU: `TU Darmstadt · Teaching & Leadership`,
                                     Fb5Stv0oc: Q(
                                       {
                                         pixelHeight: 1080,
