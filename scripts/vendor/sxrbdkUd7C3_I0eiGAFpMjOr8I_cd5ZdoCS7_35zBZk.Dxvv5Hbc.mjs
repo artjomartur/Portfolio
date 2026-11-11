@@ -1445,7 +1445,7 @@ e(() => {
                                     height: `100%`,
                                     id: `Mn0wVILNT`,
                                     layoutId: `Mn0wVILNT`,
-                                    Pwy_evt22: `next / Jinqiu Jiayuan by ByteDance`,
+                                    Pwy_evt22: `next / Kinopolis Automation Suite`,
                                     style: { maxWidth: `100%`, width: `100%` },
                                     variant: Y(`Irv2y1gkW`),
                                     width: `100%`,

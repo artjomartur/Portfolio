@@ -6,12 +6,12 @@ function t(e, t) {
       { hash: `9c3qgp`, mediaQuery: `(min-width: 810px) and (max-width: 1199.98px)` },
       { hash: `htvwm2`, mediaQuery: `(max-width: 809.98px)` },
     ],
-    description: `Spearheaded art direction and execution for ByteDance’s interactive origin story. Crafted a playable narrative within a virtual replica of their first office, authentically scaling the "big dreams in small spaces" ethos for global employees.`,
+    description: `Kinopolis Automation Suite: Next-Gen Kinobetriebs- & Automations-Plattform mit Live-Saalüberwachung, Foyer-Peak-Radar und automatisierten Schichtberichten.`,
     elements: { jQ6kaiRsU: `indexfooter`, OvzFHffPN: `top`, UhZ2I4ZFk: `workherovideo` },
     framerSearch: { index: !0 },
     robots: `max-image-preview:large`,
     serializationId: `framer-xRoAA`,
-    title: `Jinqiu Jiayuan by ByteDance - Artjom Becker`,
+    title: `Kinopolis Automation Suite - Artjom Becker`,
     viewport: `width=device-width`,
   };
 }

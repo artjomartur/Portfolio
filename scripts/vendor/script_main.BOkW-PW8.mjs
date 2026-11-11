@@ -284,7 +284,7 @@ e(() => {
       yQH2AVVxR: {
         elements: { jQ6kaiRsU: `indexfooter`, OvzFHffPN: `top`, UhZ2I4ZFk: `workherovideo` },
         page: I(() => import("./32HlDVUoWklNJ2hP8cNMBceM6HZeWNobADv0fcVpUDo.DWhtAncc.mjs")),
-        path: `/work/jinqiu-jiayuan-by-bytedance`,
+        path: `/work/kinopolis`,
       },
       Q1TLs1t8l: {
         elements: { dSLhlLBIJ: `indexfooter`, e1pb3vy8d: `workherovideo`, y7xxLGQA6: `top` },
@@ -329,7 +329,7 @@ e(() => {
       dSDNeIh6R: {
         elements: { aHAruA3CG: `workherovideo`, CcUtnhmwK: `top`, jmPStNPZ3: `indexfooter` },
         page: I(() => import("./Jb5kwfM9HZfrK9oZsoQOS7qSh61bCf0JugEMbPhv3qc.DoPpUNiU.mjs")),
-        path: `/case-study/cs-jinqiu-jiayuan-by-bytedance`,
+        path: `/case-study/cs-kinopolis`,
       },
       ZgFmrycH0: {
         elements: { jAfeVstFp: `workherovideo`, UvGvRcRqz: `indexfooter`, zdtEVNMr8: `top` },
