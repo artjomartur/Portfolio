@@ -4,6 +4,14 @@
 /case-study/cs-jinqiu-jiayuan-by-bytedance/ /work/kinopolis 301
 /work/skinstock /work 301
 /work/skinstock/ /work 301
+/work/jumbo-signatures /work/architect-of-mind 301
+/work/jumbo-signatures/ /work/architect-of-mind 301
+/about/work/jumbo-signatures /work/architect-of-mind 301
+/about/work/jumbo-signatures/ /work/architect-of-mind 301
+/subpages/work_jumbo-signatures.html /work/architect-of-mind 301
+/subpages/work_jumbo-signatures /work/architect-of-mind 301
+/work_jumbo-signatures.html /work/architect-of-mind 301
+/work_jumbo-signatures /work/architect-of-mind 301
 
 # Clean Routing for nested /about/work paths
 /about/work/kinopolis /work/kinopolis 301
