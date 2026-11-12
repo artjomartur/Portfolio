@@ -5,6 +5,13 @@
 /work/skinstock /work 301
 /work/skinstock/ /work 301
 
+# Clean Routing for nested /about/work paths
+/about/work/kinopolis /work/kinopolis 301
+/about/work/architect-of-mind /work/architect-of-mind 301
+/about/work/lky100 /work/lky100 301
+/about/work/* /work/:splat 301
+/work/work/* /work/:splat 301
+
 # CV & Resume Shortlinks
 /cv.pdf /assets/docs/Artjom_Becker_CV_EN.pdf 302
 /cv_en.pdf /assets/docs/Artjom_Becker_CV_EN.pdf 302
