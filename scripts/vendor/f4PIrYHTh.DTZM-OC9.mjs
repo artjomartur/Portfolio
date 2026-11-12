@@ -6,12 +6,12 @@ function t(e, t) {
       { hash: `80idzp`, mediaQuery: `(min-width: 810px) and (max-width: 1199.98px)` },
       { hash: `15e87f9`, mediaQuery: `(max-width: 809.98px)` },
     ],
-    description: `Created in collaboration with the National Museum of Singapore, this interactive trail explores the life and legacy of Singapore’s founding leader, Mr. Lee Kuan Yew. Powered by Web-based AR and interactive web technology.`,
+    description: `Architect of Mind: Ein interaktives Serious Game zur kognitiven Umstrukturierung (KVT). Entwickelt in Unity 3D an der TU Darmstadt.`,
     elements: { mKpfqhoz9: `indexfooter`, VCqCRhauy: `top` },
     framerSearch: { index: !0 },
     robots: `max-image-preview:large`,
     serializationId: `framer-p92W7`,
-    title: `LKY100 - Artjom Becker`,
+    title: `Architect of Mind - Artjom Becker`,
     viewport: `width=device-width`,
   };
 }

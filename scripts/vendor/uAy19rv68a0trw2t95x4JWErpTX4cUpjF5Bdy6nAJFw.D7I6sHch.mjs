@@ -4486,8 +4486,8 @@ t(() => {
                                             {
                                               pixelHeight: 768,
                                               pixelWidth: 1376,
-                                              src: `../../assets/images/kinopolis_hero_bear.jpg`,
-                                              srcSet: `../../assets/images/kinopolis_hero_bear.jpg 512w,../../assets/images/kinopolis_hero_bear.jpg 1024w,../../assets/images/kinopolis_hero_bear.jpg 1376w`,
+                                              src: `../../assets/images/projects/kinopolis_story_hero.jpg`,
+                                              srcSet: `../../assets/images/projects/kinopolis_story_hero.jpg 512w,../../assets/images/projects/kinopolis_story_hero.jpg 1024w,../../assets/images/projects/kinopolis_story_hero.jpg 1376w`,
                                             },
                                             ``
                                           ),
