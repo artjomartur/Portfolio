@@ -309,7 +309,7 @@ e(() => {
       f4PIrYHTh: {
         elements: { mKpfqhoz9: `indexfooter`, VCqCRhauy: `top` },
         page: I(() => import("./anHwdefX3nxBk1exUAhj5jEpDJ5C0U449ZLgoiZfXuA.fGBCIk30.mjs")),
-        path: `/work/lky100`,
+        path: `/work/architect-of-mind`,
       },
       m93indqJA: {
         elements: { AvT2PpWRn: `top`, gbrMHe0Bl: `indexfooter` },

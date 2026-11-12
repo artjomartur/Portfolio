@@ -562,6 +562,133 @@ html.lenis { height: auto; }
   }
 </style>
 
+
+<style id="story-engine-styles">
+  /* Hide redundant video and static blocks in Kinopolis */
+  .framer-1si96yt, .framer-11vfhmx, .framer-jcylbl, .framer-7kaz28, .framer-8p1ek5, .framer-h872oy, .story-divider-block {
+    display: none !important;
+  }
+  .story-custom-card {
+    width: calc(100% - 48px);
+    max-width: 1400px;
+    margin: 40px auto 20px auto;
+    padding: 32px 36px;
+    background: rgba(18, 18, 22, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 50;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  }
+  .story-custom-tag {
+    align-self: flex-start;
+    padding: 5px 14px;
+    border-radius: 9999px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #FE3C01;
+    background: rgba(254, 60, 1, 0.14);
+    border: 1px solid rgba(254, 60, 1, 0.35);
+  }
+  .aom-tag {
+    color: #FF8A3D !important;
+    background: rgba(255, 138, 61, 0.14) !important;
+    border-color: rgba(255, 138, 61, 0.35) !important;
+  }
+  .story-custom-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(22px, 2.6vw, 36px);
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.2;
+    margin: 4px 0 0 0;
+    letter-spacing: -0.02em;
+  }
+  .story-custom-desc {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(15px, 1.25vw, 18px);
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.6;
+    max-width: 860px;
+    margin: 4px 0 0 0;
+  }
+  .story-custom-bar {
+    width: calc(100% - 48px);
+    max-width: 1400px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    z-index: 50;
+    position: relative;
+  }
+  .kino-pill-btn, .aom-pill-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 26px;
+    border-radius: 9999px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .kino-pill-primary {
+    background: #FE3C01;
+    color: #FFFFFF;
+    box-shadow: 0 4px 20px rgba(254, 60, 1, 0.35);
+  }
+  .kino-pill-primary:hover {
+    background: #FF5522;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(254, 60, 1, 0.55);
+  }
+  .aom-pill-primary {
+    background: #FF7A1A;
+    color: #FFFFFF;
+    box-shadow: 0 4px 20px rgba(255, 122, 26, 0.35);
+  }
+  .aom-pill-primary:hover {
+    background: #FF9442;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(255, 122, 26, 0.55);
+  }
+  .kino-pill-secondary, .aom-pill-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(12px);
+  }
+  .kino-pill-secondary:hover, .aom-pill-secondary:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-2px);
+  }
+  .kino-pill-outline, .aom-pill-outline {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .kino-pill-outline:hover, .aom-pill-outline:hover {
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+  }
+  .story-closing-card {
+    text-align: left;
+    margin: 60px auto 40px auto;
+  }
+</style>
+
 </head>
 <body>
 	
@@ -651,5 +778,101 @@ html.lenis { height: auto; }
     
     <!-- End of bodyEnd -->
 
+
+
+<script id="kino-story-engine">
+(function() {
+  const cards = [
+    {
+      targetSelector: '.framer-mpy56y',
+      tag: '01 / Saal-Management',
+      title: 'Live-Saalüberwachung & Dynamische Seat Maps',
+      desc: 'Echtzeit-Synchronisation aller Sitzplätze und Saalkapazitäten. Vorstellungsstatus, belegte Reihen und freie VIP-Plätze werden sekundenschnell im Leitstand visualisiert.'
+    },
+    {
+      targetSelector: '.framer-1il18vh',
+      tag: '02 / Foyer & Einlass',
+      title: 'Foyer-Peak-Radar & Smarte Einlasskontrolle',
+      desc: 'Intelligente Prognose von Besucherströmen an den Theken minimiert Wartezeiten bei Popcorn & Snacks. Der digitale Check-in verifiziert QR-Tickets kontaktlos in Millisekunden.'
+    },
+    {
+      targetSelector: '.framer-88nnrw',
+      tag: '03 / Automatisierung',
+      title: 'Edge-Automation & Automatisierte Schichtberichte',
+      desc: 'Zentral gesteuerte Vorprogramm-Abläufe und Lichtstimmungen. Nach Vorstellungsende fasst das System Umsätze, Durchlaufzeiten und Auslastung automatisch in Schichtberichten zusammen.'
+    },
+    {
+      targetSelector: '.framer-q51fwj',
+      tag: '04 / Premiere',
+      title: 'Ausfallsicherheit für Blockbuster & Roter Teppich',
+      desc: 'Maximale Stabilität und Latenzminimierung für ausverkaufte Säle, Premieren-Nächte und besondere Kinoveranstaltungen.'
+    }
+  ];
+
+  function inject() {
+    // 1. Header Links
+    const hero = document.querySelector('.framer-1a5aqqz');
+    if (hero && !document.getElementById('kino-top-links')) {
+      const topBar = document.createElement('div');
+      topBar.id = 'kino-top-links';
+      topBar.className = 'story-custom-bar';
+      topBar.innerHTML = `
+        <a href="https://www.kinopolis.de" target="_blank" rel="noopener" class="kino-pill-btn kino-pill-primary">Offizielle Kinopolis Website ↗</a>
+        <a href="https://github.com/artjomartur" target="_blank" rel="noopener" class="kino-pill-btn kino-pill-secondary">GitHub Repository ↗</a>
+        <a href="/work/architect-of-mind" class="kino-pill-btn kino-pill-secondary">Projekt: Architect of Mind →</a>
+      `;
+      hero.parentNode.insertBefore(topBar, hero);
+    }
+
+    // 2. Story cards
+    cards.forEach((c, idx) => {
+      const target = document.querySelector(c.targetSelector);
+      const cardId = 'kino-story-card-' + idx;
+      if (target && !document.getElementById(cardId)) {
+        const card = document.createElement('div');
+        card.id = cardId;
+        card.className = 'story-custom-card';
+        card.innerHTML = `
+          <div class="story-custom-tag">${c.tag}</div>
+          <h2 class="story-custom-title">${c.title}</h2>
+          <p class="story-custom-desc">${c.desc}</p>
+        `;
+        target.parentNode.insertBefore(card, target);
+      }
+    });
+
+    // 3. Footer Links
+    const ending = document.querySelector('.framer-e832ls') || document.querySelector('[data-framer-name="EndingText"]');
+    if (ending && !document.getElementById('kino-bottom-links')) {
+      const btm = document.createElement('div');
+      btm.id = 'kino-bottom-links';
+      btm.className = 'story-custom-card story-closing-card';
+      btm.innerHTML = `
+        <div class="story-custom-tag">Links & Weiteres</div>
+        <h2 class="story-custom-title">Kinopolis Automation Suite</h2>
+        <p class="story-custom-desc">Entdecke mehr Details zum Projekt oder besuche meine weiteren Arbeiten:</p>
+        <div class="story-custom-bar" style="margin-top: 20px;">
+          <a href="https://www.kinopolis.de" target="_blank" rel="noopener" class="kino-pill-btn kino-pill-primary">Offizielle Kinopolis Website ↗</a>
+          <a href="https://github.com/artjomartur" target="_blank" rel="noopener" class="kino-pill-btn kino-pill-secondary">GitHub: Artjom Becker ↗</a>
+          <a href="/work/architect-of-mind" class="kino-pill-btn kino-pill-secondary">Nächstes Projekt: Architect of Mind →</a>
+          <a href="/work" class="kino-pill-btn kino-pill-outline">← Zurück zur Übersicht</a>
+        </div>
+      `;
+      ending.parentNode.insertBefore(btm, ending.nextSibling);
+    }
+  }
+
+  inject();
+  document.addEventListener('DOMContentLoaded', inject);
+  window.addEventListener('load', inject);
+  try {
+    const observer = new MutationObserver(inject);
+    observer.observe(document.body, { childList: true, subtree: true });
+  } catch(e) {}
+  setTimeout(inject, 400);
+  setTimeout(inject, 1200);
+  setTimeout(inject, 2500);
+})();
+</script>
 
 </body></html>
