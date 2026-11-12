@@ -317,7 +317,7 @@ e(() => {
                                 children: [
                                   `let’s talk `,
                                   a(oe, {
-                                    href: `mailto:hello@artjom.dev`,
+                                    href: `mailto:hi@artjombecker.com`,
                                     motionChild: !0,
                                     nodeId: `AAFokGd9U`,
                                     openInNewTab: !0,
@@ -328,7 +328,7 @@ e(() => {
                                     children: a(l.a, {
                                       className: `framer-styles-preset-aoqdeg`,
                                       "data-styles-preset": `rf7eHa4dX`,
-                                      children: `hello@artjom.dev`,
+                                      children: `hi@artjombecker.com`,
                                     }),
                                   }),
                                 ],
