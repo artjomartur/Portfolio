@@ -1,0 +1,182 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{geometry}
+
+\geometry{
+  top=1.0cm,
+  bottom=1.0cm,
+  left=1.2cm,
+  right=1.2cm
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-7pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \small #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \vspace{-1pt}\item
+    \begin{tabular*}{0.98\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \small #2 \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in, label=\raisebox{0.25ex}{\tiny$\bullet$}]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
+
+\definecolor{accentColor}{RGB}{220, 50, 10}
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape \textbf{Artjom Becker}} \\ \vspace{2pt}
+    \small \textbf{Software Engineer \& CS Student at TU Darmstadt} \\ \vspace{2pt}
+    \small Darmstadt, Germany $|$ \href{mailto:hello@artjom.dev}{\underline{hello@artjom.dev}} $|$ \href{mailto:artjomb.2001@gmail.com}{\underline{artjomb.2001@gmail.com}} \\
+    \small Portfolio: \href{https://artjom-portfolio.5zm9ccr6m9.workers.dev}{\underline{artjom-portfolio.5zm9ccr6m9.workers.dev}} $|$ GitHub: \href{https://github.com/artjomartur}{\underline{github.com/artjomartur}}
+\end{center}
+\vspace{-8pt}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Technical University of Darmstadt (TU Darmstadt)}{Darmstadt, Germany}
+      {B.Sc. in Computer Science (Informatik)}{Oct 2023 -- Present}
+      \resumeItemListStart
+        \resumeItem{\textbf{Focus}: Serious Games, Telecooperation, Software Engineering \& Distributed Systems.}
+        \resumeItem{\textbf{Bachelor Thesis}: \textit{Architect of Mind} -- Interactive CBT Serious Game in Unity 3D \& C\# exploring cognitive restructuring, empirical player evaluation, and tangible reflection toolkits.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Goethe University Frankfurt}{Frankfurt am Main, Germany}
+      {Studies in Computer Science}{Oct 2021 -- Sep 2023}
+      \resumeItemListStart
+        \resumeItem{Foundations of theoretical computer science, algorithms and data structures, linear algebra, and discrete mathematics.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Gymnasium / High School}{Hessen, Germany}
+      {Abitur (General Higher Education Entrance Qualification)}{Graduated 2021}
+  \resumeSubHeadingListEnd
+\vspace{-5pt}
+
+%-----------EXPERIENCE-----------
+\section{Experience \& Academic Leadership}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Technical University of Darmstadt}{Darmstadt, Germany}
+      {Student Teaching Assistant (HiWi TPSE) -- Teamleiter der Teamleiter}{Dec 2026 -- Present}
+      \resumeItemListStart
+        \resumeItem{Lead orchestrator in the TPSE Agile Software Engineering course, coordinating 15+ student team leads and 100+ developers.}
+        \resumeItem{Facilitated sprint plannings, milestone retrospectives, architectural design reviews, and resolved cross-team blockers.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Kinopolis}{Hessen, Germany}
+      {Cinema Operations Specialist \& Automation Engineering}{Apr 2026 -- Present}
+      \resumeItemListStart
+        \resumeItem{Managed front-of-house operations, high-frequency customer intake, ticketing, and confectionery service under peak hours.}
+        \resumeItem{Conceived and implemented the \textit{Kinopolis Automation Suite} -- macOS desktop control app with instant QR scanning, dynamic seat synchronization, and offline-resilient local caching.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Exinpa}{Germany}
+      {Working Student (Werkstudent)}{Aug 2025 -- Jan 2026}
+      \resumeItemListStart
+        \resumeItem{Developed educational modules and prepared academic seminar presentations bridging Computer Science and Psychology.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Retail \& Gastronomy (Aramark, Rewe, dm)}{Frankfurt \& Darmstadt, Germany}
+      {Customer Service \& Logistics Associate}{Sep 2019 -- 2025}
+      \resumeItemListStart
+        \resumeItem{High-stress customer-facing service, POS transactions, inventory management, and fast-paced team coordination.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-5pt}
+
+%-----------VOLUNTEERING & COMMUNITY-----------
+\section{Volunteering \& Community}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Student Residence Hall Darmstadt (Wohnheim)}{Darmstadt, Germany}
+      {Network Tutor (Netztutor)}{Dec 2026 -- Present}
+      \resumeItemListStart
+        \resumeItem{Administered residential network infrastructure; provided 1st-level technical support, Ethernet/Wi-Fi onboarding, and network troubleshooting for over 200 resident students.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {SG Bornheim}{Frankfurt am Main, Germany}
+      {Assistant Gymnastics Coach (Assistenztrainer Turnen)}{Nov 2025 -- Mar 2026}
+      \resumeItemListStart
+        \resumeItem{Supervised and coached youth gymnastics sessions, guided motor skills development, and maintained strict safety standards.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-5pt}
+
+%-----------PROJECTS-----------
+\section{Featured Projects}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{Architect of Mind} $|$ \emph{Unity 3D, C\#, Blender, Cognitive Psychology}}{2026}
+      \resumeItemListStart
+        \resumeItem{Serious Game designed at TU Darmstadt translating cognitive restructuring (CBT) into physical architectural puzzles, with full user research and an empirical evaluation study.}
+      \resumeItemListEnd
+    \resumeProjectHeading
+      {\textbf{Kinopolis Automation Suite} $|$ \emph{macOS, TypeScript, SQLite, Web APIs}}{2026}
+      \resumeItemListStart
+        \resumeItem{Real-time operational dashboard featuring sub-100ms QR ticket validation, dynamic hall seat maps, and offline fallback sync.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-5pt}
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}: Java, C\#, Python, TypeScript, JavaScript, SQL, HTML5, CSS3, C/C++ (Basics) \\
+     \textbf{Engines \& Frameworks}: Unity 3D, React, Next.js, Node.js, Cloudflare Workers / Edge Runtime, Docker, Git/GitHub \\
+     \textbf{Methods \& Concepts}: Agile Frameworks (Scrum, Kanban, TPSE Team Lead), Software Architecture, CI/CD, UI/UX \\
+     \textbf{Spoken Languages}: German (Native), English (Fluent / Professional Working Proficiency)
+    }}
+ \end{itemize}
+
+\end{document}
