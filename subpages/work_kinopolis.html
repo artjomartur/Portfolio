@@ -785,9 +785,9 @@ html.lenis { height: auto; }
   const cards = [
     {
       targetSelector: '.framer-mpy56y',
-      tag: '01 / Saal-Management',
-      title: 'Live-Saalüberwachung & Dynamische Seat Maps',
-      desc: 'Echtzeit-Synchronisation aller Sitzplätze und Saalkapazitäten. Vorstellungsstatus, belegte Reihen und freie VIP-Plätze werden sekundenschnell im Leitstand visualisiert.'
+      tag: '01 / Aus der Praxis entwickelt',
+      title: 'Vom Kinoservice zum digitalen Leitstand (Eigeninitiative)',
+      desc: 'Entstanden aus der eigenen Praxiserfahrung im Kinoservice: Um Stoßzeiten, Saaleinlass und Ticketstaus in der Realität zu erleichtern, entstand die Suite in freiwilliger Eigeninitiative — mit unter 100 ms QR-Check-in und latenzfreier Saal-Synchronisation.'
     },
     {
       targetSelector: '.framer-1il18vh',
@@ -817,6 +817,7 @@ html.lenis { height: auto; }
       topBar.id = 'kino-top-links';
       topBar.className = 'story-custom-bar';
       topBar.innerHTML = `
+        <span style="display:inline-flex;align-items:center;padding:7px 16px;border-radius:9999px;background:rgba(254,60,1,0.12);border:1px solid rgba(254,60,1,0.35);color:#fe3c01;font-size:13px;font-weight:700;">★ Freiwillige Eigeninitiative aus dem Servicealltag</span>
         <a href="https://www.kinopolis.de" target="_blank" rel="noopener" class="kino-pill-btn kino-pill-primary">Offizielle Kinopolis Website ↗</a>
         <a href="https://github.com/artjomartur" target="_blank" rel="noopener" class="kino-pill-btn kino-pill-secondary">GitHub Repository ↗</a>
         <a href="/work/architect-of-mind" class="kino-pill-btn kino-pill-secondary">Projekt: Architect of Mind →</a>
