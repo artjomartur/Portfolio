@@ -250,7 +250,7 @@ function updateKinopolis(filePath, isSubpage) {
 
   const dividerIdx = html.indexOf("<div class=\"story-divider-block\"", heroIdx);
   const endingIdx = html.indexOf("<div class=\"framer-e832ls\"");
-  if (dividerIdx === -1 || endingIdx === -1) throw new Error("Could not find story-divider-block or endingText in " + filePath);
+  if (dividerIdx !== -1 && endingIdx !== -1) {
 
   const storyContent = `
 <!-- SECTION 01: SAAL-MANAGEMENT & SEAT MAPS -->
@@ -379,7 +379,8 @@ function updateKinopolis(filePath, isSubpage) {
 </div>
 `;
 
-  html = html.substring(0, dividerIdx) + storyContent + html.substring(endingIdx);
+    html = html.substring(0, dividerIdx) + storyContent + html.substring(endingIdx);
+  }
 
   // 3. Replace script #kino-story-engine
   const newScript = `<script id="kino-story-engine">
@@ -471,3 +472,15 @@ function updateKinopolis(filePath, isSubpage) {
 
 updateKinopolis("work/kinopolis/index.html", false);
 updateKinopolis("subpages/work_kinopolis.html", true);
+if (fs.existsSync("case-study/cs-kinopolis/index.html")) {
+  updateKinopolis("case-study/cs-kinopolis/index.html", false);
+}
+if (fs.existsSync("subpages/case-study_cs-kinopolis.html")) {
+  updateKinopolis("subpages/case-study_cs-kinopolis.html", true);
+}
+if (fs.existsSync("work/case-study/cs-kinopolis/index.html")) {
+  let content = fs.readFileSync("work/kinopolis/index.html", "utf8").replace(/\.\.\/\.\.\//g, "../../../");
+  fs.writeFileSync("work/case-study/cs-kinopolis/index.html", content, "utf8");
+  console.log("Updated work/case-study/cs-kinopolis/index.html successfully!");
+}
+
