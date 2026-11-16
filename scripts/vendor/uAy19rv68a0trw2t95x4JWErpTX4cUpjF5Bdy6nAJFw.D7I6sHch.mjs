@@ -3374,7 +3374,7 @@ t(() => {
         R();
         let oe = V(`MivpxP5Sr`),
           ce = V(`JkWXrvQQj`),
-          le = () => (go() ? ![`BYVZE4WeS`, `Dgv7oRDPe`].includes(T) : !0),
+          le = () => (go() ? ![`Dgv7oRDPe`].includes(T) : !0),
           ue = V(`kbY2vMClY`),
           de = s(null),
           pe = V(`jT8rvFpy1`),
@@ -6246,10 +6246,6 @@ Psychological Tasks`,
                                 children: l(F, {
                                   breakpoint: T,
                                   overrides: {
-                                    BYVZE4WeS: {
-                                      __framer__styleTransformEffectEnabled: void 0,
-                                      style: {},
-                                    },
                                     Dgv7oRDPe: {
                                       __framer__styleTransformEffectEnabled: void 0,
                                       style: {},
@@ -6327,10 +6323,6 @@ Psychological Tasks`,
                                             l(F, {
                                               breakpoint: T,
                                               overrides: {
-                                                BYVZE4WeS: {
-                                                  height: 360,
-                                                  width: `max(${_?.width || `100vw`} - 48px, 1px)`,
-                                                },
                                                 Dgv7oRDPe: {
                                                   height: 240,
                                                   width: `max(${_?.width || `100vw`} - 40px, 1px)`,
@@ -6342,8 +6334,7 @@ Psychological Tasks`,
                                                 children: l(F, {
                                                   breakpoint: T,
                                                   overrides: {
-                                                    BYVZE4WeS: { style: {} },
-                                                    Dgv7oRDPe: { style: {} },
+                                                                                                        Dgv7oRDPe: { style: {} },
                                                   },
                                                   children: l(z, {
                                                     className: `framer-16akfvn-container`,
@@ -6396,8 +6387,7 @@ Psychological Tasks`,
                                       l(F, {
                                         breakpoint: T,
                                         overrides: {
-                                          BYVZE4WeS: { style: {} },
-                                          Dgv7oRDPe: { style: {} },
+                                                                                    Dgv7oRDPe: { style: {} },
                                         },
                                         children: l(m.div, {
                                           className: `framer-1n58v19`,
@@ -6422,10 +6412,6 @@ Psychological Tasks`,
                                               l(F, {
                                                 breakpoint: T,
                                                 overrides: {
-                                                  BYVZE4WeS: {
-                                                    height: 360,
-                                                    width: `max(${_?.width || `100vw`} - 48px, 1px)`,
-                                                  },
                                                   Dgv7oRDPe: {
                                                     height: 240,
                                                     width: `max(${_?.width || `100vw`} - 40px, 1px)`,
@@ -6437,8 +6423,7 @@ Psychological Tasks`,
                                                   children: l(F, {
                                                     breakpoint: T,
                                                     overrides: {
-                                                      BYVZE4WeS: { style: {} },
-                                                      Dgv7oRDPe: { style: {} },
+                                                                                                            Dgv7oRDPe: { style: {} },
                                                     },
                                                     children: l(z, {
                                                       className: `framer-1wxpq1k-container`,
@@ -6491,8 +6476,7 @@ Psychological Tasks`,
                                       l(F, {
                                         breakpoint: T,
                                         overrides: {
-                                          BYVZE4WeS: { style: {} },
-                                          Dgv7oRDPe: { style: {} },
+                                                                                    Dgv7oRDPe: { style: {} },
                                         },
                                         children: l(m.div, {
                                           className: `framer-a0mq9o`,
@@ -6517,10 +6501,6 @@ Psychological Tasks`,
                                               l(F, {
                                                 breakpoint: T,
                                                 overrides: {
-                                                  BYVZE4WeS: {
-                                                    height: 360,
-                                                    width: `max(${_?.width || `100vw`} - 48px, 1px)`,
-                                                  },
                                                   Dgv7oRDPe: {
                                                     height: 240,
                                                     width: `max(${_?.width || `100vw`} - 40px, 1px)`,
@@ -6532,8 +6512,7 @@ Psychological Tasks`,
                                                   children: l(F, {
                                                     breakpoint: T,
                                                     overrides: {
-                                                      BYVZE4WeS: { style: {} },
-                                                      Dgv7oRDPe: { style: {} },
+                                                                                                            Dgv7oRDPe: { style: {} },
                                                     },
                                                     children: l(z, {
                                                       className: `framer-1ocjq7z-container`,
@@ -6585,8 +6564,7 @@ Psychological Tasks`,
                                       l(F, {
                                         breakpoint: T,
                                         overrides: {
-                                          BYVZE4WeS: { style: {} },
-                                          Dgv7oRDPe: { style: {} },
+                                                                                    Dgv7oRDPe: { style: {} },
                                         },
                                         children: l(m.div, {
                                           className: `framer-1sy0oev`,
@@ -6611,10 +6589,6 @@ Psychological Tasks`,
                                               l(F, {
                                                 breakpoint: T,
                                                 overrides: {
-                                                  BYVZE4WeS: {
-                                                    height: 360,
-                                                    width: `max(${_?.width || `100vw`} - 48px, 1px)`,
-                                                  },
                                                   Dgv7oRDPe: {
                                                     height: 240,
                                                     width: `max(${_?.width || `100vw`} - 40px, 1px)`,
@@ -6626,8 +6600,7 @@ Psychological Tasks`,
                                                   children: l(F, {
                                                     breakpoint: T,
                                                     overrides: {
-                                                      BYVZE4WeS: { style: {} },
-                                                      Dgv7oRDPe: { style: {} },
+                                                                                                            Dgv7oRDPe: { style: {} },
                                                     },
                                                     children: l(z, {
                                                       className: `framer-b1amg4-container`,
@@ -6680,8 +6653,7 @@ Psychological Tasks`,
                                       l(F, {
                                         breakpoint: T,
                                         overrides: {
-                                          BYVZE4WeS: { style: {} },
-                                          Dgv7oRDPe: { style: {} },
+                                                                                    Dgv7oRDPe: { style: {} },
                                         },
                                         children: l(m.div, {
                                           className: `framer-1eb3l4i`,
@@ -6706,10 +6678,6 @@ Psychological Tasks`,
                                               l(F, {
                                                 breakpoint: T,
                                                 overrides: {
-                                                  BYVZE4WeS: {
-                                                    height: 360,
-                                                    width: `max(${_?.width || `100vw`} - 48px, 1px)`,
-                                                  },
                                                   Dgv7oRDPe: {
                                                     height: 240,
                                                     width: `max(${_?.width || `100vw`} - 40px, 1px)`,
@@ -6721,8 +6689,7 @@ Psychological Tasks`,
                                                   children: l(F, {
                                                     breakpoint: T,
                                                     overrides: {
-                                                      BYVZE4WeS: { style: {} },
-                                                      Dgv7oRDPe: { style: {} },
+                                                                                                            Dgv7oRDPe: { style: {} },
                                                     },
                                                     children: l(z, {
                                                       className: `framer-1cnsl9t-container`,
@@ -6779,7 +6746,7 @@ Psychological Tasks`,
                             }),
                             le() &&
                               l(`div`, {
-                                className: `framer-1vl6wuh hidden-1l1a1i0 hidden-1eeimiq`,
+                                className: `framer-1vl6wuh hidden-1eeimiq`,
                                 "data-framer-name": `Trigger`,
                                 id: pe,
                                 ref: de,
@@ -7515,7 +7482,7 @@ Psychological Tasks`,
         `.framer-XF9OF .framer-159x3q9-container { flex: none; height: auto; position: relative; width: 100%; }`,
         ...Re,
         `.framer-XF9OF[data-selection="true"] * ::selection, .framer-XF9OF [data-selection="true"] * ::selection { color: var(--selection-color, none); background-color: var(--selection-background-color, none); }`,
-        `@media (min-width: 810px) and (max-width: 1199.98px) { .framer-XF9OF.framer-1ifvuj5 { width: 810px; } .framer-XF9OF .framer-1gfqinq-container { aspect-ratio: 0.9156378600823045 / 1; width: var(--framer-aspect-ratio-supported, 890px); } .framer-XF9OF .framer-78l3n2-container { aspect-ratio: 1.0682926829268293 / 1; bottom: 169px; height: var(--framer-aspect-ratio-supported, 205px); left: 26px; width: 27%; } .framer-XF9OF .framer-1qxsll5-container { aspect-ratio: 0.712 / 1; height: var(--framer-aspect-ratio-supported, 250px); left: 47px; top: 92px; width: 22%; } .framer-XF9OF .framer-13nhal7-container { height: var(--framer-aspect-ratio-supported, 153px); right: 35px; top: 109px; width: 26%; } .framer-XF9OF .framer-jwxgy9-container { bottom: 90px; height: var(--framer-aspect-ratio-supported, 213px); right: 78px; width: 19%; } .framer-XF9OF .framer-ds8lc1-container { aspect-ratio: 1.020979020979021 / 1; height: var(--framer-aspect-ratio-supported, 143px); right: 31px; top: 397px; transform: unset; width: 18%; } .framer-XF9OF .framer-4d7i5n { padding: 60px 40px 160px 40px; } .framer-XF9OF .framer-1icim18-container { width: 86%; } .framer-XF9OF .framer-1a5vd2f { height: 500px; } .framer-XF9OF .framer-lxo8aj-container { aspect-ratio: unset; height: 433px; width: 800px; } .framer-XF9OF .framer-ssakup { padding: 50px 0px 60px 0px; } .framer-XF9OF .framer-1mh221c { padding: 30px 24px 0px 200px; } .framer-XF9OF .framer-1bcdse2 { padding: 80px 50px 0px 50px; } .framer-XF9OF .framer-1dbufhi, .framer-XF9OF .framer-1e33vkn, .framer-XF9OF .framer-4xpgl5 { padding: 20px 50px 5px 50px; } .framer-XF9OF .framer-11l6t1m { padding: 80px 0px 60px 0px; } .framer-XF9OF .framer-hukp5v { gap: 30px; } .framer-XF9OF .framer-pmvw0b { padding: 0px 0px 0px 160px; } .framer-XF9OF .framer-1j1zbhy, .framer-XF9OF .framer-10d5qey, .framer-XF9OF .framer-1p4ofdh { gap: 60px; } .framer-XF9OF .framer-x0vsg8 { padding: 0px 24px 0px 35px; } .framer-XF9OF .framer-83770v { height: min-content; padding: 60px 24px 0px 24px; position: relative; top: unset; } .framer-XF9OF .framer-yng6vz { flex: none; height: min-content; } .framer-XF9OF .framer-mq7eps { gap: 24px; width: 100%; } .framer-XF9OF .framer-skdmo, .framer-XF9OF .framer-1n58v19, .framer-XF9OF .framer-a0mq9o, .framer-XF9OF .framer-1sy0oev, .framer-XF9OF .framer-1eb3l4i { height: 360px; width: 100%; } .framer-XF9OF .framer-16akfvn-container, .framer-XF9OF .framer-1wxpq1k-container, .framer-XF9OF .framer-1ocjq7z-container, .framer-XF9OF .framer-b1amg4-container, .framer-XF9OF .framer-1cnsl9t-container { flex: 1 0 0px; height: 100%; left: unset; position: relative; top: unset; width: 1px; } .framer-XF9OF .framer-1sdwmrq { padding: 50px 0px 50px 0px; } .framer-XF9OF .framer-12ww611 { gap: 20px; } .framer-XF9OF .framer-19xtapl, .framer-XF9OF .framer-txqesg, .framer-XF9OF .framer-1k1zern, .framer-XF9OF .framer-2mdo19, .framer-XF9OF .framer-1rx9gjr, .framer-XF9OF .framer-wm3grk, .framer-XF9OF .framer-193iegv, .framer-XF9OF .framer-1ah0a3f, .framer-XF9OF .framer-84kh4d, .framer-XF9OF .framer-1dujpgu { height: var(--framer-aspect-ratio-supported, 50px); width: 130px; } .framer-XF9OF .framer-1kkftub { padding: 100px 20px 5px 20px; }}`,
+        `@media (min-width: 810px) and (max-width: 1199.98px) { .framer-XF9OF.framer-1ifvuj5 { width: 810px; } .framer-XF9OF .framer-1gfqinq-container { aspect-ratio: 0.9156378600823045 / 1; width: var(--framer-aspect-ratio-supported, 890px); } .framer-XF9OF .framer-78l3n2-container { aspect-ratio: 1.0682926829268293 / 1; bottom: 169px; height: var(--framer-aspect-ratio-supported, 205px); left: 26px; width: 27%; } .framer-XF9OF .framer-1qxsll5-container { aspect-ratio: 0.712 / 1; height: var(--framer-aspect-ratio-supported, 250px); left: 47px; top: 92px; width: 22%; } .framer-XF9OF .framer-13nhal7-container { height: var(--framer-aspect-ratio-supported, 153px); right: 35px; top: 109px; width: 26%; } .framer-XF9OF .framer-jwxgy9-container { bottom: 90px; height: var(--framer-aspect-ratio-supported, 213px); right: 78px; width: 19%; } .framer-XF9OF .framer-ds8lc1-container { aspect-ratio: 1.020979020979021 / 1; height: var(--framer-aspect-ratio-supported, 143px); right: 31px; top: 397px; transform: unset; width: 18%; } .framer-XF9OF .framer-4d7i5n { padding: 60px 40px 160px 40px; } .framer-XF9OF .framer-1icim18-container { width: 86%; } .framer-XF9OF .framer-1a5vd2f { height: 500px; } .framer-XF9OF .framer-lxo8aj-container { aspect-ratio: unset; height: 433px; width: 800px; } .framer-XF9OF .framer-ssakup { padding: 50px 0px 60px 0px; } .framer-XF9OF .framer-1mh221c { padding: 30px 24px 0px 200px; } .framer-XF9OF .framer-1bcdse2 { padding: 80px 50px 0px 50px; } .framer-XF9OF .framer-1dbufhi, .framer-XF9OF .framer-1e33vkn, .framer-XF9OF .framer-4xpgl5 { padding: 20px 50px 5px 50px; } .framer-XF9OF .framer-11l6t1m { padding: 80px 0px 60px 0px; } .framer-XF9OF .framer-hukp5v { gap: 30px; } .framer-XF9OF .framer-pmvw0b { padding: 0px 0px 0px 160px; } .framer-XF9OF .framer-1j1zbhy, .framer-XF9OF .framer-10d5qey, .framer-XF9OF .framer-1p4ofdh { gap: 60px; } .framer-XF9OF .framer-x0vsg8 { padding: 0px 24px 0px 35px; } .framer-XF9OF .framer-83770v { z-index: 1; flex-flow: column; flex: 0 0 auto; place-content: center; align-items: center; gap: 36px; width: 100%; height: 100vh; padding: 0px; display: flex; position: sticky; top: 0px; overflow: visible; } .framer-XF9OF .framer-yng6vz { flex-flow: column; flex: 1 0 0px; place-content: center; align-items: center; gap: 0px; width: 100%; height: 1px; padding: 0px; display: flex; position: relative; overflow: visible; } .framer-XF9OF .framer-mq7eps { height: min-content; transform-style: preserve-3d; flex-flow: column; flex: 0 0 auto; place-content: center; align-items: center; gap: 0px; width: min-content; padding: 0px; display: flex; position: relative; overflow: visible; transform: scale(min(1, calc((100vw - 32px) / 950))); } .framer-XF9OF .framer-skdmo, .framer-XF9OF .framer-1n58v19, .framer-XF9OF .framer-a0mq9o, .framer-XF9OF .framer-1sy0oev, .framer-XF9OF .framer-1eb3l4i { height: 151px; transform-style: preserve-3d; flex-flow: row; flex: 0 0 auto; place-content: center; align-items: center; gap: 10px; width: 865px; padding: 0px; display: flex; position: relative; overflow: visible; } .framer-XF9OF .framer-16akfvn-container { height: 215px; width: 320px; z-index: 1; flex: 0 0 auto; position: absolute; top: calc(49.62406015037596% - 215px / 2); left: calc(-0.1615508885298647% - 320px / 2); } .framer-XF9OF .framer-1wxpq1k-container, .framer-XF9OF .framer-1ocjq7z-container, .framer-XF9OF .framer-b1amg4-container, .framer-XF9OF .framer-1cnsl9t-container { height: 215px; width: 320px; z-index: 1; flex: 0 0 auto; position: absolute; top: -82px; left: -161px; } .framer-XF9OF .framer-1vl6wuh { display: flex !important; height: 1400px !important; } .framer-XF9OF .framer-1sdwmrq { padding: 50px 0px 50px 0px; } .framer-XF9OF .framer-12ww611 { gap: 20px; } .framer-XF9OF .framer-19xtapl, .framer-XF9OF .framer-txqesg, .framer-XF9OF .framer-1k1zern, .framer-XF9OF .framer-2mdo19, .framer-XF9OF .framer-1rx9gjr, .framer-XF9OF .framer-wm3grk, .framer-XF9OF .framer-193iegv, .framer-XF9OF .framer-1ah0a3f, .framer-XF9OF .framer-84kh4d, .framer-XF9OF .framer-1dujpgu { height: var(--framer-aspect-ratio-supported, 50px); width: 130px; } .framer-XF9OF .framer-1kkftub { padding: 100px 20px 5px 20px; }}`,
         `@media (max-width: 809.98px) { .framer-XF9OF.framer-1ifvuj5 { width: 390px; } .framer-XF9OF .framer-7jz0ud-container { height: auto; } .framer-XF9OF .framer-wa3jsn-container { height: 50px; } .framer-XF9OF .framer-1gfqinq-container { aspect-ratio: 0.6710526315789473 / 1; width: var(--framer-aspect-ratio-supported, 510px); } .framer-XF9OF .framer-78l3n2-container { aspect-ratio: 1.076470588235294 / 1; bottom: 117px; height: var(--framer-aspect-ratio-supported, 170px); left: 16px; width: 47%; } .framer-XF9OF .framer-1qxsll5-container { aspect-ratio: 0.7142857142857143 / 1; height: var(--framer-aspect-ratio-supported, 175px); left: 31px; top: 119px; width: 32%; } .framer-XF9OF .framer-13nhal7-container { height: var(--framer-aspect-ratio-supported, 119px); right: 39px; top: 51px; width: 42%; } .framer-XF9OF .framer-jwxgy9-container { bottom: 50px; height: var(--framer-aspect-ratio-supported, 167px); right: 42px; width: 31%; } .framer-XF9OF .framer-ds8lc1-container { aspect-ratio: 1.018018018018018 / 1; height: var(--framer-aspect-ratio-supported, 111px); right: 14px; top: 151px; transform: unset; width: 29%; } .framer-XF9OF .framer-4d7i5n { padding: 25px 24px 70px 24px; } .framer-XF9OF .framer-1icim18-container { width: 86%; } .framer-XF9OF .framer-1a5vd2f { height: 250px; } .framer-XF9OF .framer-lxo8aj-container { aspect-ratio: unset; height: 206px; width: 380px; } .framer-XF9OF .framer-ssakup { padding: 30px 0px 0px 0px; } .framer-XF9OF .framer-1mh221c { align-content: center; align-items: center; justify-content: center; padding: 20px 24px 0px 24px; } .framer-XF9OF .framer-4l4ez1, .framer-XF9OF .framer-16aq31d { width: 100%; } .framer-XF9OF .framer-1bcdse2 { padding: 60px 16px 0px 16px; } .framer-XF9OF .framer-1dbufhi, .framer-XF9OF .framer-1e33vkn, .framer-XF9OF .framer-4xpgl5 { padding: 20px 16px 5px 16px; } .framer-XF9OF .framer-11l6t1m { padding: 60px 0px 60px 0px; } .framer-XF9OF .framer-15uw8yz, .framer-XF9OF .framer-j9cg3d { padding: 60px 0px 0px 0px; } .framer-XF9OF .framer-hukp5v { gap: 20px; padding: 0px 24px 0px 24px; } .framer-XF9OF .framer-1sps585, .framer-XF9OF .framer-gb3c8s { padding: 0px; } .framer-XF9OF .framer-g0qx93 { padding: 0px 18px 60px 18px; } .framer-XF9OF .framer-pmvw0b { gap: 80px; padding: 0px; } .framer-XF9OF .framer-1j1zbhy, .framer-XF9OF .framer-10d5qey, .framer-XF9OF .framer-1p4ofdh { gap: 40px; } .framer-XF9OF .framer-12pnkq2, .framer-XF9OF .framer-hcf6v1, .framer-XF9OF .framer-yg6zqu { height: var(--framer-aspect-ratio-supported, 30px); width: 30px; } .framer-XF9OF .framer-83770v { height: min-content; padding: 30px 20px 0px 20px; position: relative; top: unset; } .framer-XF9OF .framer-yng6vz { flex: none; height: min-content; } .framer-XF9OF .framer-mq7eps { gap: 24px; transform-style: unset; width: 100%; } .framer-XF9OF .framer-skdmo, .framer-XF9OF .framer-1n58v19, .framer-XF9OF .framer-a0mq9o, .framer-XF9OF .framer-1sy0oev, .framer-XF9OF .framer-1eb3l4i { height: 240px; transform-style: unset; width: 100%; } .framer-XF9OF .framer-16akfvn-container, .framer-XF9OF .framer-1wxpq1k-container, .framer-XF9OF .framer-1ocjq7z-container, .framer-XF9OF .framer-b1amg4-container, .framer-XF9OF .framer-1cnsl9t-container { flex: 1 0 0px; height: 100%; left: unset; position: relative; top: unset; width: 1px; } .framer-XF9OF .framer-1sdwmrq { padding: 50px 0px 50px 0px; } .framer-XF9OF .framer-12ww611 { gap: 20px; } .framer-XF9OF .framer-19xtapl, .framer-XF9OF .framer-txqesg, .framer-XF9OF .framer-1k1zern, .framer-XF9OF .framer-2mdo19, .framer-XF9OF .framer-1rx9gjr, .framer-XF9OF .framer-wm3grk, .framer-XF9OF .framer-193iegv, .framer-XF9OF .framer-1ah0a3f, .framer-XF9OF .framer-84kh4d, .framer-XF9OF .framer-1dujpgu { height: var(--framer-aspect-ratio-supported, 43px); width: 110px; }}`,
       ],
       `framer-XF9OF`
